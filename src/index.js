@@ -8,6 +8,11 @@ import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 import "./styles/index.css";
 
+import * as firebase from "firebase";
+import firebaseConfig from "./firebase.config";
+
+firebase.initializeApp(firebaseConfig);
+
 ReactDOM.render(
   <Provider {...store}>
     <BrowserRouter>

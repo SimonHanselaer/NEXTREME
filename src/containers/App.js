@@ -9,6 +9,8 @@ import RegioGrens from "./RegioGrens";
 import TaalGrens from "./TaalGrens";
 import Challenges from "./Challenges";
 import Profile from "./Profile";
+import Login from "./Login";
+import LoginEmail from "./LoginEmail";
 
 class App extends Component {
   render() {
@@ -43,6 +45,9 @@ class App extends Component {
           <Route path="/" exact strict component={Home} />
           <Route path="/challenges" exact strict component={Challenges} />
           <Route path="/profile" exact strict component={Profile} />
+          <Route path="/login" exact strict component={Login} />
+          <Route path="/loginemail" exact strict component={LoginEmail} />
+
           <Route path="/cultuurgrens" exact strict component={CultuurGrens} />
           <Route path="/kunstgrens" exact strict component={KunstGrens} />
           <Route path="/regiogrens" exact strict component={RegioGrens} />
