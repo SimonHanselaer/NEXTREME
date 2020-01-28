@@ -1,10 +1,13 @@
 import React from "react";
-import { withRouter } from 'react-router-dom'
+import withAuthentication from "../components/auth/WithAuthentication";
+import { observer } from "mobx-react";
 
-export default withRouter(({history}) => {
+const KunstGrens = () => {
   return (
     <>
       <h1>Kunst grens</h1>
     </>
   )
-})
+}
+
+export default withAuthentication(observer(KunstGrens))

@@ -1,16 +1,23 @@
 import React, {useState} from "react";
 import * as firebase from 'firebase';
-import { NavLink } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
-const LoginEmail = () => {
+import { inject, observer } from "mobx-react";
+
+const LoginEmail = ({ uiStore }) => {
+  let history = useHistory();
+
     const [valueEmail, setValueEmail] = useState("");
     const [valuePassword, setValuePassword] = useState("");
 
-    function handleSubmit(e) {
+    const handleSubmit = e => {
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(valueEmail, valuePassword).then(
-            user => {console.log(user)}, 
+            user => {
+              history.push("/");
+              localStorage.setItem("uid", user.user.uid);
+              uiStore.setUser(user.user.uid);
+            }, 
             err => {alert(err)}
         );
     }
@@ -29,4 +36,4 @@ const LoginEmail = () => {
   );
 };
 
-export default LoginEmail;
+export default inject(`uiStore`)(observer(LoginEmail));

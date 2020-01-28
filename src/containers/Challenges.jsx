@@ -1,4 +1,6 @@
 import React from "react";
+import withAuthentication from "./../components/auth/WithAuthentication"
+import { observer } from "mobx-react";
 
 const Challenges = () => {
   return (
@@ -8,4 +10,4 @@ const Challenges = () => {
   );
 };
 
-export default Challenges;
+export default withAuthentication(observer(Challenges));

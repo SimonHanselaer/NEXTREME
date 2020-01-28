@@ -1,4 +1,6 @@
 import React from "react";
+import withAuthentication from "../components/auth/WithAuthentication";
+import { observer } from "mobx-react";
 
 const TaalGrens = () => {
   return (
@@ -8,4 +10,4 @@ const TaalGrens = () => {
   );
 };
 
-export default TaalGrens;
+export default withAuthentication(observer(TaalGrens));

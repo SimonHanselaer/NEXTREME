@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import CultuurGrens from "./CultuurGrens";
@@ -11,42 +10,39 @@ import Challenges from "./Challenges";
 import Profile from "./Profile";
 import Login from "./Login";
 import LoginEmail from "./LoginEmail";
+import Register from "./Register";
+import SelectLanguage from "./SelectLanguage";
+import SelectRegio from "./SelectRegio";
+import Navigation from "../components/Navigation";
 
 class App extends Component {
   render() {
-    const {history} = this.props;
     
     return (
       <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">
-              Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/challenges">
-              Challenges
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/profile">
-              Profile
-              </NavLink>
-            </li>
-          </ul>
-          <button onClick={() => history.goBack()}>Back</button>
-        </nav>
-      </header>
       <main>
         <Switch>
-          <Route path="/" exact strict component={Home} />
-          <Route path="/challenges" exact strict component={Challenges} />
-          <Route path="/profile" exact strict component={Profile} />
+          <Route path="/" exact strict>
+            <Navigation />
+            <Home />
+          </Route>
+
+          <Route path="/challenges" exact strict>
+            <Navigation />
+            <Challenges />
+          </Route>
+
+          <Route path="/profile" exact strict>
+            <Navigation />
+            <Profile />
+          </Route>
+
           <Route path="/login" exact strict component={Login} />
           <Route path="/loginemail" exact strict component={LoginEmail} />
+          <Route path="/register" exact strict component={Register} />
+
+          <Route path="/selectlanguage" exact strict component={SelectLanguage} />
+          <Route path="/selectregio" exact strict component={SelectRegio} />
 
           <Route path="/cultuurgrens" exact strict component={CultuurGrens} />
           <Route path="/kunstgrens" exact strict component={KunstGrens} />
