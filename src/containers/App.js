@@ -2,18 +2,22 @@ import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
-import CultuurGrens from "./CultuurGrens";
-import KunstGrens from "./KunstGrens";
-import RegioGrens from "./RegioGrens";
-import TaalGrens from "./TaalGrens";
 import Challenges from "./Challenges";
 import Profile from "./Profile";
+
 import Login from "./Login";
 import LoginEmail from "./LoginEmail";
 import Register from "./Register";
+
 import SelectLanguage from "./SelectLanguage";
 import SelectRegio from "./SelectRegio";
+
 import Navigation from "../components/Navigation";
+
+import Challenge1 from "./Challenge1";
+import Challenge2 from "./Challenge2";
+import Challenge3 from "./Challenge3";
+import Challenge4 from "./Challenge4";
 
 class App extends Component {
   render() {
@@ -44,10 +48,11 @@ class App extends Component {
           <Route path="/selectlanguage" exact strict component={SelectLanguage} />
           <Route path="/selectregio" exact strict component={SelectRegio} />
 
-          <Route path="/cultuurgrens" exact strict component={CultuurGrens} />
-          <Route path="/kunstgrens" exact strict component={KunstGrens} />
-          <Route path="/regiogrens" exact strict component={RegioGrens} />
-          <Route path="/taalgrens" exact strict component={TaalGrens} />
+          <Route path="/challenge1/:grens/:id" exact strict component={Challenge1} />
+          <Route path="/challenge2/:grens/:id" exact strict component={Challenge2} />
+          <Route path="/challenge3/:grens/:id" exact strict component={Challenge3} />
+          <Route path="/challenge4/:grens/:id" exact strict component={Challenge4} />
+
         </Switch>
       </main>
       </>

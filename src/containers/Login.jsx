@@ -36,8 +36,6 @@ const Login = ({ databaseStore, uiStore }) => {
     const handleSocialLogin = (provider) => {
         firebase.auth().signInWithPopup(provider).then(user => {
 
-          console.log(user);
-
           let props = {
             username: user.user.displayName,
             uid: user.user.uid

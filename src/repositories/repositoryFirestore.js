@@ -17,5 +17,13 @@ export default {
 
     async selectRegio(prop) {
         db.collection("users").doc(localStorage.uid).update({Regio: prop});
+    },
+
+    async getChallenge(props) {
+        const challenge = await db.collection("Challenges").doc("Challenge" + props.challenge).collection(props.grens + "grens").doc(props.id).get().then(doc => {
+            return doc.data()
+        });
+
+        return challenge
     }
 }

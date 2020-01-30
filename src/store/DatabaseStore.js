@@ -17,6 +17,11 @@ class DatabaseStore {
     selectRegio = prop => {
         FirestoreRepository.selectRegio(prop);
     }
+
+    getChallenge = props => {
+        const challenge = FirestoreRepository.getChallenge(props);
+        return challenge;
+    }
 }
 
 decorate(DatabaseStore, {
