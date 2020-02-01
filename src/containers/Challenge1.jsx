@@ -3,6 +3,9 @@ import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useParams, Link } from "react-router-dom";
 import Recept from "../components/Recept";
+import Info from "../components/Info";
+import Kaart from "../components/Kaart";
+import Scrabble from "../components/Scrabble";
 
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -10,20 +13,21 @@ const Challenge1 = ({databaseStore}) => {
   const [challenge, setChallenge] = useState("");
   const [status, setStatus] = useState(false);
 
-  const getChallenge = async () => {
-    const props = {
-      challenge: 1,
-      grens: grens,
-      id: id
+  useEffect(() => {
+
+    const getChallenge = async () => {
+      const props = {
+        challenge: 1,
+        grens: grens,
+        id: id
+      }
+  
+      let awaitingChallenge = await databaseStore.getChallenge(props);
+      setChallenge(awaitingChallenge);
     }
 
-    let awaitingChallenge = await databaseStore.getChallenge(props);
-    setChallenge(awaitingChallenge);
-  }
-
-  useEffect(() => {
     getChallenge();
-  },[]);
+  },[databaseStore, grens, id]);
 
   if (!status) {
     return (
@@ -35,10 +39,10 @@ const Challenge1 = ({databaseStore}) => {
     ); 
   } else {
     switch (challenge.type) {
-      case 'normaal':
+      case 'info':
         return (
           <>
-            <h1>Normaal</h1>
+            <Info challenge={challenge} />
           </>
         );
 
@@ -46,6 +50,20 @@ const Challenge1 = ({databaseStore}) => {
         return (
           <>
             <Recept challenge={challenge} />
+          </>
+        );
+
+      case 'kaart':
+        return (
+          <>
+            <Kaart challenge={challenge} />
+          </>
+        );
+
+      case 'scrabble':
+        return (
+          <>
+            <Scrabble challenge={challenge} />
           </>
         );
     

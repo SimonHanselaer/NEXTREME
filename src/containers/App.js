@@ -48,10 +48,22 @@ class App extends Component {
           <Route path="/selectlanguage" exact strict component={SelectLanguage} />
           <Route path="/selectregio" exact strict component={SelectRegio} />
 
-          <Route path="/challenge1/:grens/:id" exact strict component={Challenge1} />
-          <Route path="/challenge2/:grens/:id" exact strict component={Challenge2} />
-          <Route path="/challenge3/:grens/:id" exact strict component={Challenge3} />
-          <Route path="/challenge4/:grens/:id" exact strict component={Challenge4} />
+          <Route path="/challenge1/:grens/:id" exact strict>
+            <Navigation />
+            <Challenge1 />
+          </Route>
+          <Route path="/challenge2/:grens/:id" exact strict>
+            <Navigation />
+            <Challenge2 />
+          </Route>
+          <Route path="/challenge3/:grens/:id" exact strict>
+            <Navigation />
+            <Challenge3 />
+          </Route>
+          <Route path="/challenge4/:grens/:id" exact strict>
+            <Navigation />
+            <Challenge4 />
+          </Route>
 
         </Switch>
       </main>
