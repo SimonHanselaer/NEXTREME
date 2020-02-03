@@ -2,6 +2,7 @@ import { decorate, configure, action } from "mobx";
 
 import { RepositoryFactory } from "./../repositories/repositoryFactory";
 const FirestoreRepository = RepositoryFactory.get("firestore");
+const RealTimeRepository = RepositoryFactory.get("realTime");
 
 configure({ enforceActions: `observed` });
 
@@ -21,6 +22,27 @@ class DatabaseStore {
     getChallenge = props => {
         const challenge = FirestoreRepository.getChallenge(props);
         return challenge;
+    }
+
+    getMatches = prop => {
+        const matches = RealTimeRepository.getMatches(prop);
+        return matches;
+    }
+
+    getRoom = prop => {
+        const room = RealTimeRepository.getRoom(prop);
+        return room;
+    }
+
+    updateAnswers = props => {
+        RealTimeRepository.updateAnswers(props);
+    }
+
+    lookingForMatch = async (props) => {
+        const user = await FirestoreRepository.getUserInfo(localStorage.uid);
+        user.uid = localStorage.uid;
+        user.antwoorden = props;
+        RealTimeRepository.lookingForMatch(user);
     }
 }
 

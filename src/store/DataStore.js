@@ -1,4 +1,4 @@
-import { decorate, observable, configure } from "mobx";
+import { decorate, observable, configure, action } from "mobx";
 
 configure({ enforceActions: `observed` });
 
@@ -9,6 +9,13 @@ class DataStore {
     challenge1RegioCount = 3;
     challenge1TaalCount = 3;
 
+    roomId = 0;
+
+    handleAnswerQuestions = prop => {
+        this.roomId = prop;
+    }
+
+
 }
 
 decorate(DataStore, {
@@ -16,7 +23,9 @@ decorate(DataStore, {
     challenge1CultuurCount: observable,
     challenge1KunstCount: observable,
     challenge1RegioCount: observable,
-    challenge1TaalCount: observable
+    challenge1TaalCount: observable,
+    roomId: observable,
+    handleAnswerQuestions: action
   });
 
   export default DataStore;

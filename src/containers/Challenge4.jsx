@@ -19,12 +19,6 @@ const Challenge4 = ({ databaseStore }) => {
   return (
     <>
       <h1 onClick={() => getChallenge()}>Challenge 4 - {grens}</h1>
-      <section>
-        <h2>De uitdaging:</h2>
-        <p>
-
-        </p>
-      </section>
     </>
   )
 }

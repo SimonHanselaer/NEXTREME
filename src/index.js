@@ -30,3 +30,4 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 export const db = firebase.firestore();
+export const dbRealTime = firebase.database();

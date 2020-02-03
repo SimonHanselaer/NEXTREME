@@ -19,6 +19,8 @@ import Challenge2 from "./Challenge2";
 import Challenge3 from "./Challenge3";
 import Challenge4 from "./Challenge4";
 
+import Room from "./Room";
+
 class App extends Component {
   render() {
     
@@ -63,6 +65,11 @@ class App extends Component {
           <Route path="/challenge4/:grens/:id" exact strict>
             <Navigation />
             <Challenge4 />
+          </Route>
+
+          <Route path="/room/:id">
+            <Navigation />
+            <Room />
           </Route>
 
         </Switch>

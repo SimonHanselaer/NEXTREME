@@ -1,7 +1,9 @@
 import RepositoryFirestore from "./repositoryFirestore";
+import RepositoryRealTime from "./repositoryRealTime";
 
 const repositories = {
-  firestore: RepositoryFirestore
+  firestore: RepositoryFirestore,
+  realTime: RepositoryRealTime
 };
 
 export const RepositoryFactory = {

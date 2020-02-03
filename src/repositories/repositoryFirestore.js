@@ -25,5 +25,13 @@ export default {
         });
 
         return challenge
+    },
+
+    async getUserInfo(prop) {
+        const user = await db.collection("users").doc(prop).get().then(doc => {
+            return doc.data()
+        });
+
+        return user
     }
 }
