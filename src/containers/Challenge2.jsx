@@ -57,7 +57,9 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         vraag3: answer3
       }
 
-      databaseStore.lookingForMatch(props);
+      const propGrens = grens;
+
+      databaseStore.lookingForMatch(props, propGrens);
       history.push("/");
     }
   }

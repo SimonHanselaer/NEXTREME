@@ -43,37 +43,69 @@ export default {
                 dbRealTime.ref('/lookingForMatch/' + user.uid).set({
                     language: user.Language,
                     regio: user.Regio,
+                    grens: user.grens,
                     antwoorden: user.antwoorden,
                     uid: user.uid
                 });
             } else {
-                const match = dbRealTime.ref('/lookingForMatch/').limitToFirst(1).once('value').then(snapshot => {
-                    dbRealTime.ref('/rooms/').once('value').then(roomSnapshot => {
-                        let roomCount = Object.keys(roomSnapshot.val()).length;
-                        roomCount++;
-                        let matchedUserData = Object.values(snapshot.val())[0];
+                dbRealTime.ref('/lookingForMatch/').once('value').then(snapshot => {
 
-                        dbRealTime.ref('/rooms/room' + roomCount).set({
-                            antwoorden: {
-                                user1: matchedUserData.antwoorden,
-                                user2: user.antwoorden
-                            },
-                            chat: false,
-                            grenzen: {
-                                Cultuur: 1,
-                                Taal: 1,
-                                Regio: 1,
-                                Kunst: 1
-                            },
-                            nextGrens: "Cultuur",
-                            prevGrens: "??",
-                            users: {
-                                user1: matchedUserData.uid,
-                                user2: user.uid
-                            }
+                    let array = [];
 
+                    for (const property in snapshot.val()) {
+                        if (property === user.uid || property === "doNotDelete" || snapshot.val()[property].grens !== user.grens) {
+                            console.log("do not use!");
+                        } else {
+                            array.push(snapshot.val()[property]);
+                        }
+                    }
+
+                    if (array.length !== 0) {
+                        let matchedUser = array[0];
+                        dbRealTime.ref('/rooms/').once('value').then(roomSnapshot => {
+                            let roomCount = Object.keys(roomSnapshot.val()).length;
+                            roomCount++;
+
+                            dbRealTime.ref('/rooms/room' + roomCount).set({
+                                antwoorden: {
+                                    user1: matchedUser.antwoorden,
+                                    user2: user.antwoorden
+                                },
+                                chat: false,
+                                grenzen: {
+                                    Cultuur: 1,
+                                    Taal: 1,
+                                    Regio: 1,
+                                    Kunst: 1
+                                },
+                                nextGrens: "Cultuur",
+                                prevGrens: user.grens,
+                                users: {
+                                    user1: matchedUser.uid,
+                                    user2: user.uid
+                                }
+
+                            })
+
+                            dbRealTime.ref('rooms/room' + roomCount + '/grenzen/').update({
+                                [user.grens]: 2
+                            })
                         })
-                    })
+
+                        let lookingForMatchId = matchedUser.uid;
+                        dbRealTime.ref('lookingForMatch/' + lookingForMatchId).remove();
+                    }
+                    
+                    
+                    if (array.length === 0) {
+                        dbRealTime.ref('/lookingForMatch/' + user.uid).set({
+                            language: user.Language,
+                            regio: user.Regio,
+                            grens: user.grens,
+                            antwoorden: user.antwoorden,
+                            uid: user.uid
+                        });
+                    }
                 });
             }
         });

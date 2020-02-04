@@ -38,10 +38,11 @@ class DatabaseStore {
         RealTimeRepository.updateAnswers(props);
     }
 
-    lookingForMatch = async (props) => {
+    lookingForMatch = async (props, grens) => {
         const user = await FirestoreRepository.getUserInfo(localStorage.uid);
         user.uid = localStorage.uid;
         user.antwoorden = props;
+        user.grens = grens;
         RealTimeRepository.lookingForMatch(user);
     }
 }
