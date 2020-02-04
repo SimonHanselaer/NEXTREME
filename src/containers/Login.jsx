@@ -27,6 +27,7 @@ const Login = ({ databaseStore, uiStore }) => {
 
         history.push("/selectlanguage");
         localStorage.setItem("uid", user.user.uid);
+        localStorage.setItem("username", "anon#" + user.user.uid.slice(-5))
         uiStore.setUser(user.user.uid);
 
         databaseStore.addNewUser(props);
@@ -42,6 +43,7 @@ const Login = ({ databaseStore, uiStore }) => {
           }
 
           localStorage.setItem("uid", user.user.uid);
+          localStorage.setItem("username", user.user.displayName);
           uiStore.setUser(user.user.uid);
 
           databaseStore.addNewUser(props);

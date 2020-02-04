@@ -40,9 +40,20 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       const props = {
         roomId: dataStore.roomId,
         userUid: localStorage.uid,
-        vraag1: answer1,
-        vraag2: answer2,
-        vraag3: answer3
+        vraag1: {
+          antwoord: answer1,
+          vraag: challenge.vraag1.vraag
+        },
+        vraag2: {
+          antwoord: answer2, 
+          vraag: challenge.vraag2.vraag
+        },
+        vraag3: {
+          antwoord: answer3,
+          vraag: challenge.vraag3.vraag
+        },
+        grens: grens,
+        nummer: id
       }
 
       databaseStore.updateAnswers(props);
@@ -52,9 +63,18 @@ const Challenge2 = ({databaseStore, dataStore}) => {
     } else {
 
       const props = {
-        vraag1: answer1,
-        vraag2: answer2,
-        vraag3: answer3
+        vraag1: {
+          antwoord: answer1,
+          vraag: challenge.vraag1.vraag
+        },
+        vraag2: {
+          antwoord: answer2,
+          vraag: challenge.vraag2.vraag
+        },
+        vraag3: {
+          antwoord: answer3,
+          vraag: challenge.vraag3.vraag
+      }
       }
 
       const propGrens = grens;

@@ -18,6 +18,7 @@ const Home = ({ databaseStore, uiStore }) => {
             firebase.auth().createUserWithEmailAndPassword(valueEmail, valuePassword).then(
                 user => {
                     localStorage.setItem("uid", user.user.uid);
+                    localStorage.setItem("username", user.user.displayName)
                     databaseStore.addNewUser(user.user.uid);
                     uiStore.setUser(user.user.uid);
 

@@ -16,6 +16,7 @@ const LoginEmail = ({ uiStore }) => {
             user => {
               history.push("/");
               localStorage.setItem("uid", user.user.uid);
+              localStorage.setItem("username", user.user.displayName);
               uiStore.setUser(user.user.uid);
             }, 
             err => {alert(err)}

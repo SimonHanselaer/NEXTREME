@@ -26,16 +26,19 @@ const Challenges = ({databaseStore}) => {
         <ul>
         {
           Object.entries(matches).map(([key, val]) => {
+            if (key !== "doNotDelete") {
               return (
-              <li key={key}>
-                  <p>{val.username}</p>
-                  <Link to={"/room/" + val.roomId}>
-                    <button>
-                      More questions
-                    </button>
-                  </Link>
-              </li>
-              )})
+                <li key={key}>
+                    <p>{val.username}</p>
+                    <Link to={"/room/" + val.roomId}>
+                      <button>
+                        More questions
+                      </button>
+                    </Link>
+                </li>
+                )
+            }
+              })
             }
         </ul>
       </section>

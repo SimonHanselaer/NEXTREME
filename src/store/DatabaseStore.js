@@ -9,6 +9,7 @@ configure({ enforceActions: `observed` });
 class DatabaseStore {
     addNewUser = props => {
         FirestoreRepository.addNewUser(props);
+        RealTimeRepository.addNewUser(props);
     }
 
     selectLanguage = prop => {
@@ -43,6 +44,7 @@ class DatabaseStore {
         user.uid = localStorage.uid;
         user.antwoorden = props;
         user.grens = grens;
+        user.username = localStorage.username;
         RealTimeRepository.lookingForMatch(user);
     }
 }

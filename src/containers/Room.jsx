@@ -11,6 +11,8 @@ const Room = ({databaseStore, dataStore}) => {
 
     const [url, setUrl] = useState("");
 
+    const [vragen, setVragen] = useState("");
+
     useEffect(() => {
         const getRoom = async () => {
             let room = await databaseStore.getRoom(id);
@@ -18,11 +20,11 @@ const Room = ({databaseStore, dataStore}) => {
 
             switch (room.nextGrens) {
                 case 'Cultuur':
-                    setUrl("/challenge2/" + room.nextGrens + "/" + room.grenzen.Cultuur); 
+                    setUrl("challenge2/" + room.nextGrens + "/" + room.grenzen.Cultuur); 
                     break;
 
                 case 'Kunst':
-                    setUrl("/challenge2/" + room.nextGrens + "/" + room.grenzen.Kunst);
+                    setUrl("challenge2/" + room.nextGrens + "/" + room.grenzen.Kunst);
                     break;
 
                 case 'Regio':
@@ -37,6 +39,16 @@ const Room = ({databaseStore, dataStore}) => {
                     break;
             }
 
+            console.log(room);
+
+            // const props = {
+            //     challenge: 2,
+            //     grens: room.prevGrens,
+            //     id: room.grenzen[room.prevGrens].toString()
+            //   }
+            
+            // let awaitingChallenge = await databaseStore.getChallenge(props);
+            // setVragen(awaitingChallenge);
         }
 
         getRoom();
@@ -52,12 +64,33 @@ const Room = ({databaseStore, dataStore}) => {
         {room.chat ? (
             <>
                 <button>chat</button>
-                <button>Answer more questions</button>
+                <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
             </>
         ) : (
-            <Link to={"../" + url}>
-                <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
-            </Link>
+            <>
+                <Link to={"../" + url}>
+                    <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
+                </Link>
+                {room ? (
+                    <section>
+                    <article>
+                        <p>{room.antwoorden.user1.vraag1.vraag}</p>
+                        <p>{room.antwoorden.user1.vraag1.antwoord}</p>
+                    </article>
+                    <article>
+                        <p>{room.antwoorden.user1.vraag2.vraag}</p>
+                        <p>{room.antwoorden.user1.vraag2.antwoord}</p>
+                    </article>
+                    <article>
+                        <p>{room.antwoorden.user1.vraag3.vraag}</p>
+                        <p>{room.antwoorden.user1.vraag3.antwoord}</p>
+                    </article>
+                </section>
+                ) : (
+                    <p>Aan het laden...</p>
+                )}
+                
+            </>
         )}
     </>
   );

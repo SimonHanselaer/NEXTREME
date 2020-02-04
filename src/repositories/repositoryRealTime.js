@@ -27,12 +27,35 @@ export default {
                     vraag2: props.vraag2,
                     vraag3: props.vraag3
                 });
+
+                dbRealTime.ref('/rooms/room' + props.roomId + '/vraag/user1').set({
+                    grens: props.grens,
+                    nummer: props.nummer
+                })
             } else {
                 dbRealTime.ref('/rooms/room' + props.roomId + '/antwoorden/user2').set({
                     vraag1: props.vraag1,
                     vraag2: props.vraag2,
                     vraag3: props.vraag3
                 });
+
+                dbRealTime.ref('/rooms/room' + props.roomId + '/vraag/user2').set({
+                    grens: props.grens,
+                    nummer: props.nummer
+                })
+            }
+
+            if (snapshot.val().vraag.user1.grens === snapshot.val().vraag.user2.grens && snapshot.val().vraag.user1.nummer === snapshot.val().vraag.user2.nummer) {
+                dbRealTime.ref('/rooms/room' + props.roomId + '/grenzen/').update({
+                    [snapshot.val().vraag.user1.grens]: parseInt(snapshot.val().vraag.user1.nummer) + 1
+                });
+
+                let grenzen = ["Cultuur", "Kunst", "Taal", "Regio"];
+
+
+                dbRealTime.ref('/rooms/room' + props.roomId).update({
+                    nextGrens: grenzen[Math.floor(Math.random() * grenzen.length)]
+                })
             }
         })
     },
@@ -45,7 +68,8 @@ export default {
                     regio: user.Regio,
                     grens: user.grens,
                     antwoorden: user.antwoorden,
-                    uid: user.uid
+                    uid: user.uid,
+                    username: user.username
                 });
             } else {
                 dbRealTime.ref('/lookingForMatch/').once('value').then(snapshot => {
@@ -89,7 +113,23 @@ export default {
 
                             dbRealTime.ref('rooms/room' + roomCount + '/grenzen/').update({
                                 [user.grens]: 2
-                            })
+                            });
+
+                            dbRealTime.ref('/users/' + user.uid + '/contacts/').update({
+                                [matchedUser.uid]: {
+                                    roomId: roomCount,
+                                    username: matchedUser.username
+                                }
+                            });
+
+                            dbRealTime.ref('/users/' + matchedUser.uid + '/contacts/').update({
+                                [user.uid]: {
+                                    roomId: roomCount,
+                                    username: user.username
+                                }
+                            });
+
+
                         })
 
                         let lookingForMatchId = matchedUser.uid;
@@ -103,7 +143,8 @@ export default {
                             regio: user.Regio,
                             grens: user.grens,
                             antwoorden: user.antwoorden,
-                            uid: user.uid
+                            uid: user.uid,
+                            username: user.username
                         });
                     }
                 });
@@ -111,5 +152,13 @@ export default {
         });
 
         
+    },
+
+    async addNewUser(props) {
+        dbRealTime.ref('/users/' + props.uid).set({
+            contacts: {
+                doNotDelete: true
+            }
+        })
     }
 }
