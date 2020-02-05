@@ -160,5 +160,35 @@ export default {
                 doNotDelete: true
             }
         })
+    },
+
+    async getMessages(prop) {
+        let messages = await dbRealTime.ref('/chats/chat' + prop).orderByChild('timestamp').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return messages;
+    },
+
+    async newMessage(props) {
+        dbRealTime.ref('/chats/chat' + props.roomId + '/').push({
+            message: props.message,
+            timestamp: props.timestamp,
+            uid: props.uid
+        })
+    },
+
+    async setChatRequest(props) {
+        dbRealTime.ref('/rooms/room' + props.roomId).once('value').then(snapshot => {
+            if (snapshot.val().chat === false || snapshot.val().chat === props.uid) {
+                dbRealTime.ref('/rooms/room' + props.roomId).update({
+                    chat: props.uid
+                });
+            } else {
+                dbRealTime.ref('/rooms/room' + props.roomId).update({
+                    chat: true
+                });
+            }
+        })
     }
 }

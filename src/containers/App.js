@@ -20,6 +20,7 @@ import Challenge3 from "./Challenge3";
 import Challenge4 from "./Challenge4";
 
 import Room from "./Room";
+import Chat from "./Chat";
 
 class App extends Component {
   render() {
@@ -70,6 +71,11 @@ class App extends Component {
           <Route path="/room/:id">
             <Navigation />
             <Room />
+          </Route>
+
+          <Route path="/chat/:id">
+            <Navigation />
+            <Chat />
           </Route>
 
         </Switch>

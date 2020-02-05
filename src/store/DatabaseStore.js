@@ -47,6 +47,19 @@ class DatabaseStore {
         user.username = localStorage.username;
         RealTimeRepository.lookingForMatch(user);
     }
+
+    getMessages = prop => {
+        const messages = RealTimeRepository.getMessages(prop);
+        return messages;
+    }
+
+    newMessage = props => {
+        RealTimeRepository.newMessage(props);
+    }
+
+    setChatRequest = props => {
+        RealTimeRepository.setChatRequest(props);
+    }
 }
 
 decorate(DatabaseStore, {
