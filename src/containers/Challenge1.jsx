@@ -33,7 +33,17 @@ const Challenge1 = ({databaseStore}) => {
     return (
       <>
         <h1>{challenge.naam}</h1>
-        <button onClick={() => setStatus(true)}>Accepteer</button>
+        <button onClick={() => {
+          const props = {
+            challenge: 'challenge1',
+            grens: grens,
+            id: id,
+            uid: localStorage.uid,
+            status: 'geaccepteerd'
+          }
+
+          databaseStore.updateCompletedChallenges(props);
+          setStatus(true)}}>Accepteer</button>
         <Link to="/"><button>Weiger</button></Link>
       </>
     ); 

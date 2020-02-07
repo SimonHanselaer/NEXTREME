@@ -190,5 +190,19 @@ export default {
                 });
             }
         })
+    },
+
+    async updateCompletedChallenges(props) {
+        if (props.challenge === 'challenge4') {
+            dbRealTime.ref('/users/' + props.uid + '/' + props.challenge).update({
+                    [props.grens]: props.id
+            })   
+        }
+
+        if (props.challenge === 'challenge1') {
+            dbRealTime.ref('/users/' + props.uid + '/' + props.challenge + '/' + props.grens).update({
+                [props.id]: props.status 
+            })
+        }
     }
 }

@@ -8232,6 +8232,28 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
+phaser-ce@^2.8.8:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/phaser-ce/-/phaser-ce-2.14.0.tgz#756ee4ddac2bd42de1be1d014e1fcb55107d23d6"
+  integrity sha512-reI2PA5RJtUdL8AjkY+dXZX6ggOg3FkZb/g9tdckv3vzDkLeq+xEhfEgsmThAcbDtrJu0eiey4KcX0PlMeRdew==
+
+phaser-kinetic-scrolling-plugin@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/phaser-kinetic-scrolling-plugin/-/phaser-kinetic-scrolling-plugin-1.2.1.tgz#82832ee857fa8f80ff4009d038d276b8374993b9"
+  integrity sha512-emC1C0t23wWJC5yCeNWF+XnHhMMPAtTN3inRFoM+lDa/8J1yn7bD/CdKCWKgBSIGL2xO4LAOgo8FqyE/wyrcsg==
+  dependencies:
+    phaser-ce "^2.8.8"
+
+phaser-list-view@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/phaser-list-view/-/phaser-list-view-1.5.2.tgz#e5e9c8404d34dd15c809124d833ac3d8e196205e"
+  integrity sha512-shwdaj3KXqb38O8vVV7PBez93+9hFgGijtS7IWuaw+nj40/ChZgoB2oFmkS/hEC69j+8LCS8pbWOIn3/T6IInw==
+
+phaser-plugin-list-view@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/phaser-plugin-list-view/-/phaser-plugin-list-view-1.1.0.tgz#7f4df4c7b21c93c638f57a2d3e7767cb47a7f350"
+  integrity sha512-uHibq/BLvoUr+khuhRXqB7iVW6yIyrdC9lPw4dUXv+hhCDHmJB1bS4IzQPItYb6laT27PHBqD4u83pQLUuTMgw==
+
 phaser@^3.22.0:
   version "3.22.0"
   resolved "https://registry.yarnpkg.com/phaser/-/phaser-3.22.0.tgz#0007e09116e02f93d46f32dabde7a0c864cedf4d"

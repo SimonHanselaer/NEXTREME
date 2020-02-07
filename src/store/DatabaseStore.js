@@ -60,6 +60,10 @@ class DatabaseStore {
     setChatRequest = props => {
         RealTimeRepository.setChatRequest(props);
     }
+
+    updateCompletedChallenges = props => {
+        RealTimeRepository.updateCompletedChallenges(props);
+    }
 }
 
 decorate(DatabaseStore, {
