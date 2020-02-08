@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import withAuthentication from "./../components/auth/WithAuthentication"
-import { observer, inject, PropTypes } from "mobx-react";
-import { useEffect, useState } from "react";
+import { observer, inject } from "mobx-react";
 import { Link } from "react-router-dom";
 
 const Challenges = ({databaseStore}) => {
@@ -15,73 +14,85 @@ const Challenges = ({databaseStore}) => {
     }
 
     const getChallenges = async () => {
-      let challenges = [];
       let challengesUser = await databaseStore.getChallengesUser(localStorage.uid);
-
-      const props = {}
-      Object.entries(challengesUser).map(([key, val]) => {
-        props.grens = key;
-        Object.entries(val).map(async ([key, val]) => {
-          let naam = await databaseStore.getChallangeName(props.grens, key);
-          let challenge = {naam, val}
-          challenges.push(challenge);
-          setChallenges(challenges);
-        })
-      })
+      setChallenges(challengesUser);
     }
   
     getMatches();
     getChallenges();
-  }, [databaseStore, setChallenges])
+  }, [databaseStore])
 
   return (
     <>
       <h1>Challenges</h1>
       <section>
-        <h2>Matches</h2>
-        <ul>
-        {
-          Object.entries(matches).map(([key, val]) => {
-            if (key !== "doNotDelete") {
-              return (
-                <li key={key}>
-                    <p>{val.username}</p>
-                    <Link to={"/room/" + val.roomId}>
-                      <button>
-                        More questions
-                      </button>
-                    </Link>
-                </li>
-                )
-            } 
-            return null
-              })
-            }
-        </ul>
-      </section>
-      <section>
-        <h2>Challenges</h2>
-        <article>
-          <h3>Geaccepteerd</h3>
+      <h2>Matches</h2>
+        {matches ? (
           <ul>
-            {
-              challenges ? (
-              challenges.forEach(challenge => {
-                console.log(challenge)
+          {
+            Object.entries(matches).map(([key, val]) => {
+              if (key !== "doNotDelete") {
                 return (
-                <li>
-                  <h3>{challenge.naam}</h3>
-                </li>)
-              })) : (
-                <p>Loading</p>
-              )
-            }
+                  <li key={key}>
+                      <p>{val.username}</p>
+                      <Link to={"/room/" + val.roomId}>
+                        <button>
+                          More questions
+                        </button>
+                      </Link>
+                  </li>
+                  )
+              } 
+              return null
+                })
+              }
           </ul>
-        </article>
-        <article>
-          <h3>Completed</h3>
-        </article>
+        ) : (
+          <p>Not matched with any people yet? You're missing out!</p>
+        )}
+       
       </section>
+      {challenges ? (
+        <section>
+          <h2>Challenges</h2>
+          <article>
+           <h3>Geaccepteerd</h3>
+            <ul>
+              {
+                Object.entries(challenges).map(([key, val]) => {
+                  if (val.status === "geaccepteerd") {
+                    return (
+                      <li key={key}>
+                        <h4>{val.naam}</h4>
+                      </li>
+                    ) 
+                  }
+                  return null
+                })
+              }
+            </ul>
+          </article>
+          <article>
+            <h3>Completed</h3>
+            <ul>
+              {
+                Object.entries(challenges).map(([key, val]) => {
+                  if (val.status === "gecomplete") {
+                    return (
+                      <li key={key}>
+                        <h4>{val.naam}</h4>
+                      </li>
+                    ) 
+                  }
+                  return null
+                })
+              }
+            </ul>
+          </article>
+        </section>
+      ) : (
+        <p>Haven't accepted any challenges yet? You're missing out!</p>
+      )}
     </>
   );
 };
