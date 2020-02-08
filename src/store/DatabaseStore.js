@@ -1,4 +1,4 @@
-import { decorate, configure, action } from "mobx";
+import { decorate, configure, action, observable } from "mobx";
 
 import { RepositoryFactory } from "./../repositories/repositoryFactory";
 const FirestoreRepository = RepositoryFactory.get("firestore");
@@ -63,6 +63,30 @@ class DatabaseStore {
 
     updateCompletedChallenges = props => {
         RealTimeRepository.updateCompletedChallenges(props);
+    }
+
+    getChallengesUser = async prop => {
+        const challenges = await RealTimeRepository.getChallengesUser(prop);
+        return challenges;
+        
+    }
+
+    getChallangeName = async (grens, challenge) => {
+        const challengeName = await FirestoreRepository.getChallengeName(grens, challenge);
+        return challengeName;
+        // let challengesArray = {};
+        // Object.entries(challenges).map(async ([key, val]) => {
+        //     const challengeGrens = key;
+        //     Object.entries(val).map(async ([key, val]) => {
+        //         const challengeNaam = await FirestoreRepository.getChallengeName(challengeGrens, key);
+        //         challengeNaam.status = val;
+        //         challengesArray[key] = challengeNaam;
+        //         console.log(challengesArray)
+        //         // challengesArray.push(challengeNaam);
+        //     });
+        // });
+
+        // return challengesArray;
     }
 }
 

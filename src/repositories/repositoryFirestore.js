@@ -33,6 +33,14 @@ export default {
         });
 
         return user
+    },
+
+    async getChallengeName(challengeGrens, challengeNumber) {
+        const challengeNaam = await db.collection("Challenges").doc("Challenge1").collection(challengeGrens + "grens").doc(challengeNumber.charAt(challengeNumber.length - 1)).get().then(doc => {
+            return doc.data().naam
+        })
+
+        return challengeNaam
     }
 
 

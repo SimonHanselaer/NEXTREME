@@ -1,4 +1,4 @@
-import { dbRealTime } from "../index";
+import { dbRealTime} from "../index";
 // import firebase from "firebase";
 
 export default {
@@ -194,15 +194,23 @@ export default {
 
     async updateCompletedChallenges(props) {
         if (props.challenge === 'challenge4') {
-            dbRealTime.ref('/users/' + props.uid + '/' + props.challenge).update({
+            dbRealTime.ref('/users/' + props.uid + '/challenges/' + props.challenge).update({
                     [props.grens]: props.id
             })   
         }
 
         if (props.challenge === 'challenge1') {
-            dbRealTime.ref('/users/' + props.uid + '/' + props.challenge + '/' + props.grens).update({
-                [props.id]: props.status 
+            dbRealTime.ref('/users/' + props.uid + '/challenges/' + props.challenge + '/' + props.grens).update({
+                ['challenge' + props.id]: props.status 
             })
         }
+    },
+
+    async getChallengesUser(prop) {
+        let challenges = await dbRealTime.ref('/users/' + prop + '/challenges/challenge1').once('value').then(snapshot => {
+            return snapshot.val()
+        });
+
+        return challenges
     }
 }
