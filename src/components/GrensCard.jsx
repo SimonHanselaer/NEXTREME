@@ -8,7 +8,7 @@ const GrensCard = (props, {dataStore}) => {
 
     const selectChallenge = () => {
         const challenge = Math.ceil(Math.random() * 4);
-        const challengeNumber = 1;
+        const challengeNumber = Math.ceil(Math.random() * 3);
         history.push("/challenge" + challenge + "/" + name + "/" + challengeNumber);
     }
 
