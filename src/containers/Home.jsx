@@ -3,7 +3,6 @@ import SelectGrens from "./../components/SelectGrens";
 import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer } from "mobx-react";
 
-
 const Home = () => {
   return (
     <>

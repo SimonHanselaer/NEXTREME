@@ -144,7 +144,15 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         case 4:
           return (
             <>
-            <h1>Alle vragen zijn gedaan!</h1>
+            <h1>Even wachten...</h1>
+            <p>op de match zijn antwoorden. Deze vind je terug onder ‘Mijn uitdagingen’.</p>
+            <h2>Terwijl je wacht...</h2>
+            <p>Misschien interesseert deze voorstelling je.</p>
+            <p>Multitud</p>
+            <p>Tamara Cubas</p>
+            <p>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
+            <a href="http://www.nextfestival.eu" TARGET="_blank">meer op nextfestival.eu</a>
+            
             <button onClick={() => handleCompletedChallenge()}>Doorgaan</button>
             </>
           )

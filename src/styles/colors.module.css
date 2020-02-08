@@ -1,0 +1,12 @@
+:root{
+    --offWhite-color: #F8F8FF;
+    --offBlack-color: #333333;
+    --orange-color: #FF986F;
+    --salmon-color: #FF5F6D;
+    --yellow-color: #FFC371;
+
+    /* werkt niet maar is wel de gradient die we nodig hebbben */
+    /* --gradient: linear-gradient(to right, #FFC371 , #FF5F6D);  */
+    --error-color: #E73B44;
+}
+

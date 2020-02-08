@@ -23,6 +23,12 @@ a {
 
 html {
   min-height: 100vh;
+  color: var(--offBlack-color);
+ 
+}
+
+.test{
+  background-color: var(--gradient);
 }
 
 .visually-hidden {

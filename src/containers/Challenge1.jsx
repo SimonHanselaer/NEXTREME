@@ -33,6 +33,7 @@ const Challenge1 = ({databaseStore}) => {
     return (
       <>
         <h1>{challenge.naam}</h1>
+        <p>{challenge.extra}</p>
         <button onClick={() => {
           const props = {
             challenge: 'challenge1',
