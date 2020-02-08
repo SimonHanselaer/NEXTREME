@@ -151,8 +151,8 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <p>Multitud</p>
             <p>Tamara Cubas</p>
             <p>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
-            <a href="http://www.nextfestival.eu" TARGET="_blank">meer op nextfestival.eu</a>
-            
+            <a href="http://www.nextfestival.eu" target="_blank">meer op nextfestival.eu</a>
+
             <button onClick={() => handleCompletedChallenge()}>Doorgaan</button>
             </>
           )
