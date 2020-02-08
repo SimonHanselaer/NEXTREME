@@ -200,8 +200,11 @@ export default {
         }
 
         if (props.challenge === 'challenge1') {
-            dbRealTime.ref('/users/' + props.uid + '/challenges/' + props.challenge + '/' + props.grens).update({
-                ['challenge' + props.id]: props.status 
+            dbRealTime.ref('/users/' + props.uid + '/challenges/' + props.challenge + '/' + props.grens + props.id).update({
+                status: props.status,
+                naam: props.naam,
+                grens: props.grens,
+                id: props.id
             })
         }
     },

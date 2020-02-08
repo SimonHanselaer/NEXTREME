@@ -39,7 +39,8 @@ const Challenge1 = ({databaseStore}) => {
             grens: grens,
             id: id,
             uid: localStorage.uid,
-            status: 'geaccepteerd'
+            status: 'geaccepteerd',
+            naam: challenge.naam
           }
 
           databaseStore.updateCompletedChallenges(props);
