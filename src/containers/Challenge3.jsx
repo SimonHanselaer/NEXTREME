@@ -1,17 +1,63 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
-import { observer } from "mobx-react";
-import { useParams } from "react-router-dom";
+import { observer, inject } from "mobx-react";
+import { useParams, useHistory } from "react-router-dom";
 
-const Challenge3 = () => {
+const Challenge3 = ({databaseStore, dataStore}) => {
   console.log(useParams())
   let {grens} = useParams();
+  let {id} = useParams();
 
-  return (
-    <>
-      <h1>Challenge 3 - {grens}</h1>
-    </>
-  )
+  let history = useHistory();
+
+  const [status, setStatus] = useState(false);
+  const [count, setCount] = useState(1);
+
+  const [challenge, setChallenge] = useState("");
+
+  const [answer, setAnswer] = useState("");
+
+  useEffect(() => {
+    const getQuestions = async () => {
+      const props = {
+        challenge: 3,
+        grens: grens,
+        id: id
+      }
+
+      let awaitingChallenge = await databaseStore.getChallenge(props);
+      setChallenge(awaitingChallenge);
+
+    }
+
+    getQuestions();
+  }, [databaseStore, grens, id]);
+
+  const handleCompletedChallenge = (e) => {
+   console.log(e);
+  }
+  
+  if (!status) {
+    return (
+      <>
+        <h1>{challenge.Naam}</h1>
+        <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
+        <button onClick={() => setStatus(true)}>Start</button>
+      </>
+    ) 
+  } else {
+    return (
+      <>
+        <h1>{challenge.Naam}</h1>
+        <button onClick={e => {
+          handleCompletedChallenge(e.currentTarget.innerHTML);
+          }}>{challenge.OptieA}</button>
+        <button onClick={e => {
+          handleCompletedChallenge(e.currentTarget.innerHTML);
+          }}>{challenge.OptieB}</button>
+      </>
+    );
+    }
 };
 
-export default withAuthentication(observer(Challenge3));
+export default inject(`databaseStore`, `dataStore`)(withAuthentication(observer(Challenge3)));
