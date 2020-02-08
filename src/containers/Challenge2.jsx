@@ -89,7 +89,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
     return (
       <>
         <h1>{challenge.naam}</h1>
-        <p>Je wordt gematcht met een andere gebruiker. Je krijgt beide dezelfde vragen en leert elkaar zo beter kennen. Alleen als beide partijen akkoord gaan kan je met elkaar chatten.</p>
+        <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
         <button onClick={() => setStatus(true)}>Starten</button>
       </>
     ) 

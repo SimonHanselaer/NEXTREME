@@ -25,7 +25,7 @@ const LoginEmail = ({ uiStore }) => {
 
   return (
     <>
-      <h1>Login using E-mail</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
           <input type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
           <input type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>

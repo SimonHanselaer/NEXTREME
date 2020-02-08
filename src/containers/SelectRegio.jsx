@@ -14,7 +14,7 @@ const SelectRegio = ({ databaseStore }) => {
 
   return (
     <>
-      <h1>Regio</h1>
+      <h1>Je bevind je in...</h1>
       <section>
           <button onClick={() => handleSelect("VL")}>Vlaanderen</button>
           <button onClick={() => handleSelect("WL")}>Wallonië</button>

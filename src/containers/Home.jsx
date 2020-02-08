@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <h1>Welcome to NEXTEND</h1>
-      <p>Vandaag verleg ik mijn ... grens</p>
+      <p>Ik verleg vandaag mijn</p>
       <SelectGrens />
     </>
   );

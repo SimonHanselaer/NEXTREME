@@ -60,7 +60,7 @@ const Challenge3 = ({databaseStore, dataStore}) => {
           }}>{challenge.OptieB}</button>
       </>
     );
-    }
+  }
 };
 
 export default inject(`databaseStore`, `dataStore`)(withAuthentication(observer(Challenge3)));
