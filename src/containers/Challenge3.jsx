@@ -35,8 +35,11 @@ const Challenge3 = ({databaseStore, dataStore}) => {
 
   const handleCompletedChallenge = (e) => {
    console.log(e);
+   //TODO
+   //data in realtime db steken
+   //naar resultaten page gaan
   }
-  
+
   if (!status) {
     return (
       <>
