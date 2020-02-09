@@ -69,6 +69,10 @@ class DatabaseStore {
         const challenges = await RealTimeRepository.getChallengesUser(prop);
         return challenges;   
     }
+
+    removeRoom = props => {
+        RealTimeRepository.removeRoom(props);
+    }
 }
 
 decorate(DatabaseStore, {
