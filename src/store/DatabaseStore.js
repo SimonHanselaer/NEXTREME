@@ -69,6 +69,11 @@ class DatabaseStore {
         const challenges = await RealTimeRepository.getChallengesUser(prop);
         return challenges;   
     }
+
+    getRegio = async (prop) => {
+        const userInfo = await FirestoreRepository.getUserInfo(prop);
+        return userInfo;
+    }
 }
 
 decorate(DatabaseStore, {
