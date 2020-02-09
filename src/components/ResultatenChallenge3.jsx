@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { useEffect, useState } from "react";
 
+import faon from "../assets/img/challenge3/faon.png";
+
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
     const {regio} = props;
@@ -36,7 +38,7 @@ const ResultatenChallenge3 = (props) => {
                                         <div key={resultA + 20}>{results[key].name + ": " + resultA + "%"}
                                             <p key={resultB}>{results[key].antwoorden.optieA.title}</p>
                                             <p>jij behoort tot deze stad!</p>
-                                            <img src="" alt="header foto evenement"/>
+                                            <img src={faon} alt="header foto evenement"/>
                                             <p>FAON</p>
                                             <p>Performance /.../ 16+ </p>
                                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>

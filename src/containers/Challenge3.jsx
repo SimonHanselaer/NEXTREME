@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import Resultaten from "../components/ResultatenChallenge3";
 
-const Challenge3 = ({databaseStore, dataStore}) => {
+import main from "../assets/img/challenge3/main.png";
+
+const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
 
@@ -98,6 +100,7 @@ const Challenge3 = ({databaseStore, dataStore}) => {
     return (
       <>
         <h1>Leer over je medemens.</h1>
+        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
         <button onClick={() => setStatus(true)}>Start</button>
       </>
@@ -134,4 +137,4 @@ const Challenge3 = ({databaseStore, dataStore}) => {
   }
 };
 
-export default inject(`databaseStore`, `dataStore`)(withAuthentication(observer(Challenge3)));
+export default inject(`databaseStore`)(withAuthentication(observer(Challenge3)));
