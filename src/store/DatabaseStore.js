@@ -70,14 +70,13 @@ class DatabaseStore {
         return challenges;   
     }
 
-<<<<<<< HEAD
     getRegio = async (prop) => {
         const userInfo = await FirestoreRepository.getUserInfo(prop);
         return userInfo;
-=======
+    }
+    
     removeRoom = props => {
         RealTimeRepository.removeRoom(props);
->>>>>>> 2ba64967da8413dfa99fe70f064266792b395a1d
     }
 }
 
