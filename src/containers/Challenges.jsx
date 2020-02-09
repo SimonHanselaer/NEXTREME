@@ -63,7 +63,9 @@ const Challenges = ({databaseStore}) => {
                   if (val.status === "geaccepteerd") {
                     return (
                       <li key={key}>
+                        <Link to={"/challenge1/" + val.grens + "/" + val.id}>
                         <h4>{val.naam}</h4>
+                        </Link>
                       </li>
                     ) 
                   }
@@ -80,7 +82,9 @@ const Challenges = ({databaseStore}) => {
                   if (val.status === "gecomplete") {
                     return (
                       <li key={key}>
-                        <h4>{val.naam}</h4>
+                        <Link to={"/challenge1/" + val.grens + "/" + val.id}>
+                          <h4>{val.naam}</h4>
+                        </Link>
                       </li>
                     ) 
                   }
