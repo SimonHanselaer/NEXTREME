@@ -79,6 +79,7 @@ class DatabaseStore {
         RealTimeRepository.removeRoom(props);
     }
 
+<<<<<<< HEAD
     getResults = (prop) => {
         const results = RealTimeRepository.getResults(prop);
         return results;
@@ -89,6 +90,11 @@ class DatabaseStore {
     }
     newResultB = props => {
         RealTimeRepository.newResultB(props);
+=======
+    getInfo = async props => {
+        const info = await FirestoreRepository.getInfo(props);
+        return info;
+>>>>>>> 2bd60825358eab94d6d761e5dfc2274dda0a070e
     }
 }
 

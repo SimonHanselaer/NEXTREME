@@ -101,7 +101,7 @@ const Challenge4Lille = (props) => {
 
         if (this.score === 3) {
           this.sys.game.destroy(true);
-          history.push("/");
+          history.push("/info/" + 3 + "/" + grens);
           const props = {
             challenge: 'challenge4',
             grens: grens,

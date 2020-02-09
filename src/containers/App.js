@@ -21,6 +21,13 @@ import Challenge4 from "./Challenge4";
 
 import Room from "./Room";
 import Chat from "./Chat";
+<<<<<<< HEAD
+=======
+
+import ResultatenChallenge3 from "../components/ResultatenChallenge3";
+>>>>>>> 2bd60825358eab94d6d761e5dfc2274dda0a070e
+
+import Challenge4Info from "../components/Challenge4Info";
 
 class App extends Component {
   render() {
@@ -76,6 +83,11 @@ class App extends Component {
           <Route path="/chat/:id">
             <Navigation />
             <Chat />
+          </Route>
+
+          <Route path="/info/:id/:grens" exact strict>
+            <Navigation />
+            <Challenge4Info />
           </Route>
 
         </Switch>
