@@ -41,6 +41,14 @@ export default {
         })
 
         return challengeNaam
+    },
+
+    async getInfo(props) {
+        const info = await db.collection("info").doc(props.id).get().then(doc => {
+            return doc.data()[props.grens]
+        });
+
+        return info
     }
 
 

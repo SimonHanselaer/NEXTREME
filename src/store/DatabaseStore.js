@@ -78,6 +78,11 @@ class DatabaseStore {
     removeRoom = props => {
         RealTimeRepository.removeRoom(props);
     }
+
+    getInfo = async props => {
+        const info = await FirestoreRepository.getInfo(props);
+        return info;
+    }
 }
 
 decorate(DatabaseStore, {
