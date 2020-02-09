@@ -226,14 +226,16 @@ export default {
     },
 
     async newResultA(props) {
-        dbRealTime.ref('/result/' + props.regio + '/antwoorden/').update({
-            optieA: props.answer
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieA/').update({
+            title: "vraag 1",
+            procent: props.answer
         })
     },
 
     async newResultB(props) {
-        dbRealTime.ref('/result/' + props.regio + '/antwoorden/').update({
-            optieB: props.answer
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieB/').update({
+            title: "vraag 2",
+            procent: props.answer
         })
     },
 

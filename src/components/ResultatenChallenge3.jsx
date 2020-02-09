@@ -33,13 +33,21 @@ const ResultatenChallenge3 = (props) => {
              {
                 results ? (
                     Object.keys(results).map(key => {
-                        if(answer === "Optie A"){
+                        const resultA = results[key].antwoorden.optieA.procent;
+                        const resultB = results[key].antwoorden.optieB.procent;
+                        if(resultA > resultB){
                             return (
-                                <p key={key}>{results[key].name + ": " + results[key].antwoorden.optieA + "%"}</p>
+                                <>
+                                    <p key={resultA + 20}>{results[key].name + ": " + resultA + "%"}</p>
+                                    <p key={resultB}>{results[key].antwoorden.optieA.title}</p>
+                                </>
                             )
                         }else{
                             return (
-                                <p key={key}>{results[key].name + ": " + results[key].antwoorden.optieB + "%"}</p>
+                                <>
+                                    <p key={resultA}>{results[key].name + ": " + resultB + "%"}</p>
+                                    <p key={resultB + 20}>{results[key].antwoorden.optieB.title}</p>
+                                </>
                             )
                         }
                     })
