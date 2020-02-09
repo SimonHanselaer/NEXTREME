@@ -49,7 +49,7 @@ const Room = ({databaseStore, dataStore}) => {
         }
 
         getRoom();
-    }, [databaseStore, id, url, room]);
+    }, [databaseStore, url, id]);
 
     const handleAnswerQuestions = () => {
         dataStore.handleAnswerQuestions(id);
@@ -68,6 +68,18 @@ const Room = ({databaseStore, dataStore}) => {
         databaseStore.setChatRequest(props);
     }
 
+    const handleRemoveMatch = () => {
+        const props = {
+            user1: room.users.user1,
+            user2: room.users.user2,
+            roomId: id
+        }
+
+        databaseStore.removeRoom(props);
+
+        history.push('/');
+    }
+
   return (
     <>
         <h1>Room {id}</h1>
@@ -77,6 +89,7 @@ const Room = ({databaseStore, dataStore}) => {
                 <Link to={"../" + url}>
                     <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
                 </Link>
+                <button onClick={() => handleRemoveMatch()}>Remove match</button>
             </>
         ) : (
             <>
@@ -86,6 +99,7 @@ const Room = ({databaseStore, dataStore}) => {
                         <Link to={"../" + url}>
                             <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
                         </Link>
+                        <button onClick={() => handleRemoveMatch()}>Remove match</button>
                     
                         {room && user !== "" ? (
                             <section>
@@ -114,6 +128,7 @@ const Room = ({databaseStore, dataStore}) => {
                     <Link to={"../" + url}>
                             <button onClick={() => {handleAnswerQuestions()}}>Answer more questions</button>
                         </Link>
+                    <button onClick={() => handleRemoveMatch()}>Remove match</button>
                     
                         {room && user !== "" ? (
                             <section>

@@ -1,4 +1,4 @@
-import { dbRealTime} from "../index";
+import { dbRealTime } from "../index";
 // import firebase from "firebase";
 
 export default {
@@ -215,5 +215,11 @@ export default {
         });
 
         return challenges
+    },
+
+    async removeRoom(props) {
+        dbRealTime.ref('/users/' + props.user1 + '/contacts/' + props.user2).remove();
+        dbRealTime.ref('/users/' + props.user2 + '/contacts/' + props.user1).remove();
+        dbRealTime.ref('/rooms/room' + props.roomId).remove();
     }
 }
