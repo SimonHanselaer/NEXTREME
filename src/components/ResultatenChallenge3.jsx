@@ -13,14 +13,8 @@ const ResultatenChallenge3 = (props) => {
     const [results, setResults] = useState("");
 
     useEffect(() => {
-      
-        const getResults = async (answer, regio) => {
-            const props = {
-                regio: regio,
-                answer: answer
-            }
-
-            let results = await databaseStore.getResults(regio);
+        const getResults = async () => {
+            let results = await databaseStore.getResults();
             setResults(results);
         }
 
@@ -33,22 +27,56 @@ const ResultatenChallenge3 = (props) => {
              {
                 results ? (
                     Object.keys(results).map(key => {
-                        const resultA = results[key].antwoorden.optieA.procent;
-                        const resultB = results[key].antwoorden.optieB.procent;
+                        let resultA = results[key].antwoorden.optieA.procent;
+                        let resultB = results[key].antwoorden.optieB.procent;
                         if(resultA > resultB){
-                            return (
-                                <>
-                                    <p key={resultA + 20}>{results[key].name + ": " + resultA + "%"}</p>
-                                    <p key={resultB}>{results[key].antwoorden.optieA.title}</p>
-                                </>
-                            )
+                            if(answer === "Optie A"){
+                                return (
+                                    <>
+                                        <div key={resultA + 20}>{results[key].name + ": " + resultA + "%"}
+                                            <p key={resultB}>{results[key].antwoorden.optieA.title}</p>
+                                            <p>jij behoort tot deze stad!</p>
+                                            <img src="" alt="header foto evenement"/>
+                                            <p>FAON</p>
+                                            <p>Performance /.../ 16+ </p>
+                                            <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                        </div>
+                                       
+                                    </>
+                                )
+                            }else{
+                                return (
+                                    <>
+                                        <div key={resultA + 20}>{results[key].name + ": " + resultA + "%"}
+                                            <p key={resultB}>{results[key].antwoorden.optieA.title}</p>
+                                        </div>
+                                       
+                                    </>
+                                )
+                            }
                         }else{
-                            return (
-                                <>
-                                    <p key={resultA}>{results[key].name + ": " + resultB + "%"}</p>
-                                    <p key={resultB + 20}>{results[key].antwoorden.optieB.title}</p>
-                                </>
-                            )
+                            if(answer === "Optie B"){
+                                return (
+                                    <>
+                                        <div key={resultA}>{results[key].name + ": " + resultB + "%"}
+                                            <p key={resultB + 20}>{results[key].antwoorden.optieB.title}</p>
+                                            <p>jij behoort tot deze stad!</p>
+                                            <img src="" alt="header foto evenement"/>
+                                            <p>FAON</p>
+                                            <p>Performance /.../ 16+ </p>
+                                            <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                        </div>
+                                    </>
+                                )
+                            }else{
+                                return (
+                                    <>
+                                        <div key={resultA}>{results[key].name + ": " + resultB + "%"}
+                                            <p key={resultB + 20}>{results[key].antwoorden.optieB.title}</p>
+                                        </div>
+                                    </>
+                                )
+                            } 
                         }
                     })
                 ) : (

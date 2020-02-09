@@ -84,6 +84,16 @@ class DatabaseStore {
         return results;
     }
 
+    getResultProcentA = (prop) => {
+        const resultProcentA = RealTimeRepository.getResultProcentA(prop);
+        return resultProcentA;
+    }
+
+    getResultProcentB = (prop) => {
+        const resultProcentB = RealTimeRepository.getResultProcentB(prop);
+        return resultProcentB;
+    }
+
     newResultA = props => {
         RealTimeRepository.newResultA(props);
     }

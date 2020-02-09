@@ -9,6 +9,9 @@ const Challenge3 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
 
+  let totalProcentA;
+  let totalProcentB;
+
   let history = useHistory();
 
   const [status, setStatus] = useState(false);
@@ -18,6 +21,9 @@ const Challenge3 = ({databaseStore, dataStore}) => {
   const [regio, setRegio] = useState("");
   const [results, setResults] = useState("");
   const [answer, setAnswer] = useState("");
+  //
+  const [procentA, setProcentA] = useState("");
+  const [procentB, setProcentB] = useState("");
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -37,42 +43,56 @@ const Challenge3 = ({databaseStore, dataStore}) => {
       setRegio(regio);
     }
 
-    const getResults = async (answer, regio) => {
-      const props = {
-          regio: regio,
-          answer: answer
-      }
-
-      let results = await databaseStore.getResults(regio);
+    const getResults = async () => {
+      let results = await databaseStore.getResults();
       setResults(results);
     }
 
+    const getResultProcentA = async () => {
+      const props = {
+        regio: regio.Regio
+      }
+      let resultProcentA = await databaseStore.getResultProcentA(props);
+      setProcentA(resultProcentA);
+    }
+
+    const getResultProcentB = async () => {
+      const props = {
+        regio: regio.Regio
+      }
+      let resultProcentB = await databaseStore.getResultProcentB(props);
+      setProcentB(resultProcentB);
+    }
+
+    getResultProcentA();
+    getResultProcentB();
     getResults();
     getRegio();
     getQuestions();
   }, [databaseStore, grens, id, results]);
 
   const handleCompletedChallenge = (e) => {
-    //antwoord + regio user meegeven
+    //antwoord + regio user 
     console.log(e);
     console.log(regio.Regio);
-    
     //data in db steken
     if(e === "Optie A"){  
+      totalProcentA = Number(procentA.procent) + 10;
       const props = {
         regio: regio.Regio,
-        answer: +100
+        answer: totalProcentA
       }
       databaseStore.newResultA(props);
     }else{
+      totalProcentB = Number(procentB.procent) + 10;
       const props = {
         regio: regio.Regio,
-        answer: +100
+        answer: totalProcentB
       }
       databaseStore.newResultB(props);
     }
+    
   }
-
 
   if (!status && count > 0) {
     return (
@@ -104,7 +124,7 @@ const Challenge3 = ({databaseStore, dataStore}) => {
         );
       case 2:
         return (
-          <>
+          <> 
             <Resultaten regio={regio.Regio} answer={answer}  databaseStore={databaseStore}/>
           </>
         );
