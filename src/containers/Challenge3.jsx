@@ -16,7 +16,7 @@ const Challenge3 = ({databaseStore, dataStore}) => {
 
   const [challenge, setChallenge] = useState("");
   const [regio, setRegio] = useState("");
-
+  const [results, setResults] = useState("");
   const [answer, setAnswer] = useState("");
 
   useEffect(() => {
@@ -37,16 +37,40 @@ const Challenge3 = ({databaseStore, dataStore}) => {
       setRegio(regio);
     }
 
+    const getResults = async (answer, regio) => {
+      const props = {
+          regio: regio,
+          answer: answer
+      }
+
+      let results = await databaseStore.getResults(regio);
+      setResults(results);
+    }
+
+    getResults();
     getRegio();
     getQuestions();
-  }, [databaseStore, grens, id]);
+  }, [databaseStore, grens, id, results]);
 
   const handleCompletedChallenge = (e) => {
     //antwoord + regio user meegeven
-   console.log(e);
-   console.log(regio.Regio);
-   //TODO
-   //data in realtime db steken
+    console.log(e);
+    console.log(regio.Regio);
+    
+    //data in db steken
+    if(e === "Optie A"){  
+      const props = {
+        regio: regio.Regio,
+        answer: +100
+      }
+      databaseStore.newResultA(props);
+    }else{
+      const props = {
+        regio: regio.Regio,
+        answer: +100
+      }
+      databaseStore.newResultB(props);
+    }
   }
 
 
@@ -81,12 +105,7 @@ const Challenge3 = ({databaseStore, dataStore}) => {
       case 2:
         return (
           <>
-            <h1>Resultaten</h1>
-            <p>{regio.Regio}</p>
-            <p>{answer}</p>
-            {/* TODO
-              Data uit realtime db halen
-            */}
+            <Resultaten regio={regio.Regio} answer={answer}  databaseStore={databaseStore}/>
           </>
         );
       default:

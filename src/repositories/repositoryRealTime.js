@@ -217,6 +217,26 @@ export default {
         return challenges
     },
 
+    async getResults() {
+        let results = await dbRealTime.ref('/result/').orderByChild('name').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return results;
+    },
+
+    async newResultA(props) {
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/').update({
+            optieA: props.answer
+        })
+    },
+
+    async newResultB(props) {
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/').update({
+            optieB: props.answer
+        })
+    },
+
     async removeRoom(props) {
         dbRealTime.ref('/users/' + props.user1 + '/contacts/' + props.user2).remove();
         dbRealTime.ref('/users/' + props.user2 + '/contacts/' + props.user1).remove();

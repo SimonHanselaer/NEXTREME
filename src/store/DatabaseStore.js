@@ -74,9 +74,21 @@ class DatabaseStore {
         const userInfo = await FirestoreRepository.getUserInfo(prop);
         return userInfo;
     }
-    
+
     removeRoom = props => {
         RealTimeRepository.removeRoom(props);
+    }
+
+    getResults = (prop) => {
+        const results = RealTimeRepository.getResults(prop);
+        return results;
+    }
+
+    newResultA = props => {
+        RealTimeRepository.newResultA(props);
+    }
+    newResultB = props => {
+        RealTimeRepository.newResultB(props);
     }
 }
 
