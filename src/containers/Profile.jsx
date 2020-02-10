@@ -15,6 +15,7 @@ const Profile = ({uiStore, databaseStore}) => {
   const [gender, setGender] = useState("");
   const [language, setLanguage] = useState("");
   const [bio, setBio] = useState("Voeg een bio toe");
+  const [challenges, setChallenges] = useState("");
 
   const handleLogout = () => {
     uiStore.logout();
@@ -38,6 +39,7 @@ const Profile = ({uiStore, databaseStore}) => {
   useEffect(() => {
     const getInfo = async () => {
       let info = await databaseStore.getRegio(localStorage.uid);
+      let userChallenges = await databaseStore.getChallengesUser(localStorage.uid);
       setStatus(true);
       setUsername(info.Username);
       setPhoto(info.Photo);
@@ -47,12 +49,13 @@ const Profile = ({uiStore, databaseStore}) => {
       setGender(info.Gender);
       setLanguage(info.Language);
       setBio(info.Bio);
+      setChallenges(userChallenges);
     }
+
     console.log("test");
     getInfo();
   },[databaseStore]);
 
-  console.log(username);
     if(edit === true){
       if(status){
         return (
@@ -68,7 +71,7 @@ const Profile = ({uiStore, databaseStore}) => {
                 <input type="text" name="city" defaultValue={city !== "" ? city : " "} onChange={e => setCity(e.currentTarget.value)} />
               </div>
               <div>
-                <p>Regio {regio}</p>
+                <p>Regio</p>
                 <label htmlFor="">
                   <span>Wallonië</span>
                   {regio === "WL" ? <input type="radio" name="regio" value="WL" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="WL" onClick={e => setRegio(e.currentTarget.value)} />}
@@ -91,7 +94,7 @@ const Profile = ({uiStore, databaseStore}) => {
                 <input type="number" name="age" defaultValue={age !== "" ? age : " "} onChange={e => setAge(e.currentTarget.value)} />
               </div>
               <div>
-                <p>Geslacht {gender}</p>
+                <p>Geslacht</p>
                 <label htmlFor="" >
                   M
                   {gender === "M" ? <input type="radio" name="gender" value="M" defaultChecked onClick={e => setGender(e.currentTarget.value)} /> : <input type="radio" name="gender" value="M" onClick={e => setGender(e.currentTarget.value)} />}
@@ -110,7 +113,7 @@ const Profile = ({uiStore, databaseStore}) => {
                 </label>
               </div>
               <div>
-                <p>Taal {language}</p>
+                <p>Taal</p>
                 <label htmlFor="">
                   NL
                   {language === "NL" ? <input type="radio" name="language" value="NL" defaultChecked onClick={e => setLanguage(e.currentTarget.value)} /> : <input type="radio" name="language" value="NL" onClick={e => setLanguage(e.currentTarget.value)} />}
@@ -165,9 +168,20 @@ const Profile = ({uiStore, databaseStore}) => {
             </div>
             <div>
               <h3>Gedane uitdagingen</h3>
+              {/* {console.log(challenges)} */}
               <ul>
-                <li>Uitdaging 1</li>
-                <li>Uitdaging 2</li>
+                {challenges ? (
+                  Object.keys(challenges).map(key => {
+                    console.log(challenges[key].naam);
+                    return( 
+                      <li key={key}>{challenges[key].naam}</li>
+                    )
+                  })
+
+                ) : (
+                    <p>Loading...</p>
+                  )
+                }
               </ul>
             </div>
             <button onClick={() => handleLogout()}>Afmelden</button>
