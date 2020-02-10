@@ -11,6 +11,8 @@ const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
 
+  console.log(grens);
+
   let totalProcentA;
   let totalProcentB;
 
