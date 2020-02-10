@@ -13,8 +13,6 @@ const ResultatenChallenge3 = (props) => {
 
     // console.log(answer);
     let rankResults = [];
-    let duplicates1 = [];
-    let duplicates2 = [];
 
     const [results, setResults] = useState("");
 
@@ -27,109 +25,6 @@ const ResultatenChallenge3 = (props) => {
 
         getResults();
     }, [databaseStore]);
-
-    // const test = (prop) => {
-    //     if(prop === "vraag 1"){
-    //         if(duplicates1.length === 1){
-    //             console.log(duplicates1[0]);
-    //             if(answer === "Optie A"){
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates1[0].regio + ": " + duplicates1[0].procent + "%"}
-    //                             <p>{duplicates1[0].title}</p>
-    //                             <p>jij behoort tot deze stad!</p>
-    //                             <img src={faon} alt="header foto evenement"/>
-    //                             <p>FAON</p>
-    //                             <p>Performance /.../ 16+ </p>
-    //                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }else{
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates1[0].regio + ": " + duplicates1[0].procent + "%"}
-    //                             <p>{duplicates1[0].title}</p>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }    
-    //         }else{
-    //             if(answer === "Optie A"){
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates1[0].regio + ": " + duplicates1[0].procent + "%"}
-    //                             <p>{duplicates1[0].title}</p>
-    //                             <p>jij behoort tot deze stad!</p>
-    //                             <img src={faon} alt="header foto evenement"/>
-    //                             <p>FAON</p>
-    //                             <p>Performance /.../ 16+ </p>
-    //                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }else{
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates1[1].regio + ": " + duplicates1[1].procent + "%"}
-    //                             <p>{duplicates1[1].title}</p>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }    
-    //         }
-    //     }else{
-    //         if(duplicates2.length === 1){
-    //             console.log(duplicates2[0]);
-    //             if(answer === "Optie B"){
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates2[0].regio + ": " + duplicates2[0].procent + "%"}
-    //                             <p>{duplicates2[0].title}</p>
-    //                             <p>jij behoort tot deze stad!</p>
-    //                             <img src={faon} alt="header foto evenement"/>
-    //                             <p>FAON</p>
-    //                             <p>Performance /.../ 16+ </p>
-    //                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }else{
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates2[0].regio + ": " + duplicates2[0].procent + "%"}
-    //                             <p>{duplicates2[0].title}</p>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }    
-    //         }else{
-    //             if(answer === "Optie B"){
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates2[0].regio + ": " + duplicates2[0].procent + "%"}
-    //                             <p>{duplicates2[0].title}</p>
-    //                             <p>jij behoort tot deze stad!</p>
-    //                             <img src={faon} alt="header foto evenement"/>
-    //                             <p>FAON</p>
-    //                             <p>Performance /.../ 16+ </p>
-    //                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }else{
-    //                 return (
-    //                     <>
-    //                         <div>{duplicates2[1].regio + ": " + duplicates2[1].procent + "%"}
-    //                             <p>{duplicates2[1].title}</p>
-    //                         </div>
-    //                     </>
-    //                 )
-    //             }    
-    //         }
-    //     }
-        
-    // }
 
     return (
         <>
@@ -155,29 +50,274 @@ const ResultatenChallenge3 = (props) => {
             {
                 //om de procenten te ordenen van hoog nr laag
                 rankResults.sort((a,b) => b.procent - a.procent).map((result, key) => {
-                    console.log(result);
-                    return (
-                        <>
-                            <div key={key}>{result.regio + ": " + result.procent + "%"}
-                                <p>{result.title}</p>
-                            </div>
-                        </>
-                    )
-                    // if(result.title === "vraag 1"){
-                    //     let vraag1 = result.title;
-                    //     duplicates1.push(result);
-                    //     // // console.log(duplicates1);
-                    //     // return(
-                    //     //     {
-                    //     //         test(result.title);
-                    //     //     }
-                    //     // )
-                        
-                    // }else{
-                    //     duplicates2.push(result);
-                    //     // console.log(duplicates2);
-                    //     test("vraag 2");
-                       
+                    console.log(key);
+                    //deel 0 van array
+                    if(result.title === rankResults[0].title && answer === "Optie A" && result.procent === rankResults[0].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                <div key={key*1}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[0].title && answer === "Optie A" && result.procent === rankResults[1].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*2}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                    if(result.title !== rankResults[0].title && answer === "Optie A" && result.title === "vraag 2"){
+                        return (
+                            <>
+                                 <div key={key*3}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title !== rankResults[0].title && answer === "Optie B" && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*4}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[0].title && answer === "Optie B" && result.procent === rankResults[0].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*5}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[0].title && answer === "Optie B" && result.procent === rankResults[1].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*6}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                     //deel 1 van array
+                     if(result.title === rankResults[1].title && answer === "Optie A" && result.procent === rankResults[1].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                <div key={key*7}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[1].title && answer === "Optie A" && result.procent === rankResults[2].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*8}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                    if(result.title !== rankResults[1].title && answer === "Optie A" && result.title === "vraag 2"){
+                        return (
+                            <>
+                                 <div key={key*9}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title !== rankResults[1].title && answer === "Optie B" && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*10}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[1].title && answer === "Optie B" && result.procent === rankResults[1].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*11}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[1].title && answer === "Optie B" && result.procent === rankResults[2].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*12}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                     //deel 2 van array
+                     if(result.title === rankResults[2].title && answer === "Optie A" && result.procent === rankResults[2].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                <div key={key*13}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[2].title && answer === "Optie A" && result.procent === rankResults[0].procent && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*14}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                    if(result.title !== rankResults[2].title && answer === "Optie A" && result.title === "vraag 2"){
+                        return (
+                            <>
+                                 <div key={key*15}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title !== rankResults[2].title && answer === "Optie B" && result.title === "vraag 1"){
+                        return (
+                            <>
+                                 <div key={key*16}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[2].title && answer === "Optie B" && result.procent === rankResults[2].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*17}>{result.regio + ": " + result.procent + "%"}
+                                    <p>{result.title}</p>
+                                    <p>jij behoort tot deze stad!</p>
+                                    <img src={faon} alt="header foto evenement"/>
+                                    <p>FAON</p>
+                                    <p>Performance /.../ 16+ </p>
+                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                </div>
+                            </>
+                        )
+                    }
+                    if(result.title === rankResults[2].title && answer === "Optie B" && result.procent === rankResults[0].procent && result.title === "vraag 2"){
+                        return (
+                            <>
+                                <div key={key*18}>{result.regio + ": " + result.procent + "%"}
+                                     <p>{result.title}</p>
+                                 </div>
+                            </>
+                        )
+                    }
+
+                     // for (let i = 0; i < 2; i++) {
+                    //     if(result.title === rankResults[i].title && answer === "Optie A" && result.procent === rankResults[i].procent && result.title === "vraag 1"){
+                    //         return (
+                    //             <>
+                    //                 <div>{result.regio + ": " + result.procent + "%"}
+                    //                     <p>{result.title}</p>
+                    //                     <p>jij behoort tot deze stad!</p>
+                    //                     <img src={faon} alt="header foto evenement"/>
+                    //                     <p>FAON</p>
+                    //                     <p>Performance /.../ 16+ </p>
+                    //                     <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                    //                 </div>
+                    //             </>
+                    //         )
+                    //     }
+                    //     if(result.title === rankResults[i].title && answer === "Optie A" && result.procent === rankResults[i+1].procent && result.title === "vraag 1"){
+                    //         return (
+                    //             <>
+                    //                  <div key={key}>{result.regio + ": " + result.procent + "%"}
+                    //                      <p>{result.title}</p>
+                    //                  </div>
+                    //             </>
+                    //         )
+                    //     }
+    
+                    //     if(result.title !== rankResults[i].title && answer === "Optie A" && result.title === "vraag 2"){
+                    //         return (
+                    //             <>
+                    //                  <div key={key}>{result.regio + ": " + result.procent + "%"}
+                    //                      <p>{result.title}</p>
+                    //                  </div>
+                    //             </>
+                    //         )
+                    //     }
+                    //     if(result.title !== rankResults[i].title && answer === "Optie B" && result.title === "vraag 1"){
+                    //         return (
+                    //             <>
+                    //                  <div key={key}>{result.regio + ": " + result.procent + "%"}
+                    //                      <p>{result.title}</p>
+                    //                  </div>
+                    //             </>
+                    //         )
+                    //     }
+                    //     if(result.title === rankResults[i].title && answer === "Optie B" && result.procent === rankResults[i].procent && result.title === "vraag 2"){
+                    //         return (
+                    //             <>
+                    //                 <div>{result.regio + ": " + result.procent + "%"}
+                    //                     <p>{result.title}</p>
+                    //                     <p>jij behoort tot deze stad!</p>
+                    //                     <img src={faon} alt="header foto evenement"/>
+                    //                     <p>FAON</p>
+                    //                     <p>Performance /.../ 16+ </p>
+                    //                     <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                    //                 </div>
+                    //             </>
+                    //         )
+                    //     }
+                    //     if(result.title === rankResults[i].title && answer === "Optie B" && result.procent === rankResults[i+1].procent && result.title === "vraag 2"){
+                    //         return (
+                    //             <>
+                    //                 <div key={key}>{result.regio + ": " + result.procent + "%"}
+                    //                      <p>{result.title}</p>
+                    //                  </div>
+                    //             </>
+                    //         )
+                    //     }
                     // }
                 })
             }
