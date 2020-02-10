@@ -5,17 +5,16 @@ import { useHistory } from "react-router-dom";
 
 const Profile = ({uiStore, databaseStore}) => {
   let history = useHistory();
-  let currentInfo = useRef(`info`);
   const [status, setStatus] = useState(false);
-  // const [edit, setEdit] = useState(false);
-  const [edit, setEdit] = useState(true);
+  const [edit, setEdit] = useState(false);
   const [username, setUsername] = useState("");
+  const [photo, setPhoto] = useState("");
   const [city, setCity] = useState("");
   const [regio, setRegio] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [language, setLanguage] = useState("");
-  const [bio, setBio] = useState("");
+  const [bio, setBio] = useState("Voeg een bio toe");
 
   const handleLogout = () => {
     uiStore.logout();
@@ -32,21 +31,22 @@ const Profile = ({uiStore, databaseStore}) => {
       username: username, city: city, regio: regio, age: age, gender: gender, language: language, bio: bio
     }
     console.log(props);
-    // databaseStore.updateUser(props);
+    databaseStore.updateUser(props);
     setEdit(false);
   }
 
   useEffect(() => {
     const getInfo = async () => {
-      currentInfo.current = await databaseStore.getRegio(localStorage.uid);
+      let info = await databaseStore.getRegio(localStorage.uid);
       setStatus(true);
-      setUsername(currentInfo.current.Username);
-      setCity(currentInfo.current.City);
-      setRegio(currentInfo.current.Regio);
-      setAge(currentInfo.current.Age);
-      setGender(currentInfo.current.Gender);
-      setLanguage(currentInfo.current.Language);
-      setBio(currentInfo.current.Bio);
+      setUsername(info.Username);
+      setPhoto(info.Photo);
+      setCity(info.City);
+      setRegio(info.Regio);
+      setAge(info.Age);
+      setGender(info.Gender);
+      setLanguage(info.Language);
+      setBio(info.Bio);
     }
     console.log("test");
     getInfo();
@@ -65,21 +65,21 @@ const Profile = ({uiStore, databaseStore}) => {
               </div>
               <div>
                 <label htmlFor="city">Stad</label>
-                <input type="text" name="city" defaultValue={city} onChange={e => setCity(e.currentTarget.value)} />
+                <input type="text" name="city" defaultValue={city !== "" ? city : " "} onChange={e => setCity(e.currentTarget.value)} />
               </div>
               <div>
                 <p>Regio {regio}</p>
                 <label htmlFor="">
                   <span>Wallonië</span>
-                  {regio === "WL" ? <input type="radio" name="regio" value="Wallonië" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="Wallonië" onClick={e => setRegio(e.currentTarget.value)} />}
+                  {regio === "WL" ? <input type="radio" name="regio" value="WL" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="WL" onClick={e => setRegio(e.currentTarget.value)} />}
                 </label>
                 <label htmlFor="">
                   Vlaanderen
-                  {regio === "VL" ? <input type="radio" name="regio" value="Vlaanderen" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="Vlaanderen" onClick={e => setRegio(e.currentTarget.value)} />}
+                  {regio === "VL" ? <input type="radio" name="regio" value="VL" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="VL" onClick={e => setRegio(e.currentTarget.value)} />}
                 </label>
                 <label htmlFor="">
                   Frankrijk
-                  {regio === "FR" ? <input type="radio" name="regio" value="Frankrijk" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="Frankrijk" onClick={e => setRegio(e.currentTarget.value)} />}
+                  {regio === "FR" ? <input type="radio" name="regio" value="FR" defaultChecked onClick={e => setRegio(e.currentTarget.value)} /> : <input type="radio" name="regio" value="FR" onClick={e => setRegio(e.currentTarget.value)} />}
                 </label>
                 <label htmlFor="">
                   Ander
@@ -87,8 +87,8 @@ const Profile = ({uiStore, databaseStore}) => {
                 </label>
               </div>
               <div>
-                <label htmlFor="age">Leeftijd {age}</label>
-                <input type="number" name="age" onChange={e => setAge(e.currentTarget.value)} />
+                <label htmlFor="age">Leeftijd</label>
+                <input type="number" name="age" defaultValue={age !== "" ? age : " "} onChange={e => setAge(e.currentTarget.value)} />
               </div>
               <div>
                 <p>Geslacht {gender}</p>
@@ -103,6 +103,10 @@ const Profile = ({uiStore, databaseStore}) => {
                 <label htmlFor="">
                   X
                   {gender === "X" ? <input type="radio" name="gender" value="X" defaultChecked onClick={e => setGender(e.currentTarget.value)} /> : <input type="radio" name="gender" value="X" onClick={e => setGender(e.currentTarget.value)} />}
+                </label>
+                <label htmlFor="" >
+                  Zeg ik liever niet
+                  {gender === "geen" ? <input type="radio" name="gender" value="geen" defaultChecked onClick={e => setGender(e.currentTarget.value)} /> : <input type="radio" name="gender" value="geen" onClick={e => setGender(e.currentTarget.value)} />}
                 </label>
               </div>
               <div>
@@ -123,7 +127,7 @@ const Profile = ({uiStore, databaseStore}) => {
               </div>
               <div>
                 <label htmlFor="bio">Bio</label>
-                <textarea name="bio" id="bio" cols="50" rows="5" value={bio} onChange={e => setBio(e.currentTarget.value)}></textarea>
+                <textarea name="bio" id="bio" cols="50" rows="5" defaultValue={bio !== "" ? bio : " "} onChange={e => setBio(e.currentTarget.value)}></textarea>
               </div>
               <button type="submit">Opslaan</button>
             </form>
@@ -136,29 +140,28 @@ const Profile = ({uiStore, databaseStore}) => {
       }
     } else {
       if(status){
-        let info = currentInfo.current;
         return (
           <>
             <button onClick={() => handleClickEdit()}>Edit</button>
             <h1>Profile</h1>
-            <h2>{info.Username}</h2>
-            <p>{info.City} - {info.Regio}</p>
-            <img src={info.Photo} alt="profielfoto" />
+            <h2>{username}</h2>
+            <p>{city} - {regio}</p>
+            <img src={photo} alt="profielfoto" />
             <div>
-              <p>{info.Age}</p>
+              <p>{age}</p>
               <p>Leeftijd</p>
             </div>
             <div>
-              <p>{info.Gender}</p>
+              <p>{gender}</p>
               <p>Geslacht</p>
             </div>
             <div>
-              <p>{info.Language}</p>
+              <p>{language}</p>
               <p>Taal</p>
             </div>
             <div>
               <h3>Over</h3>
-              <p>{info.Bio}</p>
+              <p>{bio}</p>
             </div>
             <div>
               <h3>Gedane uitdagingen</h3>
