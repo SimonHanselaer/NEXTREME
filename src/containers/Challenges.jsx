@@ -17,6 +17,7 @@ const Challenges = ({databaseStore}) => {
       let challengesUser = await databaseStore.getChallengesUser(localStorage.uid);
       setChallenges(challengesUser);
     }
+    console.log('test');
   
     getMatches();
     getChallenges();

@@ -67,13 +67,14 @@ const Challenge3 = ({databaseStore}) => {
       let resultProcentB = await databaseStore.getResultProcentB(props);
       setProcentB(resultProcentB);
     }
+    console.log('test');
 
     getResultProcentA();
     getResultProcentB();
     getResults();
     getRegio();
     getQuestions();
-  }, [databaseStore, grens, id, results]);
+  }, [databaseStore, grens, id]);
 
   const handleCompletedChallenge = (e) => {
     //antwoord + regio user 
