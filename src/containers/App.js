@@ -26,19 +26,6 @@ import Challenge4Info from "../components/Challenge4Info";
 
 class App extends Component {
 
-  // componentWillMount(){
-
-  //   this.unlisten = this.props.history.listen((location, action) => {
-  //     console.log(location);
-  //     console.log('You changed the page to: ' + location.pathname)
-  //   });
-  // }
-
-  // componentWillUnmount(){
-  //   this.unlisten();
-  // }
-
-
   render() {
     
     return (

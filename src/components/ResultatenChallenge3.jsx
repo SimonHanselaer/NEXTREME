@@ -30,6 +30,7 @@ const ResultatenChallenge3 = (props) => {
              {
                 results ? (
                     Object.keys(results).map(key => {
+                        console.log(key);
                         let resultA = results[key].antwoorden.optieA.procent;
                         let resultB = results[key].antwoorden.optieB.procent;
                         if(resultA > resultB){
