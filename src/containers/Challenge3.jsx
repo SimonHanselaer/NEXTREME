@@ -1,13 +1,20 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import Resultaten from "../components/ResultatenChallenge3";
 
-const Challenge3 = ({databaseStore, dataStore}) => {
+import main from "../assets/img/challenge3/main.png";
+
+const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
+
+  console.log(grens);
+
+  let totalProcentA;
+  let totalProcentB;
 
   let history = useHistory();
 
@@ -16,8 +23,11 @@ const Challenge3 = ({databaseStore, dataStore}) => {
 
   const [challenge, setChallenge] = useState("");
   const [regio, setRegio] = useState("");
-
+  const [results, setResults] = useState("");
   const [answer, setAnswer] = useState("");
+  //
+  const [procentA, setProcentA] = useState("");
+  const [procentB, setProcentB] = useState("");
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -37,23 +47,63 @@ const Challenge3 = ({databaseStore, dataStore}) => {
       setRegio(regio);
     }
 
+    const getResults = async () => {
+      let results = await databaseStore.getResults();
+      setResults(results);
+    }
+
+    const getResultProcentA = async () => {
+      const props = {
+        regio: regio.Regio
+      }
+      let resultProcentA = await databaseStore.getResultProcentA(props);
+      setProcentA(resultProcentA);
+    }
+
+    const getResultProcentB = async () => {
+      const props = {
+        regio: regio.Regio
+      }
+      let resultProcentB = await databaseStore.getResultProcentB(props);
+      setProcentB(resultProcentB);
+    }
+    console.log('test');
+
+    getResultProcentA();
+    getResultProcentB();
+    getResults();
     getRegio();
     getQuestions();
   }, [databaseStore, grens, id]);
 
   const handleCompletedChallenge = (e) => {
-    //antwoord + regio user meegeven
-   console.log(e);
-   console.log(regio.Regio);
-   //TODO
-   //data in realtime db steken
+    //antwoord + regio user 
+    console.log(e);
+    console.log(regio.Regio);
+    //data in db steken
+    if(e === "Optie A"){  
+      totalProcentA = Number(procentA.procent) + 10;
+      const props = {
+        regio: regio.Regio,
+        answer: totalProcentA
+      }
+      databaseStore.newResultA(props);
+    }else{
+      totalProcentB = Number(procentB.procent) + 10;
+      const props = {
+        regio: regio.Regio,
+        answer: totalProcentB
+      }
+      databaseStore.newResultB(props);
+    }
+    
   }
-
 
   if (!status && count > 0) {
     return (
       <>
         <h1>Leer over je medemens.</h1>
+        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
         <button onClick={() => setStatus(true)}>Start</button>
       </>
@@ -80,13 +130,8 @@ const Challenge3 = ({databaseStore, dataStore}) => {
         );
       case 2:
         return (
-          <>
-            <h1>Resultaten</h1>
-            <p>{regio.Regio}</p>
-            <p>{answer}</p>
-            {/* TODO
-              Data uit realtime db halen
-            */}
+          <> 
+            <Resultaten regio={regio.Regio} answer={answer}  databaseStore={databaseStore}/>
           </>
         );
       default:
@@ -95,4 +140,4 @@ const Challenge3 = ({databaseStore, dataStore}) => {
   }
 };
 
-export default inject(`databaseStore`, `dataStore`)(withAuthentication(observer(Challenge3)));
+export default inject(`databaseStore`)(withAuthentication(observer(Challenge3)));

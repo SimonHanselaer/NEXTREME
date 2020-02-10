@@ -217,6 +217,44 @@ export default {
         return challenges
     },
 
+    async getResults() {
+        let results = await dbRealTime.ref('/result/').orderByChild('antwoorden/optieA/procent').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return results;
+    },
+
+    async getResultProcentA(props) {
+        let resultProcentsA = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieA/').orderByChild('procent').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return resultProcentsA;
+    },
+
+    async getResultProcentB(props) {
+        let resultProcentsB = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieB/').orderByChild('procent').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return resultProcentsB;
+    },
+
+    async newResultA(props) {
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieA/').update({
+            title: "vraag 1",
+            procent: props.answer
+        })
+    },
+
+    async newResultB(props) {
+        dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieB/').update({
+            title: "vraag 2",
+            procent: props.answer
+        })
+    },
+
     async removeRoom(props) {
         dbRealTime.ref('/users/' + props.user1 + '/contacts/' + props.user2).remove();
         dbRealTime.ref('/users/' + props.user2 + '/contacts/' + props.user1).remove();

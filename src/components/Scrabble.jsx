@@ -25,7 +25,7 @@ const Scrabble = (props) => {
                 return .5 - Math.random();
             }).toString().replace(/,/g,''));
         }
-        
+        console.log('test');
         scrabbleWord();
     }, [challenge.woord]);
     

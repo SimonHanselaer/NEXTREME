@@ -19,7 +19,7 @@ const Chat = ({databaseStore}) => {
             let messages = await databaseStore.getMessages(id);
             setMessages(messages);
         }
-
+        console.log('test');
         getMessages();
     }, [databaseStore, id, messages]);
 

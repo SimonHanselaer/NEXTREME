@@ -79,9 +79,35 @@ class DatabaseStore {
         const userInfo = await FirestoreRepository.getUserInfo(prop);
         return userInfo;
     }
-    
+
     removeRoom = props => {
         RealTimeRepository.removeRoom(props);
+    }
+
+    getResults = (prop) => {
+        const results = RealTimeRepository.getResults(prop);
+        return results;
+    }
+
+    getResultProcentA = (prop) => {
+        const resultProcentA = RealTimeRepository.getResultProcentA(prop);
+        return resultProcentA;
+    }
+
+    getResultProcentB = (prop) => {
+        const resultProcentB = RealTimeRepository.getResultProcentB(prop);
+        return resultProcentB;
+    }
+
+    newResultA = props => {
+        RealTimeRepository.newResultA(props);
+    }
+    newResultB = props => {
+        RealTimeRepository.newResultB(props);
+    }
+    getInfo = async props => {
+        const info = await FirestoreRepository.getInfo(props);
+        return info;
     }
 }
 

@@ -47,6 +47,7 @@ const Room = ({databaseStore, dataStore}) => {
                     setUser("user2")
                 }
         }
+        console.log('test');
 
         getRoom();
     }, [databaseStore, url, id]);

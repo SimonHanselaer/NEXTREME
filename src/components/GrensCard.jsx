@@ -7,8 +7,27 @@ const GrensCard = (props, {dataStore}) => {
     let history = useHistory();
 
     const selectChallenge = () => {
-        const challenge = Math.ceil(Math.random() * 4);
-        const challengeNumber = Math.ceil(Math.random() * 3);
+        //geen taal bij challenge 4
+        //altijd beginnen bij 1 bij challenge 2
+
+        //TODO: challenge 1: checken nog niet geaccepteerd of gebruiken we dit gewoon als een reminder dan?
+        //TODO: challenge 3: kijken dat de vraag nog niet ingevuld is door de gebruiker
+        
+        let challenge;
+        let challengeNumber;
+
+        if (name !== "Taal") {
+            challenge = Math.ceil(Math.random() * 4);
+        } else {
+            challenge = Math.ceil(Math.random() * 3);
+        }
+
+        if (challenge !== 2) {
+            challengeNumber = Math.ceil(Math.random() * 3);
+        } else {
+            challengeNumber = 1;
+        }
+        
         history.push("/challenge" + challenge + "/" + name + "/" + challengeNumber);
     }
 
