@@ -7,8 +7,12 @@ export default {
 
         addNewUser.get().then(docSnapshot => {
             if (!docSnapshot.exists) {
-                addNewUser.set({Username: props.username});   
+                addNewUser.set({Username: props.username, Photo: props.photo});   
             }});
+    },
+
+    async updateUser(props) {
+        db.collection("users").doc(localStorage.uid).update({ Username: props.username, City: props.city, Regio: props.regio, Age: props.age, Gender: props.gender, Language: props.language, Bio: props.bio });   
     },
 
     async selectLanguage(prop) {
@@ -18,6 +22,8 @@ export default {
     async selectRegio(prop) {
         db.collection("users").doc(localStorage.uid).update({Regio: prop});
     },
+
+    // update user props => 
 
     async getChallenge(props) {
         const challenge = await db.collection("Challenges").doc("Challenge" + props.challenge).collection(props.grens + "grens").doc(props.id).get().then(doc => {

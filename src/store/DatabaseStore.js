@@ -12,6 +12,11 @@ class DatabaseStore {
         RealTimeRepository.addNewUser(props);
     }
 
+    updateUser = props => {
+        FirestoreRepository.updateUser(props);
+        // RealTimeRepository.updateUser(props);
+    }
+
     selectLanguage = prop => {
         FirestoreRepository.selectLanguage(prop);
     }

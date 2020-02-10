@@ -36,8 +36,11 @@ const Login = ({ databaseStore, uiStore }) => {
 
     const handleSocialLogin = (provider) => {
         firebase.auth().signInWithPopup(provider).then(user => {
+          console.log(user);
+          console.log(user.user.photoURL);
 
           let props = {
+            photo: user.user.photoURL,
             username: user.user.displayName,
             uid: user.user.uid
           }
