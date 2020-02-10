@@ -61,13 +61,19 @@ const Login = ({ databaseStore, uiStore }) => {
 
   return (
     <>
-      <h1>Login</h1>
-      <button onClick={loginGoogle}>Google</button>
-      <button onClick={loginFacebook}>Facebook</button>
+      <h1 className="header-1">Login</h1>
+      <button className="button-3" onClick={loginGoogle}>
+        <span>Google</span> 
+      </button>
+      <button className="button-3" onClick={loginFacebook}>
+        <span>Facebook</span>
+      </button>
       <NavLink to="/loginemail">
-        <button>E-mail</button>
+        <button className="button-3">
+          <span>E-mail</span> 
+        </button>
       </NavLink>
-      <p onClick={loginAnon}>Skip</p>
+      <p className="button-2" onClick={loginAnon}>Skip</p>
     </>
   );
 };

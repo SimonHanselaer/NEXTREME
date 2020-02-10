@@ -1,6 +1,6 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 
 import Phaser from "phaser";
 
@@ -28,6 +28,10 @@ const Challenge4Kortrijk = (props) => {
     }
 
     const game = new Phaser.Game(config);
+
+    history.listen((location, action) => {
+      game.destroy(true);
+    });
 
     function init() {
       this.screenWidth = this.sys.game.config.width;
@@ -144,4 +148,4 @@ const Challenge4Kortrijk = (props) => {
     )
 }
 
-export default inject(`databaseStore`)(observer(Challenge4Kortrijk));
+export default withRouter(inject(`databaseStore`)(observer(Challenge4Kortrijk)));

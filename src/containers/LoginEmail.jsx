@@ -25,10 +25,10 @@ const LoginEmail = ({ uiStore }) => {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 className="header-1">Login</h1>
       <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
-          <input type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
+          <input className="formInput" type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
+          <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
           <button type="submit">Log in</button>
       </form>
       <NavLink to="/register">

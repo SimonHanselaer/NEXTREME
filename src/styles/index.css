@@ -1,5 +1,7 @@
 @import "./reset.css";
 @import "./colors.module.css";
+@import "./typo.module.css";
+@import "./ui.module.css";
 
 html {
   font-size: 62.5%;
@@ -27,8 +29,8 @@ html {
  
 }
 
-.test{
-  background-color: var(--gradient);
+button:focus {
+  outline: 0;
 }
 
 .visually-hidden {
