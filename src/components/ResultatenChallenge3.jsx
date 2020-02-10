@@ -22,7 +22,7 @@ const ResultatenChallenge3 = (props) => {
         console.log('test');
 
         getResults();
-    }, [databaseStore, results]);
+    }, [databaseStore]);
 
     return (
         <>
