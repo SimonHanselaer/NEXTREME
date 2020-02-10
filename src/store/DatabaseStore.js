@@ -89,22 +89,23 @@ class DatabaseStore {
         return results;
     }
 
-    getResultProcentA = (prop) => {
-        const resultProcentA = RealTimeRepository.getResultProcentA(prop);
-        return resultProcentA;
-    }
-
-    getResultProcentB = (prop) => {
-        const resultProcentB = RealTimeRepository.getResultProcentB(prop);
-        return resultProcentB;
-    }
-
     newResultA = props => {
         RealTimeRepository.newResultA(props);
     }
     newResultB = props => {
         RealTimeRepository.newResultB(props);
     }
+
+    getResultProcentA = (prop) => {
+        const resultsProcentA = RealTimeRepository.getResultsProcentA(prop);
+        return resultsProcentA;
+    }
+
+    getResultProcentB = (prop) => {
+        const resultsProcentB = RealTimeRepository.getResultsProcentB(prop);
+        return resultsProcentB;
+    }
+
     getInfo = async props => {
         const info = await FirestoreRepository.getInfo(props);
         return info;

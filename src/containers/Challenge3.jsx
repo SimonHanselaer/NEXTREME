@@ -49,55 +49,81 @@ const Challenge3 = ({databaseStore}) => {
 
     const getResults = async () => {
       let results = await databaseStore.getResults();
+      // console.log(results);
       setResults(results);
     }
 
-    const getResultProcentA = async () => {
-      const props = {
-        regio: regio.Regio
-      }
-      let resultProcentA = await databaseStore.getResultProcentA(props);
-      setProcentA(resultProcentA);
-    }
-
-    const getResultProcentB = async () => {
-      const props = {
-        regio: regio.Regio
-      }
-      let resultProcentB = await databaseStore.getResultProcentB(props);
-      setProcentB(resultProcentB);
-    }
     console.log('test');
-
-    getResultProcentA();
-    getResultProcentB();
-    getResults();
+    //
     getRegio();
+    //
+    getResults();
+    //
     getQuestions();
   }, [databaseStore, grens, id]);
+ 
 
-  const handleCompletedChallenge = (e) => {
+  //mag niet in useEffect want daar is regio niet gekent
+  const getResultProcentA = async () => {
+    // console.log(regio.Regio);
+    const props = {
+      regio: regio.Regio
+    }
+    let resultProcentA = await databaseStore.getResultProcentA(props);
+    console.log(resultProcentA.procent);
+    let procent0A = resultProcentA.procent;
+    // console.log(procent0A);
+    setProcentA(procent0A);
+  }
+
+  const getResultProcentB = async () => {
+    const props = {
+      regio: regio.Regio
+    }
+    let resultProcentB = await databaseStore.getResultProcentB(props);
+    // console.log(resultProcentB);
+    let procent0B = resultProcentB.procent;
+    // console.log(procent0B);
+    setProcentB(procent0B);
+  }
+
+  const preloader = async (e)=>{
+    console.log("preloading");
+    await getResultProcentA();
+    console.log(procentA);
+    await getResultProcentB();
+    console.log(procentB);
+    console.log("preloaded");
+  }
+
+  const handleCompletedChallenge = async (e) => {
     //antwoord + regio user 
-    console.log(e);
-    console.log(regio.Regio);
+      // console.log(e);
+      // console.log(regio.Regio);
+      // console.log(procentA);
+      // console.log(procentB);
+    
     //data in db steken
     if(e === "Optie A"){  
-      totalProcentA = Number(procentA.procent) + 10;
+      //bestaand procent + 10 doen
+      totalProcentA = await Number(procentA) + 10;
+      console.log(totalProcentA);
       const props = {
         regio: regio.Regio,
         answer: totalProcentA
       }
       databaseStore.newResultA(props);
     }else{
-      totalProcentB = Number(procentB.procent) + 10;
+      totalProcentB = await Number(procentB) + 10;
+      console.log(totalProcentB);
       const props = {
         regio: regio.Regio,
         answer: totalProcentB
       }
       databaseStore.newResultB(props);
     }
-    
   }
+  
 
   if (!status && count > 0) {
     return (
@@ -111,6 +137,7 @@ const Challenge3 = ({databaseStore}) => {
   } else {
     switch (count) {
       case 1:
+      preloader();
         return (
           <>
             <h1>{challenge.Naam}</h1>

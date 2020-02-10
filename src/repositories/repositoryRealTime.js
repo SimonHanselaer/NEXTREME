@@ -218,27 +218,11 @@ export default {
     },
 
     async getResults() {
-        let results = await dbRealTime.ref('/result/').orderByChild('antwoorden/optieA/procent').once('value').then(snapshot => {
+        let results = await dbRealTime.ref('/result/').once('value').then(snapshot => {
             return snapshot.val()
         })
 
         return results;
-    },
-
-    async getResultProcentA(props) {
-        let resultProcentsA = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieA/').orderByChild('procent').once('value').then(snapshot => {
-            return snapshot.val()
-        })
-
-        return resultProcentsA;
-    },
-
-    async getResultProcentB(props) {
-        let resultProcentsB = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieB/').orderByChild('procent').once('value').then(snapshot => {
-            return snapshot.val()
-        })
-
-        return resultProcentsB;
     },
 
     async newResultA(props) {
@@ -253,6 +237,22 @@ export default {
             title: "vraag 2",
             procent: props.answer
         })
+    },
+
+    async getResultsProcentA(props) {
+        let resultProcentsA = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieA').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return resultProcentsA;
+    },
+
+    async getResultsProcentB(props) {
+        let resultProcentsB = await dbRealTime.ref('/result/' + props.regio + '/antwoorden/optieB').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return resultProcentsB;
     },
 
     async removeRoom(props) {
