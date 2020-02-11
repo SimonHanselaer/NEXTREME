@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 // import faon from "../assets/img/challenge3/faon.png"; 
 import faon from "../assets/img/faon.png";
+import arrow from "../assets/img/icons/arrowLeft.svg";
 import styles from "./ResultatenChallenge3.module.css";
 
 const ResultatenChallenge3 = (props) => {
@@ -97,7 +98,9 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className="header-1">FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon"> 
+                                                        <img className={styles.arrow} src={arrow} alt="een pijl"/>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </article>
@@ -146,19 +149,27 @@ const ResultatenChallenge3 = (props) => {
                             if(highest === result.procent && answer === "Optie B"){
                                 return (
                                     <>
-                                        <article key={key}>
-                                            <div className={styles.result}>
+                                        <article key={key} className={styles.jijBehoort}>
+                                            <div className={styles.jijBehoortResult}>
                                                 <div>
                                                     <h2 className="header-1">{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
                                             </div>
-                                            <p>jij behoort tot deze stad!</p>
-                                            <img width="56px" height="56px" src={faon} alt="header foto evenement"/>
-                                            <p>FAON</p>
-                                            <p>Performance /.../ 16+ </p>
-                                            <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
+                                            <div className={styles.jijBehoortInfo}>
+                                                <p className={styles.jijBehoortTekst}>jij behoort tot deze stad!</p>
+                                                <div className={styles.jijBehoortExtra}>
+                                                    <img width="56px" height="56px" src={faon} alt="header foto evenement"/>
+                                                    <div>
+                                                        <p className="header-1">FAON</p>
+                                                        <p>Performance /.../ 16+ </p>
+                                                    </div>
+                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon"> 
+                                                        <img className={styles.arrow} src={arrow} alt="een pijl"/>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </article>
                                     </>
                                 )

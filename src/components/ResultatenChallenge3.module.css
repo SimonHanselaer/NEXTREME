@@ -49,3 +49,7 @@
   .jijBehoortTekst {
     padding-bottom: 1.6rem;
   }
+
+  .arrow {
+    transform: rotate(180deg);
+  }
