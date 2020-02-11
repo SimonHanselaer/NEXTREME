@@ -59,11 +59,9 @@ class App extends Component {
             <Challenge1 />
           </Route>
           <Route path="/challenge2/:grens/:id" exact strict>
-            <Tabbar />
             <Challenge2 />
           </Route>
           <Route path="/challenge3/:grens/:id" exact strict>
-            <Tabbar />
             <Challenge3 />
           </Route>
           <Route path="/challenge4/:grens/:id" exact strict>

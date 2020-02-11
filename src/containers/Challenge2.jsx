@@ -3,6 +3,17 @@ import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useParams } from "react-router-dom";
 
+// https://www.npmjs.com/package/react-sweet-progress
+import { Progress } from "react-sweet-progress";
+import "react-sweet-progress/lib/style.css";
+import Tabbar from "../components/Tabbar";
+import main from "../assets/img/template2Match.png";
+import bizar from "../assets/img/template2RareDingen.png";
+import avond from "../assets/img/template2VrijeTijd.png";
+import eten from "../assets/img/template2Eten.png";
+import cubas from "../assets/img/tamaraCubas.png";
+import styles from "./Challenge2.module.css";
+
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -86,7 +97,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
     return (
       <>
         <h1 className="visually-hidden">{challenge.naam}</h1>
-        <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
+        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+        <div className="card">
+          <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
+          <p className="shortLine"></p>
+        </div>
         <button className="button-1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
@@ -95,52 +110,87 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       case 1:
         return (
           <>
-            <h1 className="header-1">{challenge.vraag1.vraag}</h1>
-            <button className="button-4">
-              <span onClick={e => {
-              setCount(count + 1);
-              setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord1}</span>
+            <img src={bizar} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+            <h1 className={styles.vraag}>{challenge.vraag1.vraag}</h1>
+            <div className="flexColumn">
+              <button className="button-4">
+                <span onClick={e => {
+                setCount(count + 1);
+                setAnswer1(e.currentTarget.innerHTML);
+                }}>{challenge.vraag1.antwoord1}</span>
               </button>
-            <button className="button-4">
-              <span onClick={e => {
-              setCount(count + 1);
-              setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord2}</span></button>
+              <p className={styles.longLine}></p>
+              <button className="button-4">
+                <span onClick={e => {
+                setCount(count + 1);
+                setAnswer1(e.currentTarget.innerHTML);
+                }}>{challenge.vraag1.antwoord2}</span>
+              </button>
+              <Progress className={styles.procesbar} percent={33.33} theme={{
+                  active: {
+                    symbol: "1/3",
+                    color: '#FF986F'
+                  }
+                }} />
+            </div>
           </>
         );
 
         case 2:
         return (
           <>
-            <h1 className="header-1">{challenge.vraag2.vraag}</h1>
-            <button className="button-4">
-              <span onClick={e => {
-              setAnswer2(e.currentTarget.innerHTML);
-              setCount(count + 1);
-              }}>{challenge.vraag2.antwoord1}</span></button>
-            <button className="button-4">
-              <span onClick={e => {
-              setAnswer2(e.currentTarget.innerHTML);
-              setCount(count + 1);
-              }}>{challenge.vraag2.antwoord2}</span></button>
+            <img src={avond} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+            <h1 className={styles.vraag}>{challenge.vraag2.vraag}</h1>
+            <div className="flexColumn">
+              <button className="button-4">
+                <span onClick={e => {
+                setAnswer2(e.currentTarget.innerHTML);
+                setCount(count + 1);
+                }}>{challenge.vraag2.antwoord1}</span>
+              </button>
+              <p className={styles.longLine}></p>
+              <button className="button-4">
+                <span onClick={e => {
+                setAnswer2(e.currentTarget.innerHTML);
+                setCount(count + 1);
+                }}>{challenge.vraag2.antwoord2}</span>
+              </button>
+            </div>
+            <Progress className={styles.procesbar} percent={66.66} theme={{
+                  active: {
+                    symbol: "2/3",
+                    color: '#FF986F'
+                  }
+                }} />
           </>
         );
 
         case 3:
         return (
           <>
-            <h1 className="header-1">{challenge.vraag3.vraag}</h1>
-            <button className="button-4">
-              <span onClick={e => {
-              setAnswer3(e.currentTarget.innerHTML)
-              setCount(count + 1);
-              }}>{challenge.vraag3.antwoord1}</span></button>
-            <button className="button-4">
-              <span onClick={e => {
-              setAnswer3(e.currentTarget.innerHTML);
-              setCount(count + 1);
-              }}>{challenge.vraag3.antwoord2}</span></button>
+            <img src={eten} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+            <h1 className={styles.vraag}>{challenge.vraag3.vraag}</h1>
+            <div  className="flexColumn">
+              <button className="button-4">
+                <span onClick={e => {
+                setAnswer3(e.currentTarget.innerHTML)
+                setCount(count + 1);
+                }}>{challenge.vraag3.antwoord1}</span>
+              </button>
+              <p className={styles.longLine}></p>
+              <button className="button-4">
+                <span onClick={e => {
+                setAnswer3(e.currentTarget.innerHTML);
+                setCount(count + 1);
+                }}>{challenge.vraag3.antwoord2}</span>
+              </button>
+            </div>
+            <Progress className={styles.procesbar} percent={99.99} strokeWidth={3} theme={{
+                  active: {
+                    symbol: "3/3",
+                    color: '#FF986F'
+                  }
+                }} />
           </>
         );
         
@@ -149,16 +199,24 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           return (
             <>
             <h1 className="header-1">Even wachten...</h1>
-            <p>op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
-            <article className="card">
+            <div className={styles.tekst} >
+              <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
+              <p className="shortLine"></p>
               <h2 className="header-1">Terwijl je wacht...</h2>
-              <p>Misschien interesseert deze voorstelling je.</p>
-              <p className="accent">Multitud</p>
-              <p className="small">Tamara Cubas</p>
-              <p className="small">In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
-              <a className="small" href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
+              <p className="small">Misschien interesseert deze voorstelling je.</p>
+            </div>
+            <article className="card">
+              <div className="flexRow">
+                <img className={styles.miniInfoFoto} width="56px" height="56px" src={cubas} alt="header foto evenement"/>
+                <div>
+                  <p className="accent">Multitud</p>
+                  <p className="small">Tamara Cubas</p>
+                </div>  
+              </div>
+              <p className={styles.miniInfoTekst}>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
+              <a className={styles.miniInfoTekstDetail} href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
             </article>
-            
+            <Tabbar />
             </>
           )
     

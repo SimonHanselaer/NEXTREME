@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useParams, useHistory } from "react-router-dom";
-
+import Tabbar from "../components/Tabbar";
 import Resultaten from "../components/ResultatenChallenge3";
 
 // import main from "../assets/img/challenge3/main.png";
@@ -169,6 +169,7 @@ const Challenge3 = ({databaseStore}) => {
         return (
           <> 
             <Resultaten regio={regio.Regio} answer={answer}  databaseStore={databaseStore}/>
+            <Tabbar />
           </>
         );
       default:

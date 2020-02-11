@@ -98,7 +98,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className="header-1">FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon"> 
+                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
@@ -165,7 +165,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className="header-1">FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon"> 
+                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
