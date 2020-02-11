@@ -1,12 +1,7 @@
 /* Buttons ------------------------------------------------------------------------------------------------------------------------------------------ */
-
 .button-1,
 .button-3,
 .button-4 {
-  background-color: linear-gradient(to right, #ffc371, #ff5f6d);
-  color: var(--offWhite-color);
-  border-radius: 2rem;
-
   padding: 0.8rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -14,12 +9,24 @@
   margin: 1.6rem;
 
   text-align: center;
+
+  height: 4rem;
+  min-width: 28.8rem;
+}
+
+.button-1 {
+  background-image: linear-gradient(to right, #ffc371, #ff5f6d);
+  color: var(--offWhite-color);
+  border-radius: 2rem;
+  border: none;
 }
 
 .button-2 {
   text-decoration: underline;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
+
+  border: none;
 }
 
 .button-3 {
@@ -57,9 +64,13 @@
 
 .button-4 {
   background-color: var(--transparentOrange-color);
-  border-color: linear-gradient(to right, #ffc371, #ff5f6d);
+  /* border-color: linear-gradient(to right, #ffc371, #ff5f6d); */
 
   color: var(--offBlack-color);
+}
+
+.noButton {
+  border: none;
 }
 
 /* Form input --------------------------------------------------------------------------------------------------------------------------------------- */
@@ -100,9 +111,15 @@
 }
 
 /* Cards ---------------------------------------------------------------------------------------------------------------------------------------------- */
-.card {
+.card, .cardStap {
   background-color: white;
-  border-radius: 10rem;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
+
+  margin: 1.6rem;
+}
+
+.cardStap {
+  width: 27.2rem;
 }

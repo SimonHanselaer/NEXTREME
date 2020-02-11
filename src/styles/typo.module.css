@@ -1,4 +1,4 @@
-body {
+body, .button-2, .noButton, .button-1 {
     font-family: Muli, sans serif;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -6,8 +6,13 @@ body {
     color: var(--offBlack-color);
 }
 
-.header-1 {
+.header-1, .button-1, .accent {
     font-weight: bold;
+}
+
+.header-2 {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
 }
 
 .small {
@@ -24,4 +29,8 @@ body {
     font-family: Muli, sans serif;
     font-size: 1.6rem;
     line-height: 2.4rem;
+}
+
+.accent {
+    color: var(--orange-color);
 }

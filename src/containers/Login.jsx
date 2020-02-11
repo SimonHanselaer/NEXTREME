@@ -21,6 +21,7 @@ const Login = ({ databaseStore, uiStore }) => {
       firebase.auth().signInAnonymously().then(user => {
         
         let props = {
+          photo: "https://upload.wikimedia.org/wikipedia/commons/7/7c/User_font_awesome.svg",
           username: "anon#" + user.user.uid.slice(-5),
           uid: user.user.uid
         }

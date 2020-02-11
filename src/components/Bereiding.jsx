@@ -7,8 +7,9 @@ const Bereiding = props => {
         <ul>
             {
                 Object.entries(stappen).map(([key, val]) => {
-                    return <li key={key}>
-                        <p>Stap {key}: {val}</p>
+                    return <li key={key} className="cardStap">
+                        <h3 className="header-1">Stap {key}:</h3>
+                        <p>{val}</p>
                     </li>
             }
             )

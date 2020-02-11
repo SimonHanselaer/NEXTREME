@@ -9,17 +9,17 @@ const Navigation = () => {
           <ul>
             <li>
               <NavLink to="/">
-              Home
+              <span className="detail">Home</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/challenges">
-              Challenges
+              <span className="detail">Challenges</span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/profile">
-              Profile
+              <span className="detail">Profile</span>
               </NavLink>
             </li>
           </ul>

@@ -33,9 +33,9 @@ const Challenge1 = ({databaseStore}) => {
   if (!status) {
     return (
       <>
-        <h1>{challenge.naam}</h1>
+        <h1 className="header-1">{challenge.naam}</h1>
         <p>{challenge.extra}</p>
-        <button onClick={() => {
+        <button className="button-1" onClick={() => {
           const props = {
             challenge: 'challenge1',
             grens: grens,
@@ -47,7 +47,7 @@ const Challenge1 = ({databaseStore}) => {
 
           databaseStore.updateCompletedChallenges(props);
           setStatus(true)}}>Accepteer</button>
-        <Link to="/"><button>Weiger</button></Link>
+        <Link to="/"><button className="button-2">Weiger</button></Link>
       </>
     ); 
   } else {
@@ -62,7 +62,7 @@ const Challenge1 = ({databaseStore}) => {
       case 'recept':
         return (
           <>
-            <Recept challenge={challenge} />
+            <Recept challenge={challenge} databaseStore={databaseStore} grens={grens} challengeId={id} />
           </>
         );
 

@@ -6,9 +6,11 @@ import { observer } from "mobx-react";
 const Home = () => {
   return (
     <>
-      <h1>Welcome to NEXTEND</h1>
-      <p>Ik verleg vandaag mijn</p>
-      <SelectGrens />
+      <h1 className="visually-hidden">NEXTEND</h1>
+      <article>
+        <h2 className="header-2">Ik verleg vandaag mijn</h2>
+        <SelectGrens />
+      </article>
     </>
   );
 };
