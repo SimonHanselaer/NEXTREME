@@ -5,7 +5,9 @@ import { useParams, useHistory } from "react-router-dom";
 
 import Resultaten from "../components/ResultatenChallenge3";
 
-import main from "../assets/img/challenge3/main.png";
+// import main from "../assets/img/challenge3/main.png";
+import main from "../assets/img/template3.png";
+
 
 const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();

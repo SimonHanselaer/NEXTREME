@@ -53,10 +53,10 @@ const Recept = ({ databaseStore }) => {
 
     return (
         <>
-            <h1>{city}</h1>
+            <h1 className="header-1">{city}</h1>
             <section>
-                <button onClick={() => setStatus(true)}>Wist je dat</button>
-                <button onClick={() => setStatus(false)}>Voorstelling</button>
+                <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
+                <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Voorstelling</button>
             </section>
             <section>
             {status ? (
@@ -67,7 +67,6 @@ const Recept = ({ databaseStore }) => {
                 <p>{info.voorstelling}</p>
             ) }
             </section>
-            <button onClick={() => history.push("/")}>Home</button>
         </>
     );
 

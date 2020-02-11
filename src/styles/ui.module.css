@@ -1,12 +1,7 @@
 /* Buttons ------------------------------------------------------------------------------------------------------------------------------------------ */
-
 .button-1,
 .button-3,
 .button-4 {
-  background-color: linear-gradient(to right, #ffc371, #ff5f6d);
-  color: var(--offWhite-color);
-  border-radius: 2rem;
-
   padding: 0.8rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -14,12 +9,24 @@
   margin: 1.6rem;
 
   text-align: center;
+
+  height: 4rem;
+  min-width: 28.8rem;
+}
+
+.button-1 {
+  background-image: linear-gradient(to right, #ffc371, #ff5f6d);
+  color: var(--offWhite-color);
+  border-radius: 2rem;
+  border: none;
 }
 
 .button-2 {
   text-decoration: underline;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
+
+  border: none;
 }
 
 .button-3 {
@@ -56,10 +63,40 @@
 }
 
 .button-4 {
-  background-color: var(--transparentOrange-color);
-  border-color: linear-gradient(to right, #ffc371, #ff5f6d);
+  background-image: linear-gradient(
+    to right bottom,
+    #ffc371,
+    #ffac66,
+    #ff9362,
+    #ff7a65,
+    #ff5f6d
+  );
+  border: solid .1rem transparent;
+  border-radius: .5rem;
+  box-sizing: border-box;
 
   color: var(--offBlack-color);
+
+  height: 4rem;
+  width: 28.8rem;
+  margin: 0 auto;
+
+  padding: 0.1rem;
+}
+
+.button-4 span {
+  align-items: center;
+  background: var(--transparentOrange-color);
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.noButton {
+  border: none;
 }
 
 /* Form input --------------------------------------------------------------------------------------------------------------------------------------- */
@@ -97,4 +134,14 @@
   background-color: rgba(51, 51, 51, 0.1);
   width: 28.8rem;
   height: 0.1rem;
+}
+
+/* Cards ---------------------------------------------------------------------------------------------------------------------------------------------- */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.25);
+  padding: 1.6rem;
+  
+  margin: 1.6rem;
 }

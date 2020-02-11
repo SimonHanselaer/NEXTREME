@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
-
-  let history = useHistory();
 
   const [status, setStatus] = useState(false);
   const [count, setCount] = useState(1);
@@ -59,7 +57,6 @@ const Challenge2 = ({databaseStore, dataStore}) => {
 
       databaseStore.updateAnswers(props);
 
-      history.push("/room/" + dataStore.roomId);
       dataStore.handleAnswerQuestions(0);
     } else {
 
@@ -81,7 +78,6 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       const propGrens = grens;
 
       databaseStore.lookingForMatch(props, propGrens);
-      history.push("/");
     }
   }
 
@@ -89,9 +85,9 @@ const Challenge2 = ({databaseStore, dataStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1>{challenge.naam}</h1>
+        <h1 className="visually-hidden">{challenge.naam}</h1>
         <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
-        <button onClick={() => setStatus(true)}>Starten</button>
+        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -99,62 +95,70 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       case 1:
         return (
           <>
-            <h1>{challenge.vraag1.vraag}</h1>
-            <button onClick={e => {
+            <h1 className="header-1">{challenge.vraag1.vraag}</h1>
+            <button className="button-4">
+              <span onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord1}</button>
-            <button onClick={e => {
+              }}>{challenge.vraag1.antwoord1}</span>
+              </button>
+            <button className="button-4">
+              <span onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord2}</button>
+              }}>{challenge.vraag1.antwoord2}</span></button>
           </>
         );
 
         case 2:
         return (
           <>
-            <h1>{challenge.vraag2.vraag}</h1>
-            <button onClick={e => {
-              setCount(count + 1);
+            <h1 className="header-1">{challenge.vraag2.vraag}</h1>
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer2(e.currentTarget.innerHTML);
-              }}>{challenge.vraag2.antwoord1}</button>
-            <button onClick={e => {
               setCount(count + 1);
+              }}>{challenge.vraag2.antwoord1}</span></button>
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer2(e.currentTarget.innerHTML);
-              }}>{challenge.vraag2.antwoord2}</button>
+              setCount(count + 1);
+              }}>{challenge.vraag2.antwoord2}</span></button>
           </>
         );
 
         case 3:
         return (
           <>
-            <h1>{challenge.vraag3.vraag}</h1>
-
-            <button onClick={e => {
+            <h1 className="header-1">{challenge.vraag3.vraag}</h1>
+            <button className="button-4">
+              <span onClick={e => {
+              setAnswer3(e.currentTarget.innerHTML)
               setCount(count + 1);
+              }}>{challenge.vraag3.antwoord1}</span></button>
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer3(e.currentTarget.innerHTML);
-              }}>{challenge.vraag3.antwoord1}</button>
-            <button onClick={e => {
               setCount(count + 1);
-              setAnswer3(e.currentTarget.innerHTML);
-              }}>{challenge.vraag3.antwoord2}</button>
+              }}>{challenge.vraag3.antwoord2}</span></button>
           </>
         );
         
         case 4:
+          handleCompletedChallenge();
           return (
             <>
-            <h1>Even wachten...</h1>
-            <p>op de match zijn antwoorden. Deze vind je terug onder ‘Mijn uitdagingen’.</p>
-            <h2>Terwijl je wacht...</h2>
-            <p>Misschien interesseert deze voorstelling je.</p>
-            <p>Multitud</p>
-            <p>Tamara Cubas</p>
-            <p>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
-            <a href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
-
-            <button onClick={() => handleCompletedChallenge()}>Doorgaan</button>
+            <h1 className="header-1">Even wachten...</h1>
+            <p>op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
+            <article className="card">
+              <h2 className="header-1">Terwijl je wacht...</h2>
+              <p>Misschien interesseert deze voorstelling je.</p>
+              <p className="accent">Multitud</p>
+              <p className="small">Tamara Cubas</p>
+              <p className="small">In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
+              <a className="small" href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
+            </article>
+            
             </>
           )
     

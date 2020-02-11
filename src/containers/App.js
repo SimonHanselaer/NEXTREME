@@ -12,7 +12,7 @@ import Register from "./Register";
 import SelectLanguage from "./SelectLanguage";
 import SelectRegio from "./SelectRegio";
 
-import Navigation from "../components/Navigation";
+import Tabbar from "../components/Tabbar";
 
 import Challenge1 from "./Challenge1";
 import Challenge2 from "./Challenge2";
@@ -33,17 +33,17 @@ class App extends Component {
       <main>
         <Switch>
           <Route path="/" exact strict>
-            <Navigation />
+            <Tabbar />
             <Home />
           </Route>
 
           <Route path="/challenges" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenges />
           </Route>
 
           <Route path="/profile" exact strict>
-            <Navigation />
+            <Tabbar />
             <Profile />
           </Route>
 
@@ -55,34 +55,34 @@ class App extends Component {
           <Route path="/selectregio" exact strict component={SelectRegio} />
 
           <Route path="/challenge1/:grens/:id" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenge1 />
           </Route>
           <Route path="/challenge2/:grens/:id" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenge2 />
           </Route>
           <Route path="/challenge3/:grens/:id" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenge3 />
           </Route>
           <Route path="/challenge4/:grens/:id" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenge4 />
           </Route>
 
           <Route path="/room/:id">
-            <Navigation />
+            <Tabbar />
             <Room />
           </Route>
 
           <Route path="/chat/:id">
-            <Navigation />
+            <Tabbar />
             <Chat />
           </Route>
 
           <Route path="/info/:id/:grens" exact strict>
-            <Navigation />
+            <Tabbar />
             <Challenge4Info />
           </Route>
 

@@ -16,9 +16,9 @@ const SelectLanguage = ({ databaseStore }) => {
     <>
       <h1>Taal</h1>
       <section>
-          <button onClick={() => handleSelect("NL")}>Nederlands</button>
-          <button onClick={() => handleSelect("FR")}>Francais</button>
-          <button onClick={() => handleSelect("ENG")}>English</button>
+          <button className="button-3" onClick={() => handleSelect("NL")}><span>Nederlands</span></button>
+          <button className="button-3" onClick={() => handleSelect("FR")}><span>Francais</span></button>
+          <button className="button-3" onClick={() => handleSelect("ENG")}><span>English</span></button>
       </section>
     </>
   );

@@ -1,0 +1,4 @@
+.cardStap {
+    composes: card from "../styles/ui.module.css";
+    width: 27.2rem;
+}

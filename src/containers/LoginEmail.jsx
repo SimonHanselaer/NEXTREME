@@ -29,7 +29,7 @@ const LoginEmail = ({ uiStore }) => {
       <form onSubmit={handleSubmit}>
           <input className="formInput" type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
           <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
-          <button type="submit">Log in</button>
+          <button type="submit" className="button-1">Login</button>
       </form>
       <NavLink to="/register">
       <p>Don't have an account yet? Create one</p></NavLink>

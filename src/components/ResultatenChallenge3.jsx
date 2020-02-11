@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { useEffect, useState } from "react";
 
-import faon from "../assets/img/challenge3/faon.png";
+// import faon from "../assets/img/challenge3/faon.png"; 
+import faon from "../assets/img/faon.png";
 
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
