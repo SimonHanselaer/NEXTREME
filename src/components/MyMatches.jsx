@@ -8,18 +8,14 @@ const MyMatches = props => {
 
     return (
         <section>
-            <h2>Matches</h2>
             <ul>
             {
                 Object.entries(matches).map(([key, val]) => {
                 if (key !== "doNotDelete") {
                     return (
                     <li key={key}>
-                        <p>{val.username}</p>
                         <Link to={"/room/" + val.roomId}>
-                            <button>
-                            More questions
-                            </button>
+                            <p className="header-1">{val.username}</p>
                         </Link>
                     </li>
                     )

@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
-
-  let history = useHistory();
 
   const [status, setStatus] = useState(false);
   const [count, setCount] = useState(1);
@@ -98,14 +96,17 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         return (
           <>
             <h1 className="header-1">{challenge.vraag1.vraag}</h1>
-            <button className="button-4" onClick={e => {
+            <button className="button-4">
+              <span onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}><span>{challenge.vraag1.antwoord1}</span></button>
-            <button className="button-4" onClick={e => {
+              }}>{challenge.vraag1.antwoord1}</span>
+              </button>
+            <button className="button-4">
+              <span onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}><span>{challenge.vraag1.antwoord2}</span></button>
+              }}>{challenge.vraag1.antwoord2}</span></button>
           </>
         );
 
@@ -113,14 +114,16 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         return (
           <>
             <h1 className="header-1">{challenge.vraag2.vraag}</h1>
-            <button className="button-4" onClick={e => {
-              setCount(count + 1);
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer2(e.currentTarget.innerHTML);
-              }}><span>{challenge.vraag2.antwoord1}</span></button>
-            <button className="button-4" onClick={e => {
               setCount(count + 1);
+              }}>{challenge.vraag2.antwoord1}</span></button>
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer2(e.currentTarget.innerHTML);
-              }}><span>{challenge.vraag2.antwoord2}</span></button>
+              setCount(count + 1);
+              }}>{challenge.vraag2.antwoord2}</span></button>
           </>
         );
 
@@ -128,23 +131,21 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         return (
           <>
             <h1 className="header-1">{challenge.vraag3.vraag}</h1>
-
-            <button className="button-4" onClick={e => {
+            <button className="button-4">
+              <span onClick={e => {
+              setAnswer3(e.currentTarget.innerHTML)
               setCount(count + 1);
+              }}>{challenge.vraag3.antwoord1}</span></button>
+            <button className="button-4">
+              <span onClick={e => {
               setAnswer3(e.currentTarget.innerHTML);
-
-              handleCompletedChallenge();
-              }}><span>{challenge.vraag3.antwoord1}</span></button>
-            <button className="button-4" onClick={e => {
               setCount(count + 1);
-              setAnswer3(e.currentTarget.innerHTML);
-
-              handleCompletedChallenge();
-              }}><span>{challenge.vraag3.antwoord2}</span></button>
+              }}>{challenge.vraag3.antwoord2}</span></button>
           </>
         );
         
         case 4:
+          handleCompletedChallenge();
           return (
             <>
             <h1 className="header-1">Even wachten...</h1>
