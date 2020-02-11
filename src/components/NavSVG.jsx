@@ -1,7 +1,6 @@
 import React from "react"; 
 
 const NavSVG = ({ icon, state }) => {
-    console.log(icon);
     switch (icon) {
         case "home": 
             return(

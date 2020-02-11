@@ -31,7 +31,6 @@ const Profile = ({uiStore, databaseStore}) => {
     let props = {
       username: username, city: city, regio: regio, age: age, gender: gender, language: language, bio: bio
     }
-    console.log(props);
     databaseStore.updateUser(props);
     setEdit(false);
   }
@@ -52,7 +51,7 @@ const Profile = ({uiStore, databaseStore}) => {
       setChallenges(userChallenges);
     }
 
-    console.log("test");
+    // console.log("test");
     getInfo();
   },[databaseStore]);
 
@@ -168,11 +167,9 @@ const Profile = ({uiStore, databaseStore}) => {
             </div>
             <div>
               <h3>Gedane uitdagingen</h3>
-              {/* {console.log(challenges)} */}
               <ul>
                 {challenges ? (
                   Object.keys(challenges).map(key => {
-                    console.log(challenges[key].naam);
                     return( 
                       <li key={key}>{challenges[key].naam}</li>
                     )
