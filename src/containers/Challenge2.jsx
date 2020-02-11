@@ -89,9 +89,9 @@ const Challenge2 = ({databaseStore, dataStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1>{challenge.naam}</h1>
+        <h1 className="visually-hidden">{challenge.naam}</h1>
         <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
-        <button onClick={() => setStatus(true)}>Starten</button>
+        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -99,12 +99,12 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       case 1:
         return (
           <>
-            <h1>{challenge.vraag1.vraag}</h1>
-            <button onClick={e => {
+            <h1 className="header-1">{challenge.vraag1.vraag}</h1>
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
               }}>{challenge.vraag1.antwoord1}</button>
-            <button onClick={e => {
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
               }}>{challenge.vraag1.antwoord2}</button>
@@ -114,12 +114,12 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         case 2:
         return (
           <>
-            <h1>{challenge.vraag2.vraag}</h1>
-            <button onClick={e => {
+            <h1 className="header-1">{challenge.vraag2.vraag}</h1>
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer2(e.currentTarget.innerHTML);
               }}>{challenge.vraag2.antwoord1}</button>
-            <button onClick={e => {
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer2(e.currentTarget.innerHTML);
               }}>{challenge.vraag2.antwoord2}</button>
@@ -129,13 +129,13 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         case 3:
         return (
           <>
-            <h1>{challenge.vraag3.vraag}</h1>
+            <h1 className="header-1">{challenge.vraag3.vraag}</h1>
 
-            <button onClick={e => {
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer3(e.currentTarget.innerHTML);
               }}>{challenge.vraag3.antwoord1}</button>
-            <button onClick={e => {
+            <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer3(e.currentTarget.innerHTML);
               }}>{challenge.vraag3.antwoord2}</button>
