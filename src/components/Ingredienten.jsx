@@ -8,7 +8,8 @@ const Ingredienten = props => {
             {
                 Object.entries(ingredienten).map(([key, val]) => {
                     return <li key={key}>
-                        <p>{key} {val}</p>
+                        <p className="small">{key}</p>
+                        <p className="detail">{val}</p>
                     </li>
             }
             )
