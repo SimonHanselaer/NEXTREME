@@ -1,0 +1,14 @@
+.navigation {
+  composes: nav from '../styles/ui.module.css';
+}
+
+.navUl {
+  composes: flexRow from '../styles/ui.module.css';
+  justify-content: space-around;
+}
+
+.navLi {
+  composes: flexColumn from '../styles/ui.module.css';
+  align-items: center;
+  padding: 0.8rem;
+}

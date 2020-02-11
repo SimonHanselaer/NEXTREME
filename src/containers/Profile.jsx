@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useHistory } from "react-router-dom";
@@ -148,7 +148,7 @@ const Profile = ({uiStore, databaseStore}) => {
             <h1>Profile</h1>
             <h2>{username}</h2>
             <p>{city} - {regio}</p>
-            <img src={photo} alt="profielfoto" />
+            <img src={photo} alt="profielfoto" width="100" height="100"/>
             <div>
               <p>{age}</p>
               <p>Leeftijd</p>
