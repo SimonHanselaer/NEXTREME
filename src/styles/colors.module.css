@@ -4,7 +4,7 @@
     --orange-color: #FF986F;
     --salmon-color: #FF5F6D;
     --yellow-color: #FFC371;
-    --transparentOrange-color: #FF986F10;
+    --transparentOrange-color: #FFF5F1;
 
     /* werkt niet maar is wel de gradient die we nodig hebbben */
     --gradient: linear-gradient(to right, #FFC371 , #FF5F6D); 

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer, inject } from "mobx-react";
-import { Link } from "react-router-dom";
+import MyChallenges from "../components/MyChallenges";
+import MyMatches from "../components/MyMatches";
 
 const Challenges = ({databaseStore}) => {
   const [matches, setMatches] = useState("");
   const [challenges, setChallenges] = useState();
+  const [status, setStatus] = useState(true);
 
   useEffect(() => {
     const getMatches = async () => {
@@ -25,79 +27,27 @@ const Challenges = ({databaseStore}) => {
 
   return (
     <>
-      <h1>Challenges</h1>
-      <section>
-      <h2>Matches</h2>
-        {matches ? (
-          <ul>
-          {
-            Object.entries(matches).map(([key, val]) => {
-              if (key !== "doNotDelete") {
-                return (
-                  <li key={key}>
-                      <p>{val.username}</p>
-                      <Link to={"/room/" + val.roomId}>
-                        <button>
-                          More questions
-                        </button>
-                      </Link>
-                  </li>
-                  )
-              } 
-              return null
-                })
-              }
-          </ul>
-        ) : (
-          <p>Not matched with any people yet? You're missing out!</p>
-        )}
-       
-      </section>
+    <section>
+      <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
+      <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Chats</button>
+    </section>
+    {status ? (
+      <>
       {challenges ? (
-        <section>
-          <h2>Challenges</h2>
-          <article>
-           <h3>Geaccepteerd</h3>
-            <ul>
-              {
-                Object.entries(challenges).map(([key, val]) => {
-                  if (val.status === "geaccepteerd") {
-                    return (
-                      <li key={key}>
-                        <Link to={"/challenge1/" + val.grens + "/" + val.id}>
-                        <h4>{val.naam}</h4>
-                        </Link>
-                      </li>
-                    ) 
-                  }
-                  return null
-                })
-              }
-            </ul>
-          </article>
-          <article>
-            <h3>Completed</h3>
-            <ul>
-              {
-                Object.entries(challenges).map(([key, val]) => {
-                  if (val.status === "gecomplete") {
-                    return (
-                      <li key={key}>
-                        <Link to={"/challenge1/" + val.grens + "/" + val.id}>
-                          <h4>{val.naam}</h4>
-                        </Link>
-                      </li>
-                    ) 
-                  }
-                  return null
-                })
-              }
-            </ul>
-          </article>
-        </section>
+        <MyChallenges challenges={challenges} />
       ) : (
         <p>Haven't accepted any challenges yet? You're missing out!</p>
       )}
+    </>
+    ) : (
+      <>
+        {matches ? (
+          <MyMatches matches={matches} />
+        ) : (
+          <p>Haven't matched with any people yet? You're missing out!</p>
+        )}
+      </>
+    )}
     </>
   );
 };
