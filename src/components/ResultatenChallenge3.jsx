@@ -80,30 +80,30 @@ const ResultatenChallenge3 = (props) => {
                             if(highest === result.procent && answer === "Optie A"){
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
                                             <p>jij behoort tot deze stad!</p>
                                             <img src={faon} alt="header foto evenement"/>
                                             <p>FAON</p>
                                             <p>Performance /.../ 16+ </p>
                                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }else if(highest != result.procent && answer === "Optie A"){
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }else{
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }
@@ -121,30 +121,30 @@ const ResultatenChallenge3 = (props) => {
                             if(highest === result.procent && answer === "Optie B"){
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
                                             <p>jij behoort tot deze stad!</p>
                                             <img src={faon} alt="header foto evenement"/>
                                             <p>FAON</p>
                                             <p>Performance /.../ 16+ </p>
                                             <a href="http://www.nextfestival.eu/nl/evenement/faon">pijltje</a>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }else if(highest != result.procent && answer === "Optie B"){
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }else{
                                 return (
                                     <>
-                                        <div key={key}>{result.regio + ": " + result.procent + "%"}
+                                        <article key={key}>{result.regio + ": " + result.procent + "%"}
                                             <p>{result.title}</p>
-                                        </div>
+                                        </article>
                                     </>
                                 )
                             }
