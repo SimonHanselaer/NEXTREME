@@ -59,7 +59,6 @@ const Challenge2 = ({databaseStore, dataStore}) => {
 
       databaseStore.updateAnswers(props);
 
-      history.push("/room/" + dataStore.roomId);
       dataStore.handleAnswerQuestions(0);
     } else {
 
@@ -81,7 +80,6 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       const propGrens = grens;
 
       databaseStore.lookingForMatch(props, propGrens);
-      history.push("/");
     }
   }
 
@@ -103,11 +101,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord1}</button>
+              }}><span>{challenge.vraag1.antwoord1}</span></button>
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer1(e.currentTarget.innerHTML);
-              }}>{challenge.vraag1.antwoord2}</button>
+              }}><span>{challenge.vraag1.antwoord2}</span></button>
           </>
         );
 
@@ -118,11 +116,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer2(e.currentTarget.innerHTML);
-              }}>{challenge.vraag2.antwoord1}</button>
+              }}><span>{challenge.vraag2.antwoord1}</span></button>
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer2(e.currentTarget.innerHTML);
-              }}>{challenge.vraag2.antwoord2}</button>
+              }}><span>{challenge.vraag2.antwoord2}</span></button>
           </>
         );
 
@@ -134,27 +132,32 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer3(e.currentTarget.innerHTML);
-              }}>{challenge.vraag3.antwoord1}</button>
+
+              handleCompletedChallenge();
+              }}><span>{challenge.vraag3.antwoord1}</span></button>
             <button className="button-4" onClick={e => {
               setCount(count + 1);
               setAnswer3(e.currentTarget.innerHTML);
-              }}>{challenge.vraag3.antwoord2}</button>
+
+              handleCompletedChallenge();
+              }}><span>{challenge.vraag3.antwoord2}</span></button>
           </>
         );
         
         case 4:
           return (
             <>
-            <h1>Even wachten...</h1>
-            <p>op de match zijn antwoorden. Deze vind je terug onder ‘Mijn uitdagingen’.</p>
-            <h2>Terwijl je wacht...</h2>
-            <p>Misschien interesseert deze voorstelling je.</p>
-            <p>Multitud</p>
-            <p>Tamara Cubas</p>
-            <p>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
-            <a href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
-
-            <button onClick={() => handleCompletedChallenge()}>Doorgaan</button>
+            <h1 className="header-1">Even wachten...</h1>
+            <p>op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
+            <article className="card">
+              <h2 className="header-1">Terwijl je wacht...</h2>
+              <p>Misschien interesseert deze voorstelling je.</p>
+              <p className="accent">Multitud</p>
+              <p className="small">Tamara Cubas</p>
+              <p className="small">In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
+              <a className="small" href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
+            </article>
+            
             </>
           )
     

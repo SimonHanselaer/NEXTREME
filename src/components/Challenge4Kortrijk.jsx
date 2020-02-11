@@ -101,7 +101,6 @@ const Challenge4Kortrijk = (props) => {
       if (gameObject.texture.key[gameObject.texture.key.length - 1] === 'K' && dropzone.data.list.status === 'juist') {
         this.items.splice(this.items.indexOf(this.randomItem), 1);
         this.score += 1;
-        this.scoreText.setText(`score: ${this.score}`);
 
         if (this.score === 3) {
           this.sys.game.destroy(true);
@@ -134,17 +133,10 @@ const Challenge4Kortrijk = (props) => {
       gameObject.input.enabled = false;
       gameObject.destroy();
     });
-
-    //Score -------------------------------------------------------------------------------------------------
-    this.scoreText = this.add.text(this.screenWidth / 2, 230, 'score: 0', {
-      fontsize: '36px',
-      color: '#000'
-    });
-    this.scoreText.setOrigin(.5);
   }
 
     return (
-        <h1>Challenge 4 - Kortrijk & grens - {grens}</h1>
+        <h1 className="header-1">Kortrijk</h1>
     )
 }
 
