@@ -25,3 +25,18 @@
   .hidden{
       display: none;
   }
+
+  .main{
+    margin-top: 6rem;
+    margin-bottom: -2.2rem;
+  }
+
+  .card01{
+    composes: card from '../styles/ui.module.css';
+    margin-bottom: 0rem;
+  }
+
+  .keuzes{
+    composes: flexColumn from '../styles/ui.module.css';
+    margin-top: 11.6rem;
+  }

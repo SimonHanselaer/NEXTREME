@@ -9,6 +9,8 @@ import faon from "../assets/img/faon.png";
 import arrow from "../assets/img/icons/arrowLeft.svg";
 import styles from "./ResultatenChallenge3.module.css";
 
+import TopBar from "./TopBar";
+
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
     const {regio} = props;
@@ -37,7 +39,7 @@ const ResultatenChallenge3 = (props) => {
 
     return (
         <>
-            <h1 className="header-1">Resultaten</h1>
+            <TopBar title="Resultaten" />
              {
                 results ? (
                     Object.keys(results).map(key => {
@@ -67,7 +69,7 @@ const ResultatenChallenge3 = (props) => {
                     <p>Loading...</p>
                 )
             }
-            
+            <section className={styles.topResults}>
             {
                 //om de procent te ordenen van hoog nr laag
                 rankResults.sort((a,b) => b.procent - a.procent).map((result, key) => {
@@ -206,6 +208,7 @@ const ResultatenChallenge3 = (props) => {
                     }  
                 })
             }
+            </section>   
         </>
     )
 }

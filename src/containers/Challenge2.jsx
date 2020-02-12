@@ -14,6 +14,8 @@ import eten from "../assets/img/template2Eten.png";
 import cubas from "../assets/img/tamaraCubas.png";
 import styles from "./Challenge2.module.css";
 
+import TopBar from "../components/TopBar";
+
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -96,9 +98,10 @@ const Challenge2 = ({databaseStore, dataStore}) => {
   if (!status && count > 0) {
     return (
       <>
+        <TopBar title="" />
         <h1 className="visually-hidden">{challenge.naam}</h1>
-        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
-        <div className="card">
+        <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+        <div className={styles.card01}>
           <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
           <p className="shortLine"></p>
         </div>
@@ -110,6 +113,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       case 1:
         return (
           <>
+            <TopBar title="" />
             <img src={bizar} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag1.vraag}</h1>
             <div className="flexColumn">
@@ -126,7 +130,9 @@ const Challenge2 = ({databaseStore, dataStore}) => {
                 setAnswer1(e.currentTarget.innerHTML);
                 }}>{challenge.vraag1.antwoord2}</span>
               </button>
-              <Progress className={styles.procesbar} percent={33.33} theme={{
+            </div>
+            <div className={styles.process}>
+                <Progress className={styles.procesbar} percent={33.33} theme={{
                   active: {
                     symbol: "1/3",
                     color: '#FF986F'
@@ -139,6 +145,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
         case 2:
         return (
           <>
+            <TopBar title="" />
             <img src={avond} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag2.vraag}</h1>
             <div className="flexColumn">
@@ -156,18 +163,21 @@ const Challenge2 = ({databaseStore, dataStore}) => {
                 }}>{challenge.vraag2.antwoord2}</span>
               </button>
             </div>
-            <Progress className={styles.procesbar} percent={66.66} theme={{
-                  active: {
-                    symbol: "2/3",
-                    color: '#FF986F'
-                  }
-                }} />
+            <div className={styles.process}>
+              <Progress className={styles.procesbar} percent={66.66} theme={{
+                    active: {
+                      symbol: "2/3",
+                      color: '#FF986F'
+                    }
+                  }} />
+            </div>
           </>
         );
 
         case 3:
         return (
           <>
+            <TopBar title="" />
             <img src={eten} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag3.vraag}</h1>
             <div  className="flexColumn">
@@ -185,12 +195,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
                 }}>{challenge.vraag3.antwoord2}</span>
               </button>
             </div>
-            <Progress className={styles.procesbar} percent={99.99} strokeWidth={3} theme={{
-                  active: {
-                    symbol: "3/3",
-                    color: '#FF986F'
-                  }
-                }} />
+            <div className={styles.process}>
+              <Progress className={styles.procesbar} percent={99.99} strokeWidth={3} theme={{
+                    active: {
+                      symbol: "3/3",
+                      color: '#FF986F'
+                    }
+                  }} />
+            </div>
           </>
         );
         
@@ -198,24 +210,26 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           handleCompletedChallenge();
           return (
             <>
-            <h1 className="header-1">Even wachten...</h1>
-            <div className={styles.tekst} >
-              <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
-              <p className="shortLine"></p>
-              <h2 className="header-1">Terwijl je wacht...</h2>
-              <p className="small">Misschien interesseert deze voorstelling je.</p>
-            </div>
-            <article className="card">
-              <div className="flexRow">
-                <img className={styles.miniInfoFoto} width="56px" height="56px" src={cubas} alt="header foto evenement"/>
-                <div>
-                  <p className="accent">Multitud</p>
-                  <p className="small">Tamara Cubas</p>
-                </div>  
+            <TopBar title="Even wachten..." />
+            <section className={styles.topSpace}>
+              <div className={styles.tekst} >
+                <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
+                <p className="shortLine"></p>
+                <h2 className="header-1">Terwijl je wacht...</h2>
+                <p className="small">Misschien interesseert deze voorstelling je.</p>
               </div>
-              <p className={styles.miniInfoTekst}>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
-              <a className={styles.miniInfoTekstDetail} href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
-            </article>
+              <article className="card">
+                <div className="flexRow">
+                  <img className={styles.miniInfoFoto} width="56px" height="56px" src={cubas} alt="header foto evenement"/>
+                  <div>
+                    <p className="accent">Multitud</p>
+                    <p className="small">Tamara Cubas</p>
+                  </div>  
+                </div>
+                <p className={styles.miniInfoTekst}>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>
+                <a className={styles.miniInfoTekstDetail} href="http://www.nextfestival.eu" target="_blank" rel="noopener noreferrer">meer op nextfestival.eu</a>
+              </article>
+            </section>
             <Tabbar />
             </>
           )

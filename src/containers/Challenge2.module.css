@@ -8,13 +8,16 @@
     padding-top: 0rem;
   }
 
-  .procesbar{
-    width: 19.2rem;
-    margin: 0 auto;
-    padding-top: 1.6rem;
+  .process{
+      display: flex;
+      justify-content: center;
+  }
 
-    /* position: fixed;
-    bottom: 1; */
+  .procesbar{
+    padding-bottom: 1.6rem;
+    width: 19.2rem;
+    position: fixed;
+    bottom: 0;
   }
 
   .procesbarItem{
@@ -44,4 +47,17 @@
 
   .tekst p{
     margin-bottom: 1.6rem;
+}
+
+.topSpace{
+    margin-top: 11.2rem;
+}
+
+.card01{
+    composes: card01 from './Challenge3.module.css';
+}
+
+.main{
+    composes: main from './Challenge3.module.css';
+    margin-top: 0rem;
 }
