@@ -18,7 +18,7 @@ const MyMatches = props => {
                     return (
                     <li key={key} className={styles.card}>
                         <Link to={"/room/" + val.roomId}>
-                            <p className={stylesTypo.headerOne}>{val.username}</p>
+                            <p className={stylesTypo.header1}>{val.username}</p>
                         </Link>
                     </li>
                     )

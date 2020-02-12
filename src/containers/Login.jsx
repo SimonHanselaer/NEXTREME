@@ -63,7 +63,7 @@ const Login = ({ databaseStore, uiStore }) => {
 
   return (
     <>
-      <h1 className={stylesTypo.headerOne}>Login</h1>
+      <h1 className={stylesTypo.header1}>Login</h1>
       <button className="buttonThree" onClick={loginGoogle}>
         <span>Google</span> 
       </button>
