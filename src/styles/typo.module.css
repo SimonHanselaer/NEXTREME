@@ -1,35 +1,42 @@
-body, .button-2, .noButton, .button-1, .button-4 {
-    font-family: Muli, sans serif;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-    color: var(--offBlack-color);
+body,
+.button2,
+.noButton,
+.button1,
+.button4 {
+  font-family: Muli, sans serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--offBlack-color);
 }
 
-.header-1, .button-1, .accent {
-    font-weight: bold;
+.header1,
+.button1,
+.accent {
+  font-weight: bold;
 }
 
-.header-2 {
-    font-size: 1.8rem;
-    line-height: 2.7rem;
+.header2 {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
 }
 
 .small {
-    font-size: 1.4rem;
-    line-height: 2.1rem;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
 }
 
 .detail {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 
-.button-3, .formInput {
-    font-family: Muli, sans serif;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+.button3,
+.formInput {
+  font-family: Muli, sans serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
 .accent {
-    color: var(--orange-color);
+  color: var(--orange-color);
 }

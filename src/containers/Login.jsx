@@ -4,6 +4,8 @@ import { NavLink, useHistory } from "react-router-dom";
 
 import { inject, observer } from "mobx-react";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Login = ({ databaseStore, uiStore }) => {
   let history = useHistory();
 
@@ -61,19 +63,19 @@ const Login = ({ databaseStore, uiStore }) => {
 
   return (
     <>
-      <h1 className="header-1">Login</h1>
-      <button className="button-3" onClick={loginGoogle}>
+      <h1 className={stylesTypo.headerOne}>Login</h1>
+      <button className="buttonThree" onClick={loginGoogle}>
         <span>Google</span> 
       </button>
-      <button className="button-3" onClick={loginFacebook}>
+      <button className="buttonThree" onClick={loginFacebook}>
         <span>Facebook</span>
       </button>
       <NavLink to="/loginemail">
-        <button className="button-3">
+        <button className="buttonThree">
           <span>E-mail</span> 
         </button>
       </NavLink>
-      <p className="button-2" onClick={loginAnon}>Skip</p>
+      <p className="buttonTwo" onClick={loginAnon}>Skip</p>
     </>
   );
 };

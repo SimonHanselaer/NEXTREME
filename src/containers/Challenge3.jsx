@@ -8,6 +8,7 @@ import Resultaten from "../components/ResultatenChallenge3";
 // import main from "../assets/img/challenge3/main.png";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
+import stylesTypo from '../styles/typo.module.css';
 
 const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -130,13 +131,13 @@ const Challenge3 = ({databaseStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1 className="header-1">Leer over je medemens.</h1>
+        <h1 className={stylesTypo.headerOne}>Leer over je medemens.</h1>
         <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <div className="card">
           <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
           <p className="shortLine"></p>
         </div>
-        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+        <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -145,9 +146,9 @@ const Challenge3 = ({databaseStore}) => {
       preloader();
         return (
           <>
-            <h1 className="header-1">{challenge.Naam}</h1>
+            <h1 className={stylesTypo.headerOne}>{challenge.Naam}</h1>
               <article className="flexColumn">
-                <button className="button-4">
+                <button className="button4">
                   <span onClick={e => {
                     setCount(count + 1);
                     setAnswer(e.currentTarget.innerHTML);
@@ -155,7 +156,7 @@ const Challenge3 = ({databaseStore}) => {
                     }}>{challenge.OptieA}</span>
                 </button>
                 <p className={styles.longLine}></p>
-                <button className="button-4">
+                <button className="button4">
                   <span onClick={e => {
                     setCount(count + 1);
                     setAnswer(e.currentTarget.innerHTML);

@@ -22,7 +22,7 @@ const Challenge4 = ({ databaseStore }) => {
         <TopBar title="empty" />
         <div className={stylesUi.contentContainer}>
           <p>Versleep de juiste typische monumenten, dranken, eten ... naar de stad. Als het niet klopt, versleep naar de vuilbak.</p>
-          <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+          <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
         </div>
       </>
     ) 

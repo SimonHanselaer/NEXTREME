@@ -24,6 +24,7 @@
 
 .container {
   padding: 1.6rem;
+  margin-bottom: 6rem;
 }
 
 .info {
@@ -65,6 +66,15 @@
 }
 
 .titles {
-  composes: header-1 from '../styles/typo.module.css';
+  composes: header1 from '../styles/typo.module.css';
   margin: 1.6rem 0rem 0.8rem 0rem;
+}
+
+.shortline {
+  composes: shortLine from '../styles/ui.module.css';
+  margin-top: 1.6rem;
+}
+
+.inputLAbel {
+  composes: small from './../styles/ui.module.css';
 }

@@ -13,7 +13,7 @@ const Home = () => {
       <TopBar title="nextend" />
       <div className={stylesUi.contentContainer}>
         <article>
-          <h2 className={stylesTypo.header1}>Ik verleg vandaag mijn</h2>
+          <h2 className={stylesTypo.headerOne}>Ik verleg vandaag mijn</h2>
           <SelectGrens />
         </article>
       </div>

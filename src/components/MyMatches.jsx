@@ -3,6 +3,7 @@ import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer, inject } from "mobx-react";
 import { Link } from "react-router-dom";
 
+import stylesTypo from '../styles/typo.module.css';
 import styles from "./MyMatches.module.css"
 
 const MyMatches = props => {
@@ -17,7 +18,7 @@ const MyMatches = props => {
                     return (
                     <li key={key} className={styles.card}>
                         <Link to={"/room/" + val.roomId}>
-                            <p className="header-1">{val.username}</p>
+                            <p className={stylesTypo.headerOne}>{val.username}</p>
                         </Link>
                     </li>
                     )

@@ -10,6 +10,8 @@ import TopBar from "../components/TopBar";
 
 import stylesUi from "../styles/ui.module.css";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -38,9 +40,9 @@ const Challenge1 = ({databaseStore}) => {
       <>
         <TopBar title="empty" />
           <div className={`${stylesUi.contentContainer}`}>
-          <h1 className="header-1">{challenge.naam}</h1>
+          <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
           <p>{challenge.extra}</p>
-          <button className="button-1" onClick={() => {
+          <button className="button1" onClick={() => {
             const props = {
               challenge: 'challenge1',
               grens: grens,
@@ -52,7 +54,7 @@ const Challenge1 = ({databaseStore}) => {
 
             databaseStore.updateCompletedChallenges(props);
             setStatus(true)}}>Accepteer</button>
-          <Link to="/"><button className="button-2">Weiger</button></Link>
+          <Link to="/"><button className="button2">Weiger</button></Link>
         </div>
       </>
     ); 
