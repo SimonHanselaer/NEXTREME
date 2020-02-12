@@ -20,7 +20,7 @@
 }
 
 .header {
-    composes: header-1 from "../styles/typo.module.css";
+    composes: header1 from "../styles/typo.module.css";
 
     position: absolute;
     top: 3.2rem;

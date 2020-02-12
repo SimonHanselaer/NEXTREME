@@ -29,6 +29,15 @@
       margin: 0 auto;
   }
 
+  .topResults{
+    margin-top: 11.3rem;
+  }
+
+  .result{
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+
   .jijBehoortResult{
     margin: 0rem;
   }
@@ -52,4 +61,8 @@
 
   .arrow {
     transform: rotate(180deg);
+  }
+
+  .container{
+    composes: container from '../containers/Challenge2.module.css';
   }

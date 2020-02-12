@@ -9,7 +9,9 @@ import faon from "../assets/img/faon.png";
 import arrow from "../assets/img/icons/arrowLeft.svg";
 import styles from "./ResultatenChallenge3.module.css";
 
+import TopBar from "./TopBar";
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
 
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
@@ -39,7 +41,7 @@ const ResultatenChallenge3 = (props) => {
 
     return (
         <>
-            <h1 className={stylesTypo.header1}>Resultaten</h1>
+            <TopBar title="Resultaten" />
              {
                 results ? (
                     Object.keys(results).map(key => {
@@ -69,7 +71,7 @@ const ResultatenChallenge3 = (props) => {
                     <p>Loading...</p>
                 )
             }
-            
+            <section className={styles.container}>
             {
                 //om de procent te ordenen van hoog nr laag
                 rankResults.sort((a,b) => b.procent - a.procent).map((result, key) => {
@@ -208,6 +210,7 @@ const ResultatenChallenge3 = (props) => {
                     }  
                 })
             }
+            </section>   
         </>
     )
 }
