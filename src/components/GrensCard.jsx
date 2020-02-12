@@ -35,6 +35,7 @@ const GrensCard = (props, {dataStore}) => {
 
     return (
         <article className={styles.card} onClick={() => selectChallenge()}>
+            <img src={require('../assets/img/home' + name + '.png')} alt="" width="200"/>
             <h2>{name}grens</h2>
         </article>
     )

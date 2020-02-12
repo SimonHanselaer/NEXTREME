@@ -9,6 +9,8 @@ import stylesUi from '../styles/ui.module.css';
 import styles from './Authentication.module.css';
 import TopBar from "../components/TopBar";
 
+import img from "../assets/img/onboarding/acc2.png"
+
 const LoginEmail = ({ uiStore }) => {
   let history = useHistory();
 
@@ -32,6 +34,7 @@ const LoginEmail = ({ uiStore }) => {
     <>
       <TopBar title="nextend" />
       <div className={stylesUi.contentContainer}>
+      <img src={img} alt="" width="170" className={styles.img2}/>
       <h1 className={`${stylesTypo.header1} ${styles.title}`}>Login</h1>
       <form onSubmit={handleSubmit}>
           <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>

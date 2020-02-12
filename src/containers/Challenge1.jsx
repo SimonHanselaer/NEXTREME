@@ -12,6 +12,8 @@ import stylesUi from "../styles/ui.module.css";
 import stylesTypo from '../styles/typo.module.css';
 import styles from "./Challenge1.module.css";
 
+import img from "../assets/img/template1Fruit.png";
+
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -40,6 +42,7 @@ const Challenge1 = ({databaseStore}) => {
       <>
         <TopBar title="empty" />
           <div className={`${stylesUi.contentContainer}`}>
+            <img src={img} alt=""/>
             <article className={styles.card}>
               <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
               <div className={styles.shortLine}></div>

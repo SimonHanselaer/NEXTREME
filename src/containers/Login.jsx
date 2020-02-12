@@ -10,6 +10,8 @@ import styles from "./Authentication.module.css";
 
 import TopBar from "../components/TopBar";
 
+import img from "../assets/img/onboarding/acc1.png"
+
 const Login = ({ databaseStore, uiStore }) => {
   let history = useHistory();
 
@@ -69,7 +71,7 @@ const Login = ({ databaseStore, uiStore }) => {
     <>
       <TopBar title="nextend" />
       <div className={stylesUi.contentContainer}>
-        {/* <img src="../assets/img/onboarding/acc1.png" alt="" width="220" height="218"/> */}
+        <img src={img} alt="" width="160" className={styles.img}/>
         <h1 className={`${stylesTypo.header1} ${styles.title}`}>Login</h1>
         <button className={`${stylesUi.button3} ${styles.button} ${stylesTypo.small}`} onClick={loginGoogle}>
           <span>Google</span> 

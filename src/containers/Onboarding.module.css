@@ -7,3 +7,17 @@
     width: 100%;
     align-self: center;
 }
+
+.imgLang {
+    margin-top: 2.1rem;
+    margin-bottom: 2.4rem;
+}
+
+.imgReg {
+    margin-top: 6.7rem;
+}
+
+.contentContainer {
+    composes: contentContainer from "../styles/ui.module.css";
+    margin-top: 0;
+}
