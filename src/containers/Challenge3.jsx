@@ -133,14 +133,6 @@ const Challenge3 = ({databaseStore}) => {
   if (!status && count > 0) {
     return (
       <>
-<<<<<<< HEAD
-        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
-        <div className="card">
-          <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
-          <p className="shortLine"></p>
-        </div>
-        <button className="button1" onClick={() => setStatus(true)}>Start</button>
-=======
         <TopBar title="Leer over je medemens." />
           <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
           <div  className={styles.card01}>
@@ -148,7 +140,6 @@ const Challenge3 = ({databaseStore}) => {
             <p className="shortLine"></p>
           </div>
           <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
->>>>>>> 584896c740403c0db1dbb3da821f05896fd80e6f
       </>
     ) 
   } else {
