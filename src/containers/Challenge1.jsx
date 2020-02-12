@@ -9,8 +9,8 @@ import Scrabble from "../components/Scrabble";
 import TopBar from "../components/TopBar";
 
 import stylesUi from "../styles/ui.module.css";
-
 import stylesTypo from '../styles/typo.module.css';
+import styles from "./Challenge1.module.css";
 
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -40,11 +40,14 @@ const Challenge1 = ({databaseStore}) => {
       <>
         <TopBar title="empty" />
           <div className={`${stylesUi.contentContainer}`}>
-          <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
-          <p>{challenge.extra}</p>
-          {challenge.type === 'recept' ? (
-            <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next">DINNER@NEXT</a>
-          ) : (<></>)}
+            <article className={styles.card}>
+              <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
+              <div className={styles.shortLine}></div>
+              <p>{challenge.extra}</p>
+              {challenge.type === 'recept' ? (
+                <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next">DINNER@NEXT</a>
+              ) : (<></>)}
+            </article>
           <button className="button1" onClick={() => {
             const props = {
               challenge: 'challenge1',
