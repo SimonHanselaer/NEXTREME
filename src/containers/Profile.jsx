@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 import stylesTypo from '../styles/typo.module.css';
+import stylesUI from '../styles/ui.module.css';
+import TopBar from "./../components/TopBar.jsx";
 
 const Profile = ({ uiStore, databaseStore }) => {
   let history = useHistory();
@@ -71,7 +73,8 @@ const Profile = ({ uiStore, databaseStore }) => {
     if (status) {
       return (
         <>
-          <h1>Editing</h1>
+          <TopBar title="Editing" />
+          {/* <h1>Editing</h1> */}
           <form onSubmit={handleSubmit}>
             <h2 className={stylesTypo.button1}>Algemene gegevens</h2>
             {/* 16 bold */}
@@ -82,7 +85,7 @@ const Profile = ({ uiStore, databaseStore }) => {
               <input
                 type="text"
                 name="username"
-                className="formInput"
+                className={styles.input}
                 defaultValue={username}
                 onChange={e => setUsername(e.currentTarget.value)}
               />
@@ -337,7 +340,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                 onChange={e => setBio(e.currentTarget.value)}
               ></textarea>
             </div>
-            <button type="submit">Opslaan</button>
+            <button type="submit" className={stylesUI.button1}>Opslaan</button>
           </form>
         </>
       );

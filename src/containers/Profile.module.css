@@ -75,6 +75,10 @@
   margin-top: 1.6rem;
 }
 
-.inputLAbel {
+.inputLabel {
   composes: small from './../styles/ui.module.css';
+}
+
+.input {
+  composes: formInput from './../styles/ui.module.css';
 }
