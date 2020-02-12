@@ -413,11 +413,12 @@ const Profile = ({ uiStore, databaseStore }) => {
                 </label>
                 <textarea
                   name="bio"
+                  placeholder="Voeg hier een bio toe."
                   id="bio"
                   cols="50"
                   rows="5"
                   className={stylesTypo.input}
-                  defaultValue={bio !== '' ? bio : 'Voeg hier een bio toe'}
+                  defaultValue={bio !== '' ? bio : ''}
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setBio(e.currentTarget.value)

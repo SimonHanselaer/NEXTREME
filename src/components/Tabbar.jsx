@@ -24,7 +24,7 @@ const Tabbar = () => {
             </li>
             <li>
               <Link to="/profile" className={styles.navLi}>
-                <NavSVG icon="challenges" state={(history.location.pathname === "/profile") ? "active" : "inactive"} />
+                <NavSVG icon="profile" state={(history.location.pathname === "/profile") ? "active" : "inactive"} />
                 <span className={(history.location.pathname === "/profile") ? "detail accent" : "detail"}>Profile</span>
               </Link>
             </li>
