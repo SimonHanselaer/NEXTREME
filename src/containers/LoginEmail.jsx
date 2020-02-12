@@ -5,6 +5,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from '../styles/ui.module.css';
+import styles from './Authentication.module.css';
+import TopBar from "../components/TopBar";
 
 const LoginEmail = ({ uiStore }) => {
   let history = useHistory();
@@ -27,14 +30,18 @@ const LoginEmail = ({ uiStore }) => {
 
   return (
     <>
-      <h1 className={stylesTypo.header1}>Login</h1>
+      <TopBar title="nextend" />
+      <div className={stylesUi.contentContainer}>
+      <h1 className={`${stylesTypo.header1} ${styles.title}`}>Login</h1>
       <form onSubmit={handleSubmit}>
-          <input className="formInput" type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
+          <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
           <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
-          <button type="submit" className="button1">Login</button>
+          <NavLink to="/register">
+            <p className={`${stylesTypo.small} ${styles.register}`}>Don't have an account yet? Create one</p>
+          </NavLink>
+          <button type="submit" className={`${stylesUi.button1} ${styles.loginButton} ${stylesTypo.header1}`}>Login</button>
       </form>
-      <NavLink to="/register">
-      <p>Don't have an account yet? Create one</p></NavLink>
+      </div>
     </>
   );
 };

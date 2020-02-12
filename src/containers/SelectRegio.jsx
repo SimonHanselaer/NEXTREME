@@ -4,6 +4,12 @@ import { inject, observer } from "mobx-react";
 import { useHistory } from "react-router-dom";
 import withAuthentication from "../components/auth/WithAuthentication";
 
+import stylesUi from "../styles/ui.module.css";
+import stylesTypo from "../styles/typo.module.css";
+import styles from "./Onboarding.module.css";
+
+import TopBar from "../components/TopBar";
+
 const SelectRegio = ({ databaseStore }) => {
   let history = useHistory();
 
@@ -14,13 +20,20 @@ const SelectRegio = ({ databaseStore }) => {
 
   return (
     <>
-      <h1>Je bevind je in...</h1>
+      <TopBar title="nextend" />
+      <div className={stylesUi.contentContainer}>
+      <h1 className={stylesTypo.header1}>Je bevind je in...</h1>
       <section>
-          <button className="button3" onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
-          <button className="button3" onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
-          <button className="button3" onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
-          <button className="button3" onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
+          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
+          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
+          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
+          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
       </section>
+      <svg width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.onboardingCount}>
+      <circle cx="23" cy="5" r="5" transform="rotate(-180 23 5)" fill="#FF986F"/>
+      <circle cx="5" cy="5" r="5" transform="rotate(-180 5 5)" fill="#FF986F" fillOpacity="0.1"/>
+      </svg>
+      </div>
     </>
   );
 };

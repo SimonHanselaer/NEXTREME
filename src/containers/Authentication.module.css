@@ -1,0 +1,42 @@
+.title {
+    padding-bottom: 1.2rem;
+}
+
+.button {
+    margin-bottom: .8rem;
+}
+
+.break {
+    margin-top: 1.2rem;
+    margin-bottom: 2rem;
+
+    text-align: center;
+}
+
+.line1, .line2 {
+    border-bottom: .1rem solid var(--offBlack-color);
+    width: 12.8rem;
+
+    position: relative;
+    top: -3rem;
+}
+
+.line1 {
+    top: 2.69rem;
+    left: 16rem;
+}
+
+.button2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 2.4rem;
+}
+
+.loginButton {
+    margin-top: 6.4rem;
+}
+
+.register {
+    margin-top: 1rem;
+    text-decoration: underline;
+}
