@@ -17,8 +17,8 @@ const Ingredienten = props => {
                         <circle cx="12" cy="12" r="11.5" stroke="url(#paint0_linear)"/>
                         <defs>
                         <linearGradient id="paint0_linear" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#FFC371"/>
-                        <stop offset="1" stop-color="#FF5F6D"/>
+                        <stop stopColor="#FFC371"/>
+                        <stop offset="1" stopColor="#FF5F6D"/>
                         </linearGradient>
                         </defs>
                         </svg>

@@ -50,9 +50,8 @@ const Login = ({ databaseStore, uiStore }) => {
           localStorage.setItem("username", user.user.displayName);
           uiStore.setUser(user.user.uid);
 
-          databaseStore.addNewUser(props);
-
           if (user.additionalUserInfo.isNewUser) {
+            databaseStore.addNewUser(props);
             history.push("/selectlanguage")
           } else {
             history.push("/");
