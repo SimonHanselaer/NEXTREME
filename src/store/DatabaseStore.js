@@ -110,6 +110,11 @@ class DatabaseStore {
         const info = await FirestoreRepository.getInfo(props);
         return info;
     }
+
+    getUsers = async prop => {
+        const userInfo = await RealTimeRepository.getUserThemInfo(prop);
+        return userInfo;
+    }
 }
 
 decorate(DatabaseStore, {
