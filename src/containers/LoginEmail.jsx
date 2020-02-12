@@ -27,11 +27,11 @@ const LoginEmail = ({ uiStore }) => {
 
   return (
     <>
-      <h1 className={stylesTypo.headerOne}>Login</h1>
+      <h1 className={stylesTypo.header1}>Login</h1>
       <form onSubmit={handleSubmit}>
           <input className="formInput" type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
           <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
-          <button type="submit" className="buttonOne">Login</button>
+          <button type="submit" className="button1">Login</button>
       </form>
       <NavLink to="/register">
       <p>Don't have an account yet? Create one</p></NavLink>

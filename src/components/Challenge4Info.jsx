@@ -55,10 +55,10 @@ const Recept = ({ databaseStore }) => {
 
     return (
         <>
-            <h1 className={stylesTypo.headerOne}>{city}</h1>
+            <h1 className={stylesTypo.header1}>{city}</h1>
             <section>
-                <button className={status ? "noButton headerOne" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
-                <button className={status ? "noButton" : "noButton headerOne"} onClick={() => setStatus(false)}>Voorstelling</button>
+                <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
+                <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Voorstelling</button>
             </section>
             <section>
             {status ? (

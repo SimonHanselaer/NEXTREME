@@ -134,7 +134,7 @@ const Challenge4Lille = (props) => {
   }
 
     return (
-        <h1 className={stylesTypo.headerOne}>Lille</h1>
+        <h1 className={stylesTypo.header1}>Lille</h1>
     )
 }
 

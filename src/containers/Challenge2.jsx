@@ -104,7 +104,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
           <p className="shortLine"></p>
         </div>
-        <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
+        <button className="button1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -200,11 +200,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           handleCompletedChallenge();
           return (
             <>
-            <h1 className={stylesTypo.headerOne}>Even wachten...</h1>
+            <h1 className={stylesTypo.header1}>Even wachten...</h1>
             <div className={styles.tekst} >
               <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
               <p className="shortLine"></p>
-              <h2 className={stylesTypo.headerOne}>Terwijl je wacht...</h2>
+              <h2 className={stylesTypo.header1}>Terwijl je wacht...</h2>
               <p className="small">Misschien interesseert deze voorstelling je.</p>
             </div>
             <article className="card">

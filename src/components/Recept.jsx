@@ -21,7 +21,7 @@ const Recept = (props) => {
 
     return (
         <>
-            <h1 className={stylesTypo.headerOne}>{challenge.naam}</h1>
+            <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
             <section>
                 <TopBar title={challenge.naam} />
                 <img src="" alt=""/>
@@ -41,8 +41,8 @@ const Recept = (props) => {
                     </article>
                 </section>
                 <section className={`${styles.section} ${styles.sectionLine}`}>
-                    <button className={status ? "headerOne noButton" : "noButton"} onClick={() => setStatus(true)}>Ingrediënten</button>
-                    <button className={status ? "noButton" : "headerOne noButton"} onClick={() => setStatus(false)}>Bereiding</button>
+                    <button className={status ? "header1 noButton" : "noButton"} onClick={() => setStatus(true)}>Ingrediënten</button>
+                    <button className={status ? "noButton" : "header1 noButton"} onClick={() => setStatus(false)}>Bereiding</button>
                 </section>
                 <section className={styles.section}>
                 {status ? (
@@ -51,7 +51,7 @@ const Recept = (props) => {
                     <Bereiding stappen={challenge.stappen} />
                 ) }
                 </section>
-                <button className="buttonOne" onClick={() => {
+                <button className="button1" onClick={() => {
                     const props = {
                         challenge: 'challenge1',
                         grens: grens,

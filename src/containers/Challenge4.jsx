@@ -20,7 +20,7 @@ const Challenge4 = ({ databaseStore }) => {
       <>
         <TopBar title="empty" />
         <p>Versleep de juiste typische monumenten, dranken, eten ... naar de stad. Als het niet klopt, versleep naar de vuilbak.</p>
-        <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
+        <button className="button1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {

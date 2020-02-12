@@ -34,8 +34,8 @@ const Challenges = ({databaseStore}) => {
     <TopBar title="nextend" />
     <div className={stylesUi.contentContainer}>
       <section className={`${styles.section} ${styles.sectionLine}`}>
-        <button className={status ? "noButton headerOne" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
-        <button className={status ? "noButton" : "noButton headerOne"} onClick={() => setStatus(false)}>Chats</button>
+        <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
+        <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Chats</button>
       </section>
       <section className={styles.section}>
       {status ? (

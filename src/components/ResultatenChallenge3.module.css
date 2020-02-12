@@ -10,7 +10,7 @@
 
 
   .procent {
-    composes: headerOne from '../styles/typo.module.css';
+    composes: header1 from '../styles/typo.module.css';
     color: var(--white-color);
     /* om een perfecte cirkel te hebben moet er een perfect vierkant gemaakt worden */
     width: 5rem;

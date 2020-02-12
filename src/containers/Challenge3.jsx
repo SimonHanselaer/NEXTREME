@@ -131,13 +131,13 @@ const Challenge3 = ({databaseStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1 className={stylesTypo.headerOne}>Leer over je medemens.</h1>
+        <h1 className={stylesTypo.header1}>Leer over je medemens.</h1>
         <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <div className="card">
           <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
           <p className="shortLine"></p>
         </div>
-        <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
+        <button className="button1" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -146,7 +146,7 @@ const Challenge3 = ({databaseStore}) => {
       preloader();
         return (
           <>
-            <h1 className={stylesTypo.headerOne}>{challenge.Naam}</h1>
+            <h1 className={stylesTypo.header1}>{challenge.Naam}</h1>
               <article className="flexColumn">
                 <button className="button4">
                   <span onClick={e => {

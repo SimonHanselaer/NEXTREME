@@ -138,7 +138,7 @@ const Challenge4Kortrijk = (props) => {
   }
 
     return (
-        <h1 className={stylesTypo.headerOne}>Kortrijk</h1>
+        <h1 className={stylesTypo.header1}>Kortrijk</h1>
     )
 }
 

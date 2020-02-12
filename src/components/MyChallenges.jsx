@@ -13,8 +13,8 @@ const MyChallenges = props => {
     return (
         <section>
           <article className={styles.article}>
-            <button className={status ? "noButton headerOne" : "noButton"} onClick={() => setStatus(true)}>Te doen</button>
-            <button className={status ? "noButton" : "noButton headerOne"} onClick={() => setStatus(false)}>Gedaan</button>
+            <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Te doen</button>
+            <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Gedaan</button>
           </article>
   
           {status ? (
