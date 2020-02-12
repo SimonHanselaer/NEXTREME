@@ -14,6 +14,8 @@ import eten from "../assets/img/template2Eten.png";
 import cubas from "../assets/img/tamaraCubas.png";
 import styles from "./Challenge2.module.css";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -102,7 +104,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
           <p className="shortLine"></p>
         </div>
-        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+        <button className="buttonOne" onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -113,14 +115,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={bizar} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag1.vraag}</h1>
             <div className="flexColumn">
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
                 }}>{challenge.vraag1.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
@@ -142,14 +144,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={avond} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag2.vraag}</h1>
             <div className="flexColumn">
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
                 }}>{challenge.vraag2.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
@@ -171,14 +173,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={eten} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag3.vraag}</h1>
             <div  className="flexColumn">
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML)
                 setCount(count + 1);
                 }}>{challenge.vraag3.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button-4">
+              <button className="buttonFour">
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML);
                 setCount(count + 1);
@@ -198,11 +200,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           handleCompletedChallenge();
           return (
             <>
-            <h1 className="header-1">Even wachten...</h1>
+            <h1 className={stylesTypo.headerOne}>Even wachten...</h1>
             <div className={styles.tekst} >
               <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
               <p className="shortLine"></p>
-              <h2 className="header-1">Terwijl je wacht...</h2>
+              <h2 className={stylesTypo.headerOne}>Terwijl je wacht...</h2>
               <p className="small">Misschien interesseert deze voorstelling je.</p>
             </div>
             <article className="card">

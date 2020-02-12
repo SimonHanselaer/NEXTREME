@@ -28,8 +28,8 @@ const Challenges = ({databaseStore}) => {
   return (
     <>
     <section>
-      <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
-      <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Chats</button>
+      <button className={status ? "noButton headerOne" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
+      <button className={status ? "noButton" : "noButton headerOne"} onClick={() => setStatus(false)}>Chats</button>
     </section>
     {status ? (
       <>

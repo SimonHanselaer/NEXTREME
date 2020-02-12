@@ -3,7 +3,7 @@
   }
 
   .vraag {
-    composes: header-1 from '../styles/typo.module.css';
+    composes: headerOne from '../styles/typo.module.css';
     padding: 1.6rem;
     padding-top: 0rem;
   }

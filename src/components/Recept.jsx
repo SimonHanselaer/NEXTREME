@@ -6,6 +6,8 @@ import Ingredienten from "./Ingredienten";
 import Bereiding from "./Bereiding";
 import { useHistory } from "react-router-dom";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Recept = (props) => {
     const challenge = props.challenge;
     const grens = props.grens;
@@ -17,7 +19,7 @@ const Recept = (props) => {
 
     return (
         <>
-            <h1 className="header-1">{challenge.naam}</h1>
+            <h1 className={stylesTypo.headerOne}>{challenge.naam}</h1>
             <section>
                 <h2 className="visually-hidden">Info</h2>
                 <img src="" alt=""/>
@@ -35,8 +37,8 @@ const Recept = (props) => {
                 </article>
             </section>
             <section>
-                <button className={status ? "header-1 noButton" : "noButton"} onClick={() => setStatus(true)}>Ingrediënten</button>
-                <button className={status ? "noButton" : "header-1 noButton"} onClick={() => setStatus(false)}>Bereiding</button>
+                <button className={status ? "headerOne noButton" : "noButton"} onClick={() => setStatus(true)}>Ingrediënten</button>
+                <button className={status ? "noButton" : "headerOne noButton"} onClick={() => setStatus(false)}>Bereiding</button>
             </section>
             <section>
             {status ? (
@@ -45,7 +47,7 @@ const Recept = (props) => {
                 <Bereiding stappen={challenge.stappen} />
             ) }
             </section>
-            <button className="button-1" onClick={() => {
+            <button className="buttonOne" onClick={() => {
                 const props = {
                     challenge: 'challenge1',
                     grens: grens,

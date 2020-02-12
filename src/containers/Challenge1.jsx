@@ -7,6 +7,8 @@ import Info from "../components/Info";
 import Kaart from "../components/Kaart";
 import Scrabble from "../components/Scrabble";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -33,9 +35,9 @@ const Challenge1 = ({databaseStore}) => {
   if (!status) {
     return (
       <>
-        <h1 className="header-1">{challenge.naam}</h1>
+        <h1 className={stylesTypo.headerOne}>{challenge.naam}</h1>
         <p>{challenge.extra}</p>
-        <button className="button-1" onClick={() => {
+        <button className="buttonOne" onClick={() => {
           const props = {
             challenge: 'challenge1',
             grens: grens,
@@ -47,7 +49,7 @@ const Challenge1 = ({databaseStore}) => {
 
           databaseStore.updateCompletedChallenges(props);
           setStatus(true)}}>Accepteer</button>
-        <Link to="/"><button className="button-2">Weiger</button></Link>
+        <Link to="/"><button className="buttonTwo">Weiger</button></Link>
       </>
     ); 
   } else {

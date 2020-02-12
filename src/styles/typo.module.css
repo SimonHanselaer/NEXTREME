@@ -1,15 +1,15 @@
-body, .button-2, .noButton, .button-1, .button-4 {
+body, .buttonTwo, .noButton, .buttonOne, .buttonFour {
     font-family: Muli, sans serif;
     font-size: 1.6rem;
     line-height: 2.4rem;
     color: var(--offBlack-color);
 }
 
-.header-1, .button-1, .accent {
+.headerOne, .buttonOne, .accent {
     font-weight: bold;
 }
 
-.header-2 {
+.headerTwo {
     font-size: 1.8rem;
     line-height: 2.7rem;
 }
@@ -24,7 +24,7 @@ body, .button-2, .noButton, .button-1, .button-4 {
     line-height: 1.8rem;
 }
 
-.button-3, .formInput {
+.buttonThree, .formInput {
     font-family: Muli, sans serif;
     font-size: 1.6rem;
     line-height: 2.4rem;

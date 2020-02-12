@@ -6,12 +6,12 @@
   }
 
   .buttonKeuze {
-    composes: button-4 from '../styles/ui.module.css';
+    composes: buttonFour from '../styles/ui.module.css';
     margin-top: 3.7rem;
   }
 
   .buttonKeuze span{
-    /* composes: button-4 span from '../styles/ui.module.css'; */
+    /* composes: buttonFour span from '../styles/ui.module.css'; */
     align-items: center;
     background: var(--transparentOrange-color);
     border-radius: 0.5rem;

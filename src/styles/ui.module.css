@@ -1,7 +1,7 @@
 /* Buttons ------------------------------------------------------------------------------------------------------------------------------------------ */
-.button-1,
-.button-3,
-.button-4 {
+.buttonOne,
+.buttonThree,
+.buttonFour {
   padding: 0.8rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -14,14 +14,14 @@
   min-width: 28.8rem;
 }
 
-.button-1 {
+.buttonOne {
   background-image: linear-gradient(to right, #ffc371, #ff5f6d);
   color: var(--offWhite-color);
   border-radius: 2rem;
   border: none;
 }
 
-.button-2 {
+.buttonTwo {
   text-decoration: underline;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
@@ -29,7 +29,7 @@
   border: none;
 }
 
-.button-3 {
+.buttonThree {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -51,7 +51,7 @@
   padding: 0.1rem;
 }
 
-.button-3 span {
+.buttonThree span {
   align-items: center;
   background: white;
   border-radius: 2rem;
@@ -62,7 +62,7 @@
   width: 100%;
 }
 
-.button-4 {
+.buttonFour {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -84,7 +84,7 @@
   padding: 0.1rem;
 }
 
-.button-4 span {
+.buttonFour span {
   align-items: center;
   background: var(--transparentOrange-color);
   border-radius: 0.5rem;
