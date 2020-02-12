@@ -95,8 +95,8 @@ const NavSVG = ({ icon, state }) => {
                         y2="26.6667"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FFC371" />
-                        <stop offset="1" stop-color="#FF5F6D" />
+                        <stop stopColor="#FFC371" />
+                        <stop offset="1" stopColor="#FF5F6D" />
                       </linearGradient>
                     </defs>
                   </>
