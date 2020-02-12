@@ -110,7 +110,7 @@ const Chat = ({databaseStore}) => {
                     <form onSubmit={e => handleSendMessage(e)}>
                         <div className={styles.textInput}>
                             <input type="text" placeholder="Type your message..." onChange={e => setNewMessage(e.currentTarget.value)}/>
-                            <button type="submit"><img src={send} alt="send button icon"/></button>
+                            <button className={styles.send} type="submit"><img src={send} alt="send button icon"/></button>
                         </div>
                     </form>
                 </article>
