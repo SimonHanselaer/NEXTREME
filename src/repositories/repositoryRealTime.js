@@ -256,6 +256,14 @@ export default {
         return resultProcentsB;
     },
 
+    async getUserThemInfo(prop){
+        let userThem = await dbRealTime.ref('/users/' + prop + '/contacts/').once('value').then(snapshot => {
+            return snapshot.val()
+        })
+
+        return userThem;
+    },
+
     async removeRoom(props) {
         dbRealTime.ref('/users/' + props.user1 + '/contacts/' + props.user2).remove();
         dbRealTime.ref('/users/' + props.user2 + '/contacts/' + props.user1).remove();

@@ -1,10 +1,11 @@
 .bodyBg{
     background-image: url("../assets/img/backgroundChat.png");
     background-repeat: no-repeat;
-    /* width: 100vw;
-    height: 100vh; */
+    width: 100vw;
+    height: 100vh;
     /* object-fit: cover; */
     background-size: 100% 100%;
+    overflow: auto;
 }
 
 .header{
@@ -21,7 +22,7 @@
     padding-right: 0rem;
 }
 
-.mijnBericht {
+/* .mijnBericht {
     margin: 2.4rem;
     display: flex;
     justify-content: flex-end;
@@ -34,15 +35,13 @@
 }
 
 .mijnBericht span{
-    background-color: var(--yellow-color);
+    background: var(--yellow-color);
    
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     padding-left: 1.3rem;
     padding-right: 1.3rem;
-    border-radius: 2.5rem; 
-
-    
+    border-radius: 2.5rem;  
 }
 
 .zijnBericht span{
@@ -52,7 +51,7 @@
     padding-left: 1.3rem;
     padding-right: 1.3rem;
     border-radius: 2.5rem; 
-}
+} */
 
 .contentContainer{
     composes: card from '../styles/ui.module.css';
@@ -61,8 +60,35 @@
 }
 
 .messageContainer{
+    /* Flexbox-specific styles */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    /* General styling */
     height: 37.6rem;
-    overflow: scroll;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0.8rem;
+    overflow: auto; 
+}
+
+.messageContainer li{
+    background: rgba(51, 51, 51, 0.1);
+
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    border-radius: 2.5rem;  
+    margin: 0.8rem;
+
+    max-width: 28.8rem; 
+}
+
+.messageContainer li.mijnBericht{
+    background: var(--yellow-color);
+    align-self: flex-end;
 }
 
 .typeField{
