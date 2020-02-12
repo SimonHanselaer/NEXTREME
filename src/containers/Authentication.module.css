@@ -1,52 +1,60 @@
 .title {
-    padding-bottom: 1.2rem;
+  composes: header1 from '../styles/typo.module.css';
+  padding-bottom: 1.2rem;
 }
 
 .button {
-    margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 
 .break {
-    margin-top: 1.2rem;
-    margin-bottom: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
 
-    text-align: center;
+  text-align: center;
 }
 
-.line1, .line2 {
-    border-bottom: .1rem solid var(--offBlack-color);
-    width: 12.8rem;
+.line1,
+.line2 {
+  border-bottom: 0.1rem solid var(--offBlack-color);
+  width: 12.8rem;
 
-    position: relative;
-    top: -3rem;
+  position: relative;
+  top: -3rem;
 }
 
 .line1 {
-    top: 2.69rem;
-    left: 16rem;
+  top: 2.69rem;
+  left: 16rem;
 }
 
 .button2 {
-    width: 100%;
-    text-align: center;
-    margin-top: 2.4rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 2.4rem;
 }
 
 .loginButton {
-    margin-top: 6.4rem;
+  margin-top: 6.4rem;
 }
 
 .register {
-    margin-top: 1rem;
-    text-decoration: underline;
+  margin-top: 1rem;
+  text-decoration: underline;
 }
 
-.img, .img2 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.img,
+.img2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img2 {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+
+.registerButton {
+  composes: button1 from '../styles/typo.module.css';
+  composes: header1 from '../styles/ui.module.css';
 }

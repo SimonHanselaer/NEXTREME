@@ -38,7 +38,7 @@ const LoginEmail = ({ uiStore }) => {
       <h1 className={`${stylesTypo.header1} ${styles.title}`}>Login</h1>
       <form onSubmit={handleSubmit}>
           <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
-          <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
+          <input className={stylesUi.formInput} type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
           <NavLink to="/register">
             <p className={`${stylesTypo.small} ${styles.register}`}>Don't have an account yet? Create one</p>
           </NavLink>

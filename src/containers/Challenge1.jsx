@@ -51,7 +51,7 @@ const Challenge1 = ({databaseStore}) => {
                 <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next">DINNER@NEXT</a>
               ) : (<></>)}
             </article>
-          <button className="button1" onClick={() => {
+          <button className={stylesUi.button1} onClick={() => {
             const props = {
               challenge: 'challenge1',
               grens: grens,
@@ -63,7 +63,7 @@ const Challenge1 = ({databaseStore}) => {
 
             databaseStore.updateCompletedChallenges(props);
             setStatus(true)}}>Accepteer</button>
-          <Link to="/"><button className="button2">Weiger</button></Link>
+          <Link to="/"><button className={stylesUi.button2}>Weiger</button></Link>
         </div>
       </>
     ); 

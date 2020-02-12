@@ -1,23 +1,27 @@
-.button {
-    margin-top: .8rem;
-}
-
 .onboardingCount {
-    margin-top: 2.4rem;
-    width: 100%;
-    align-self: center;
+  margin-top: 2.4rem;
+  width: 100%;
+  align-self: center;
 }
 
 .imgLang {
-    margin-top: 2.1rem;
-    margin-bottom: 2.4rem;
+  margin-top: 2.1rem;
+  margin-bottom: 2.4rem;
 }
 
 .imgReg {
-    margin-top: 6.7rem;
+  margin-top: 6.7rem;
 }
 
 .contentContainer {
-    composes: contentContainer from "../styles/ui.module.css";
-    margin-top: 0;
+  composes: contentContainer from '../styles/ui.module.css';
+  margin-top: 0;
+}
+
+/* `${stylesUi.button3} ${stylesTypo.small} ${styles.button}` */
+
+.chooseButton {
+  composes: button3 from '../styles/ui.module.css';
+  composes: small from '../styles/typo.module.css';
+  margin-top: 0.8rem;
 }

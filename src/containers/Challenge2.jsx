@@ -101,11 +101,11 @@ const Challenge2 = ({databaseStore, dataStore}) => {
     return (
       <>
         <TopBar title="" />
-        <h1 className="visually-hidden">{challenge.naam}</h1>
+        <h1 className={stylesUi.visuallyHidden}>{challenge.naam}</h1>
         <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <div className={styles.card01}>
           <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
-          <p className="shortLine"></p>
+          <p className={stylesUi.shortLine}></p>
         </div>
         <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>
@@ -118,15 +118,15 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <TopBar title="" />
             <img src={bizar} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag1.vraag}</h1>
-            <div className="flexColumn">
-              <button className="button4">
+            <div className={stylesUi.flexColumn}>
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
                 }}>{challenge.vraag1.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button4">
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
@@ -150,15 +150,15 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <TopBar title="" />
             <img src={avond} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag2.vraag}</h1>
-            <div className="flexColumn">
-              <button className="button4">
+            <div className={stylesUi.flexColumn}>
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
                 }}>{challenge.vraag2.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button4">
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
@@ -182,15 +182,15 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <TopBar title="" />
             <img src={eten} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag3.vraag}</h1>
-            <div  className="flexColumn">
-              <button className="button4">
+            <div  className={stylesUi.flexColumn}>
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML)
                 setCount(count + 1);
                 }}>{challenge.vraag3.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button4">
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML);
                 setCount(count + 1);
@@ -215,17 +215,17 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <TopBar title="Even wachten..." />
             <section className={styles.container}>
               <div className={styles.tekst} >
-                <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Challenges’</span>.</p>
-                <p className="shortLine"></p>
+                <p className={stylesTypo.small}>op de match zijn antwoorden. Deze vind je terug onder <span className={stylesTypo.accent}>‘Challenges’</span>.</p>
+                <p className={stylesUi.shortLine}></p>
                 <h2 className={stylesTypo.header1}>Terwijl je wacht...</h2>
-                <p className="small">Misschien interesseert deze voorstelling je.</p>
+                <p className={stylesTypo.small}>Misschien interesseert deze voorstelling je.</p>
               </div>
               <article className={styles.card02} >
-                <div className="flexRow">
+                <div className={stylesUi.flexRow}>
                   <img className={styles.miniInfoFoto} width="56px" height="56px" src={cubas} alt="header foto evenement"/>
                   <div>
-                    <p className="accent">Multitud</p>
-                    <p className="small">Tamara Cubas</p>
+                    <p className={stylesTypo.accent}>Multitud</p>
+                    <p className={stylesTypo.small}>Tamara Cubas</p>
                   </div>  
                 </div>
                 <p className={styles.miniInfoTekst}>In al hun verschillen realiseren de dansers iets prachtigs, iets waar wij als samenleving zo veel moeite mee hebben: zonder elkaar te verstaan, begrijpen ze elkaar. </p>

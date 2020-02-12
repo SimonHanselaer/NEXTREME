@@ -41,7 +41,7 @@ const Home = ({ databaseStore, uiStore }) => {
             <TopBar title="nextend" />
             <div className={stylesUi.contentContainer}>
             <img src={img} alt="" width="150" className={styles.img2}/>
-            <h1 className={`${styles.title} ${stylesTypo.header1}`}>Register</h1>
+            <h1 className={styles.title}>Register</h1>
                 <form onSubmit={handleSubmit}>
                     <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
                     <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="password" placeholder="Password" onChange={e => setvaluePassword(e.currentTarget.value)}/>
@@ -49,7 +49,7 @@ const Home = ({ databaseStore, uiStore }) => {
                     <NavLink to="/login">
                         <p className={`${stylesTypo.small} ${styles.register}`}>Already have an account? Log in</p>
                     </NavLink>
-                    <button type="submit" className={`${stylesUi.button1} ${stylesTypo.header1}`}>Register</button>
+                    <button type="submit" className={stylesUi.registerButton}>Register</button>
                 </form>
 
             </div>

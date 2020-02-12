@@ -137,7 +137,7 @@ const Challenge3 = ({databaseStore}) => {
           <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
           <div  className={styles.card01}>
             <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
-            <p className="shortLine"></p>
+            <p className={stylesUi.shortLine}></p>
           </div>
           <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>

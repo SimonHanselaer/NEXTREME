@@ -27,10 +27,10 @@ const SelectRegio = ({ databaseStore }) => {
       <img src={img} alt="" width="305" className={styles.imgReg}/>
       <h1 className={stylesTypo.header1}>Je bevind je in...</h1>
       <section>
-          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
-          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
-          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
-          <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.button}`} onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
+          <button className={styles.chooseButton} onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
+          <button className={styles.chooseButton} onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
+          <button className={styles.chooseButton} onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
+          <button className={styles.chooseButton} onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
       </section>
       <svg width="28" height="10" viewBox="0 0 28 10" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.onboardingCount}>
       <circle cx="23" cy="5" r="5" transform="rotate(-180 23 5)" fill="#FF986F"/>

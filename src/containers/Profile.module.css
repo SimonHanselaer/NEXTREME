@@ -125,3 +125,8 @@ input[type='radio']:checked + .inputLabel {
 .regioGrid > div {
   margin-right: 0.8rem;
 }
+
+.logoutButton {
+  composes: button2 from '../styles/ui.module.css';
+  text-align: left;
+}

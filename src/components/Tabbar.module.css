@@ -12,3 +12,10 @@
   align-items: center;
   padding: 0.8rem;
 }
+
+.active {
+  /* detail accent */
+  composes: detail from '../styles/typo.module.css';
+  composes: accent from '../styles/typo.module.css';
+}
+

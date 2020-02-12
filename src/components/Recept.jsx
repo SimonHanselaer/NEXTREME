@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 import stylesTypo from '../styles/typo.module.css';
 import TopBar from "../components/TopBar";
 import styles from "./Recept.module.css";
-import stylesUi from "../styles/ui.module.css";
+import stylesUI from "../styles/ui.module.css";
 
 const Recept = (props) => {
     const challenge = props.challenge;
@@ -21,54 +21,68 @@ const Recept = (props) => {
     let history = useHistory();
 
     return (
-        <>
-            <section>
-                <TopBar title={challenge.naam} />
-                <div className={stylesUi.contentContainer} >
-
-                <img src="" alt=""/>
-                <section className={styles.infoCard}>
-                    <h2 className="visually-hidden">Info</h2>
-                    <article>
-                        <h3 className="small">Personen</h3>
-                        <p className="accent">{challenge.personen}</p>
-                    </article>
-                    <article>
-                        <h3 className="small">Werk tijd</h3>
-                        <p className="accent">{challenge.werkTijd}</p>
-                    </article>
-                    <article>
-                        <h3 className="small">Totale tijd</h3>
-                        <p className="accent">{challenge.totaleTijd}</p>
-                    </article>
-                </section>
-                <section className={`${styles.section} ${styles.sectionLine}`}>
-                    <button className={status ? "header1 noButton" : "noButton"} onClick={() => setStatus(true)}>Ingrediënten</button>
-                    <button className={status ? "noButton" : "header1 noButton"} onClick={() => setStatus(false)}>Bereiding</button>
-                </section>
-                <section className={styles.section}>
-                {status ? (
-                    <Ingredienten ingredienten={challenge.ingrediënten} />
-                ) : (
-                    <Bereiding stappen={challenge.stappen} />
-                ) }
-                </section>
-                <button className="button1" onClick={() => {
-                    const props = {
-                        challenge: 'challenge1',
-                        grens: grens,
-                        id: challengeId,
-                        uid: localStorage.uid,
-                        status: 'gecomplete',
-                        naam: challenge.naam
-                    }
-            
-                    databaseStore.updateCompletedChallenges(props);
-                    history.push("/");
-                }}>Uitdaging compleet!</button>
-                </div>
+      <>
+        <section>
+          <TopBar title={challenge.naam} />
+          <div className={stylesUI.contentContainer}>
+            <img src="" alt="" />
+            <section className={styles.infoCard}>
+              <h2 className={stylesUI.visuallyHidden}>Info</h2>
+              <article>
+                <h3 className={stylesTypo.small}>Personen</h3>
+                <p className={stylesTypo.accent}>{challenge.personen}</p>
+              </article>
+              <article>
+                <h3 className={stylesTypo.small}>Werk tijd</h3>
+                <p className={stylesTypo.accent}>{challenge.werkTijd}</p>
+              </article>
+              <article>
+                <h3 className={stylesTypo.small}>Totale tijd</h3>
+                <p className={stylesTypo.accent}>{challenge.totaleTijd}</p>
+              </article>
             </section>
-        </>
+            <section className={`${styles.section} ${styles.sectionLine}`}>
+              <button
+                className={status ? 'header1 noButton' : 'noButton'}
+                onClick={() => setStatus(true)}
+              >
+                Ingrediënten
+              </button>
+              <button
+                className={status ? 'noButton' : 'header1 noButton'}
+                onClick={() => setStatus(false)}
+              >
+                Bereiding
+              </button>
+            </section>
+            <section className={styles.section}>
+              {status ? (
+                <Ingredienten ingredienten={challenge.ingrediënten} />
+              ) : (
+                <Bereiding stappen={challenge.stappen} />
+              )}
+            </section>
+            <button
+              className={stylesUI.button1}
+              onClick={() => {
+                const props = {
+                  challenge: 'challenge1',
+                  grens: grens,
+                  id: challengeId,
+                  uid: localStorage.uid,
+                  status: 'gecomplete',
+                  naam: challenge.naam
+                };
+
+                databaseStore.updateCompletedChallenges(props);
+                history.push('/');
+              }}
+            >
+              Uitdaging compleet!
+            </button>
+          </div>
+        </section>
+      </>
     );
 
     

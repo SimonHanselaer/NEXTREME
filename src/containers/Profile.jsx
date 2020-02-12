@@ -56,12 +56,36 @@ const Profile = ({ uiStore, databaseStore }) => {
       setStatus(true);
       setUsername(info.Username);
       setPhoto(info.Photo);
-      setCity(info.City);
+
+      if(info.City !== undefined){
+        setCity(info.City);
+      }else {
+        setCity(" ");
+      }
+  
       setRegio(info.Regio);
-      setAge(info.Age);
-      setGender(info.Gender);
+
+      if(info.Age !== undefined){
+        setAge(info.Age);
+      }else {
+        setAge(" ");
+      }
+
+      if(info.Gender !== undefined){
+        setGender(info.Gender);
+      }else {
+        setGender("geen");
+      }
+      
+      
       setLanguage(info.Language);
-      setBio(info.Bio);
+
+      if(info.Bio !== undefined){
+        setBio(info.Bio);
+      }else {
+        setBio(" ");
+      }
+      
       setChallenges(userChallenges);
     };
 
@@ -92,7 +116,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setUsername(e.currentTarget.value)
-                      : setUsername("")
+                      : setUsername('')
                   }
                 />
               </div>
@@ -105,12 +129,11 @@ const Profile = ({ uiStore, databaseStore }) => {
                   name="city"
                   placeholder="Kortrijk"
                   className={stylesTypo.input}
-                  defaultValue={city !== '' ? city : ''}
+                  defaultValue={city === '' ? '' : city}
                   onChange={e =>
-                    e.currentTarget.value.trim() !== ''
-                       ? setCity(e.currentTarget.value)
-                      : setCity("")
-                       
+                    e.currentTarget.value !== ''
+                      ? setCity(e.currentTarget.value)
+                      : setCity('')
                   }
                 />
               </div>
@@ -224,7 +247,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setAge(e.currentTarget.value)
-                      : setAge("")
+                      : setAge('')
                   }
                 />
               </div>
@@ -312,7 +335,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                       onClick={e =>
                         e.currentTarget.value !== ''
                           ? setGender(e.currentTarget.value)
-                          : ''
+                          : setGender('')
                       }
                     />
                   ) : (
@@ -324,7 +347,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                       onClick={e =>
                         e.currentTarget.value !== ''
                           ? setGender(e.currentTarget.value)
-                          : ''
+                          : setGender('')
                       }
                     />
                   )}
@@ -422,7 +445,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setBio(e.currentTarget.value)
-                      : setBio("")
+                      : setBio('')
                   }
                 ></textarea>
               </div>
@@ -444,9 +467,10 @@ const Profile = ({ uiStore, databaseStore }) => {
             {/* <h1>Profile</h1> */}
             <div className={styles.header}>
               <div>
-                <h2 className="accent">{username}</h2>
-                <p className="small">
-                  {city} -{' '}
+                <h2 className={stylesTypo.accent}>{username}</h2>
+                <p className={stylesTypo.small}>
+                  {city} 
+                  {city !== "" && regio !== "" ? ' - ' : null} 
                   {regio === 'VL'
                     ? 'Vlaanderen'
                     : regio === 'WL'
@@ -496,25 +520,24 @@ const Profile = ({ uiStore, databaseStore }) => {
             />
           </div>
           <div className={styles.container}>
-            <div className="flexRow">
+            <div className={stylesUI.flexRow}>
               <div className={styles.info}>
-                <p className="accent">{age !== "" ? age : "-"}</p>
-                <p className="small">Leeftijd</p>
+                <p className={stylesTypo.accent}>{age !== ' ' ? age : "-"}</p>
+                <p className={stylesTypo.small}>Leeftijd</p>
               </div>
               <div className={styles.info}>
-                <p className="accent">{gender === "geen" ? "-" : gender}</p>
-                <p className="small">Geslacht</p>
+                <p className={stylesTypo.accent}>{gender !== "geen" ? gender : "-"}</p>
+                <p className={stylesTypo.small}>Geslacht</p>
               </div>
               <div className={styles.info}>
-                <p className="accent">{language}</p>
-                <p className="small">Taal</p>
+                <p className={stylesTypo.accent}>{language}</p>
+                <p className={stylesTypo.small}>Taal</p>
               </div>
             </div>
             <div className={styles.shortline}></div>
             <div>
               <h3 className={styles.titles}>Over</h3>
-              {console.log(bio)}
-              <p className="small">{bio !== "" ? bio : "Hier komt je bio."}</p>
+              <p className={stylesTypo.small}>{bio !== '' ? bio : "Hier komt je bio."}</p>
             </div>
             <div>
               <h3 className={styles.titles}>Gedane uitdagingen</h3>
@@ -530,11 +553,11 @@ const Profile = ({ uiStore, databaseStore }) => {
                     );
                   })
                 ) : (
-                  <p>Loading...</p>
+                  <p>Je hebt nog geen uitdagingen gedaan. Ga naar de home-pagina en ga de uitdaging aan!</p>
                 )}
               </ul>
             </div>
-            <button onClick={() => handleLogout()}>Afmelden</button>
+            <button onClick={() => handleLogout()} className={styles.logoutButton}>Afmelden</button>
           </div>
         </>
       );

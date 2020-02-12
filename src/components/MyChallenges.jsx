@@ -5,6 +5,7 @@ import MyChallengesAccepted from "./MyChallengesAccepted";
 import MyChallengesCompleted from "./MyChallengesCompleted";
 
 import styles from "./MyChallenges.module.css";
+import stylesUI from "../styles/ui.module.css";
 
 const MyChallenges = props => {
     let challenges = props.challenges;
@@ -13,8 +14,8 @@ const MyChallenges = props => {
     return (
         <section>
           <article className={styles.article}>
-            <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Te doen</button>
-            <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Gedaan</button>
+            <button className={status ? styles.subsectionTitle : stylesUI.noButton} onClick={() => setStatus(true)}>Te doen</button>
+            <button className={status ? stylesUI.noButton : styles.subsectionTitle} onClick={() => setStatus(false)}>Gedaan</button>
           </article>
   
           {status ? (
