@@ -31,6 +31,10 @@ const Challenge4Doornik = (props) => {
 
     const game = new Phaser.Game(config);
 
+    history.listen((location, action) => {
+      game.destroy(true);
+    });
+
     function init() {
       this.screenWidth = this.sys.game.config.width;
       this.screenHeight = this.sys.game.config.height;
