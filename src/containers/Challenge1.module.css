@@ -1,0 +1,9 @@
+.card {
+    composes: card from "../styles/ui.module.css";
+    margin: 0;
+}
+
+.shortLine {
+    composes: shortLine from "../styles/ui.module.css";
+    margin-bottom: .6rem;
+}
