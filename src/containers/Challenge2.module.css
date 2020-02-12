@@ -8,41 +8,66 @@
   padding-top: 0rem;
 }
 
-.procesbar {
-  width: 19.2rem;
-  margin: 0 auto;
-  padding-top: 1.6rem;
+  .process{
+      display: flex;
+      justify-content: center;
+  }
 
-  /* position: fixed;
-    bottom: 1; */
+  .procesbar{
+    padding-bottom: 1.6rem;
+    width: 19.2rem;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .procesbarItem{
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .miniInfoFoto{
+    margin: 1.6rem;
+    margin-left: 0rem;
+    margin-top: 0rem;
+  }
+
+  .miniInfoTekst, .miniInfoTekstDetail{
+    composes: small from '../styles/typo.module.css';
+    margin-bottom: 1.6rem;
+  }
+
+  .miniInfoTekstDetail{
+    text-decoration: underline;
+  }
+
+  .tekst p{
+    margin-bottom: 1.6rem;
 }
 
-.procesbarItem {
-  justify-content: space-between;
-  align-items: center;
+.topSpace{
+    margin-top: 11.2rem;
 }
 
-.miniInfoFoto {
-  margin: 1.6rem;
-  margin-left: 0rem;
-  margin-top: 0rem;
+.card01{
+    composes: card01 from './Challenge3.module.css';
 }
 
-.miniInfoTekst,
-.miniInfoTekstDetail {
-  composes: small from '../styles/typo.module.css';
-  margin-bottom: 1.6rem;
+
+.card02{
+    composes: card01 from './Challenge3.module.css';
+    margin: 0rem;
 }
 
-.miniInfoTekstDetail {
-  text-decoration: underline;
+.main{
+    composes: main from './Challenge3.module.css';
+    margin-top: 0rem;
 }
 
-.tekst {
-  width: 28.8rem;
-  margin: 0 auto;
-}
+.button1Start{
+    composes: button1Start from './Challenge3.module.css';
+  }
 
-.tekst p {
-  margin-bottom: 1.6rem;
-}
+  .container{
+    composes: contentContainer from '../styles/ui.module.css';
+    overflow: inherit;
+  }

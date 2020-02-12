@@ -3,12 +3,14 @@ import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useParams, useHistory } from "react-router-dom";
 import Tabbar from "../components/Tabbar";
+import TopBar from "../components/TopBar";
 import Resultaten from "../components/ResultatenChallenge3";
 
 // import main from "../assets/img/challenge3/main.png";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
 
 const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -131,13 +133,13 @@ const Challenge3 = ({databaseStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1 className={stylesTypo.header1}>Leer over je medemens.</h1>
-        <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
-        <div className="card">
-          <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
-          <p className="shortLine"></p>
-        </div>
-        <button className="button1" onClick={() => setStatus(true)}>Start</button>
+        <TopBar title="Leer over je medemens." />
+          <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+          <div  className={styles.card01}>
+            <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
+            <p className="shortLine"></p>
+          </div>
+          <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -146,24 +148,24 @@ const Challenge3 = ({databaseStore}) => {
       preloader();
         return (
           <>
-            <h1 className={stylesTypo.header1}>{challenge.Naam}</h1>
-              <article className="flexColumn">
-                <button className="button4">
-                  <span onClick={e => {
-                    setCount(count + 1);
-                    setAnswer(e.currentTarget.innerHTML);
-                    handleCompletedChallenge(e.currentTarget.innerHTML);
-                    }}>{challenge.OptieA}</span>
-                </button>
-                <p className={styles.longLine}></p>
-                <button className="button4">
-                  <span onClick={e => {
-                    setCount(count + 1);
-                    setAnswer(e.currentTarget.innerHTML);
-                    handleCompletedChallenge(e.currentTarget.innerHTML);
-                    }}>{challenge.OptieB}</span>
-                </button>
-              </article>
+            <TopBar title={challenge.Naam} />
+            <article className={styles.keuzes}>
+              <button className={stylesUi.button4}>
+                <span onClick={e => {
+                  setCount(count + 1);
+                  setAnswer(e.currentTarget.innerHTML);
+                  handleCompletedChallenge(e.currentTarget.innerHTML);
+                  }}>{challenge.OptieA}</span>
+              </button>
+              <p className={styles.longLine}></p>
+              <button className={stylesUi.button4}>
+                <span onClick={e => {
+                  setCount(count + 1);
+                  setAnswer(e.currentTarget.innerHTML);
+                  handleCompletedChallenge(e.currentTarget.innerHTML);
+                  }}>{challenge.OptieB}</span>
+              </button>
+            </article>
           </>
         );
       case 2:

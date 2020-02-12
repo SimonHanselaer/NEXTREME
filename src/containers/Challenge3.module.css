@@ -22,6 +22,34 @@
   width: 100%;
 }
 
+.main{
+    margin-top: 6rem;
+    margin-bottom: -2.2rem;
+  }
+
+.card01{
+    composes: card from '../styles/ui.module.css';
+    margin-bottom: 0rem;
+  }
+
+.keuzes{
+    composes: flexColumn from '../styles/ui.module.css';
+    margin-top: 11.6rem;
+  }
+
+  .button1Start{
+    composes: button1 from '../styles/ui.module.css';
+    margin: 1.6rem;
+  }
+
+
 .hidden {
   display: none;
+}
+
+.container{
+  composes: contentContainer from '../styles/ui.module.css';
+  margin-bottom: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
