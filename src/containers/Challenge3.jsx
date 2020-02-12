@@ -9,6 +9,7 @@ import Resultaten from "../components/ResultatenChallenge3";
 // import main from "../assets/img/challenge3/main.png";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
+import stylesTypo from '../styles/typo.module.css';
 
 const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -133,11 +134,12 @@ const Challenge3 = ({databaseStore}) => {
       <>
         <TopBar title="Leer over je medemens." />
         <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
-        <div  className={styles.card01}>
-          <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
-          <p className="shortLine"></p>
-        </div>
-        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+      
+          <div  className={styles.card01}>
+            <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
+            <p className="shortLine"></p>
+          </div>
+          <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {

@@ -5,6 +5,7 @@ import { observer } from "mobx-react";
 import TopBar from "../components/TopBar";
 
 import stylesUi from "../styles/ui.module.css";
+import stylesTypo from "../styles/typo.module.css";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <TopBar title="nextend" />
       <div className={stylesUi.contentContainer}>
         <article>
-          <h2 className="header-2">Ik verleg vandaag mijn</h2>
+          <h2 className={stylesTypo.header1}>Ik verleg vandaag mijn</h2>
           <SelectGrens />
         </article>
       </div>

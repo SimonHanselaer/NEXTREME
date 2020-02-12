@@ -8,6 +8,10 @@ import Kaart from "../components/Kaart";
 import Scrabble from "../components/Scrabble";
 import TopBar from "../components/TopBar";
 
+import stylesUi from "../styles/ui.module.css";
+
+import stylesTypo from '../styles/typo.module.css';
+
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
@@ -35,21 +39,23 @@ const Challenge1 = ({databaseStore}) => {
     return (
       <>
         <TopBar title="empty" />
-        <h1 className="header-1">{challenge.naam}</h1>
-        <p>{challenge.extra}</p>
-        <button className="button-1" onClick={() => {
-          const props = {
-            challenge: 'challenge1',
-            grens: grens,
-            id: id,
-            uid: localStorage.uid,
-            status: 'geaccepteerd',
-            naam: challenge.naam
-          }
+          <div className={`${stylesUi.contentContainer}`}>
+          <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
+          <p>{challenge.extra}</p>
+          <button className="button1" onClick={() => {
+            const props = {
+              challenge: 'challenge1',
+              grens: grens,
+              id: id,
+              uid: localStorage.uid,
+              status: 'geaccepteerd',
+              naam: challenge.naam
+            }
 
-          databaseStore.updateCompletedChallenges(props);
-          setStatus(true)}}>Accepteer</button>
-        <Link to="/"><button className="button-2">Weiger</button></Link>
+            databaseStore.updateCompletedChallenges(props);
+            setStatus(true)}}>Accepteer</button>
+          <Link to="/"><button className="button2">Weiger</button></Link>
+        </div>
       </>
     ); 
   } else {

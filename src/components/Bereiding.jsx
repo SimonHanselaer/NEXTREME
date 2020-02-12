@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Bereiding.module.css";
+import stylesTypo from "../styles/typo.module.css";
 
 const Bereiding = props => {
     const stappen = props.stappen;
@@ -9,7 +10,7 @@ const Bereiding = props => {
             {
                 Object.entries(stappen).map(([key, val]) => {
                     return <li key={key} className={styles.cardStap}>
-                        <h3 className="header-1">Stap {key}:</h3>
+                        <h3 className={stylesTypo.header1}>Stap {key}:</h3>
                         <p>{val}</p>
                     </li>
             }

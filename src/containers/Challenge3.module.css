@@ -1,42 +1,48 @@
 .longLine {
-    composes: longLine from '../styles/ui.module.css';
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
-    align-self: center;
-  }
+  composes: longLine from '../styles/ui.module.css';
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  align-self: center;
+}
 
-  .buttonKeuze {
-    composes: button-4 from '../styles/ui.module.css';
-    margin-top: 3.7rem;
-  }
+.buttonKeuze {
+  composes: button4 from '../styles/ui.module.css';
+  margin-top: 3.7rem;
+}
 
-  .buttonKeuze span{
-    /* composes: button-4 span from '../styles/ui.module.css'; */
-    align-items: center;
-    background: var(--transparentOrange-color);
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-  
-    height: 100%;
-    width: 100%;
-  }
+.buttonKeuze span {
+  /* composes: button4 span from '../styles/ui.module.css'; */
+  align-items: center;
+  background: var(--transparentOrange-color);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
 
-  .hidden{
-      display: none;
-  }
+  height: 100%;
+  width: 100%;
+}
 
-  .main{
+.main{
     margin-top: 6rem;
     margin-bottom: -2.2rem;
   }
 
-  .card01{
+.card01{
     composes: card from '../styles/ui.module.css';
     margin-bottom: 0rem;
   }
 
-  .keuzes{
+.keuzes{
     composes: flexColumn from '../styles/ui.module.css';
     margin-top: 11.6rem;
   }
+
+  .button1Start{
+    composes: button1 from '../styles/ui.module.css';
+    margin: 0 auto;
+  }
+
+
+.hidden {
+  display: none;
+}

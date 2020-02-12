@@ -10,6 +10,7 @@ import arrow from "../assets/img/icons/arrowLeft.svg";
 import styles from "./ResultatenChallenge3.module.css";
 
 import TopBar from "./TopBar";
+import stylesTypo from '../styles/typo.module.css';
 
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
@@ -87,7 +88,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key} className={styles.jijBehoort}>
                                             <div className={styles.jijBehoortResult}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
@@ -97,7 +98,7 @@ const ResultatenChallenge3 = (props) => {
                                                 <div className={styles.jijBehoortExtra}>
                                                     <img width="56px" height="56px" src={faon} alt="header foto evenement"/>
                                                     <div>
-                                                        <p className="header-1">FAON</p>
+                                                        <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
                                                     <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
@@ -114,7 +115,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
@@ -128,7 +129,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
@@ -154,7 +155,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key} className={styles.jijBehoort}>
                                             <div className={styles.jijBehoortResult}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
@@ -164,7 +165,7 @@ const ResultatenChallenge3 = (props) => {
                                                 <div className={styles.jijBehoortExtra}>
                                                     <img width="56px" height="56px" src={faon} alt="header foto evenement"/>
                                                     <div>
-                                                        <p className="header-1">FAON</p>
+                                                        <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
                                                     <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
@@ -181,7 +182,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
@@ -195,7 +196,7 @@ const ResultatenChallenge3 = (props) => {
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
-                                                    <h2 className="header-1">{result.regio}</h2>
+                                                    <h2 className={stylesTypo.header1}>{result.regio}</h2>
                                                     <p>{result.title}</p>
                                                 </div>
                                                 <p className={styles.procent}>{result.procent + "%"}</p>

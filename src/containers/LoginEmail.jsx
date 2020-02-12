@@ -4,6 +4,8 @@ import { NavLink, useHistory } from "react-router-dom";
 
 import { inject, observer } from "mobx-react";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const LoginEmail = ({ uiStore }) => {
   let history = useHistory();
 
@@ -25,11 +27,11 @@ const LoginEmail = ({ uiStore }) => {
 
   return (
     <>
-      <h1 className="header-1">Login</h1>
+      <h1 className={stylesTypo.header1}>Login</h1>
       <form onSubmit={handleSubmit}>
           <input className="formInput" type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
           <input className="formInput" type="password" placeholder="Password" onChange={e => setValuePassword(e.currentTarget.value)}/>
-          <button type="submit" className="button-1">Login</button>
+          <button type="submit" className="button1">Login</button>
       </form>
       <NavLink to="/register">
       <p>Don't have an account yet? Create one</p></NavLink>

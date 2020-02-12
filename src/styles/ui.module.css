@@ -1,12 +1,13 @@
 /* Buttons ------------------------------------------------------------------------------------------------------------------------------------------ */
-.button-1,
-.button-3,
-.button-4 {
+.button1,
+.button3,
+.button4 {
   padding: 0.8rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 
-  margin: 1.6rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
 
   text-align: center;
 
@@ -14,14 +15,14 @@
   min-width: 28.8rem;
 }
 
-.button-1 {
+.button1 {
   background-image: linear-gradient(to right, #ffc371, #ff5f6d);
   color: var(--offWhite-color);
   border-radius: 2rem;
   border: none;
 }
 
-.button-2 {
+.button2 {
   text-decoration: underline;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
@@ -29,7 +30,7 @@
   border: none;
 }
 
-.button-3 {
+.button3 {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -51,7 +52,7 @@
   padding: 0.1rem;
 }
 
-.button-3 span {
+.button3 span {
   align-items: center;
   background: white;
   border-radius: 2rem;
@@ -62,7 +63,7 @@
   width: 100%;
 }
 
-.button-4 {
+.button4 {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -84,7 +85,7 @@
   padding: 0.1rem;
 }
 
-.button-4 span {
+.button4 span {
   align-items: center;
   background: var(--transparentOrange-color);
   border-radius: 0.5rem;
@@ -173,4 +174,7 @@
   margin-top: 10.4rem;
   margin-bottom: 8rem;
   overflow: scroll;
+
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }

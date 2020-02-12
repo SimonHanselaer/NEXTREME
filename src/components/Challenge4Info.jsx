@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Recept = ({ databaseStore }) => {
     let history = useHistory();
 
@@ -53,10 +55,10 @@ const Recept = ({ databaseStore }) => {
 
     return (
         <>
-            <h1 className="header-1">{city}</h1>
+            <h1 className={stylesTypo.header1}>{city}</h1>
             <section>
-                <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
-                <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Voorstelling</button>
+                <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
+                <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Voorstelling</button>
             </section>
             <section>
             {status ? (

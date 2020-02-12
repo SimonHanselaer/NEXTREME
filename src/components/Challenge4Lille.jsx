@@ -9,6 +9,8 @@ import item1 from "../assets/img/item1.jpg";
 import item2 from "../assets/img/item2.png";
 import item3 from "../assets/img/item3.png";
 
+import stylesTypo from '../styles/typo.module.css';
+
 const Challenge4Lille = (props) => {
     const {databaseStore} = props;
     const {grens} = props;
@@ -28,6 +30,10 @@ const Challenge4Lille = (props) => {
     }
 
     const game = new Phaser.Game(config);
+
+    history.listen((location, action) => {
+      game.destroy(true);
+    });
 
     function init() {
       this.screenWidth = this.sys.game.config.width;
@@ -132,7 +138,7 @@ const Challenge4Lille = (props) => {
   }
 
     return (
-        <h1 className="header-1">Lille</h1>
+        <h1 className={stylesTypo.header1}>Lille</h1>
     )
 }
 
