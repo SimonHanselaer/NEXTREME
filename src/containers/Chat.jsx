@@ -11,6 +11,7 @@ import stylesUi from "../styles/ui.module.css";
 
 import qa from "../assets/img/icons/q&a.svg";
 import send from "../assets/img/icons/send.svg";
+import profile from "../assets/img/icons/profile.svg";
 
 const Chat = ({databaseStore}) => {
     let {id} = useParams();
@@ -84,7 +85,7 @@ const Chat = ({databaseStore}) => {
             </section> 
             <section className={styles.contentContainer}>
                 <div className={stylesUi.flexRow}>
-                    <img className={styles.messagesImg} src={send} alt="profile picture of person who you are chatting with"/>
+                    <img className={styles.messagesImg} src={profile} alt="profile picture of person who you are chatting with"/>
                     <h1 className={styles.messagesTitle}>Chat</h1>
                 </div>
                 <p className={styles.line}></p>
@@ -100,9 +101,6 @@ const Chat = ({databaseStore}) => {
                                      <li key={key} className={styles.mijnBericht}>
                                         {messages[key].message}
                                     </li>
-                                    {/* <div className={styles.mijnBericht}>
-                                        <p key={key}> <span>{messages[key].message}</span></p>
-                                    </div>   */}
                                     </>
                                 )         
                             }else{
@@ -111,9 +109,6 @@ const Chat = ({databaseStore}) => {
                                      <li key={key}>
                                         {messages[key].message}
                                     </li>
-                                    {/* <div className={styles.zijnBericht}>
-                                        <p key={key}> <span>{messages[key].message}</span></p>
-                                    </div>   */}
                                     </>
                                 )
                             }
