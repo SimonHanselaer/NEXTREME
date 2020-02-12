@@ -1,0 +1,91 @@
+.bodyBg{
+    background-image: url("../assets/img/backgroundChat.png");
+    background-repeat: no-repeat;
+    /* width: 100vw;
+    height: 100vh; */
+    /* object-fit: cover; */
+    background-size: 100% 100%;
+}
+
+.header{
+    height: 6.4rem;
+}
+
+.messagesTitle{
+    composes: header1 from '../styles/typo.module.css';
+    padding: 1.6rem;
+}
+
+.messagesImg{
+    padding: 1.6rem;
+    padding-right: 0rem;
+}
+
+.mijnBericht {
+    margin: 2.4rem;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 28.8rem;
+}
+
+.zijnBericht {
+    margin: 2.4rem;
+    max-width: 28.8rem;
+}
+
+.mijnBericht span{
+    background-color: var(--yellow-color);
+   
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    border-radius: 2.5rem; 
+
+    
+}
+
+.zijnBericht span{
+    background-color: rgba(51, 51, 51, 0.1);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    border-radius: 2.5rem; 
+}
+
+.contentContainer{
+    composes: card from '../styles/ui.module.css';
+    border-radius: 2rem;
+    padding: 0rem;
+}
+
+.messageContainer{
+    height: 37.6rem;
+    overflow: scroll;
+}
+
+.typeField{
+   composes: flexRow from '../styles/ui.module.css';
+   display: flex;
+   justify-content: center;
+}
+
+.textInput{
+    border-radius: 2rem;
+    border: solid 0.1rem;
+    border-color: var(--orange-color);
+    
+    margin: 0.8rem;
+    padding: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+
+    /* width: 23.2rem; */
+}
+
+.line{
+    background-color: var(--orange-color);
+    height: 0.1rem;
+}

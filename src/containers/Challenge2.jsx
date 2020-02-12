@@ -215,7 +215,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <TopBar title="Even wachten..." />
             <section className={styles.container}>
               <div className={styles.tekst} >
-                <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
+                <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Challenges’</span>.</p>
                 <p className="shortLine"></p>
                 <h2 className={stylesTypo.header1}>Terwijl je wacht...</h2>
                 <p className="small">Misschien interesseert deze voorstelling je.</p>

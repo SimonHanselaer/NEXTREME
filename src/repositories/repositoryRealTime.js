@@ -173,6 +173,7 @@ export default {
     async newMessage(props) {
         dbRealTime.ref('/chats/chat' + props.roomId + '/').push({
             message: props.message,
+            username: props.username,
             timestamp: props.timestamp,
             uid: props.uid
         })

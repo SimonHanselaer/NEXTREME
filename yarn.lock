@@ -9505,6 +9505,11 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-scroll-to@^3.0.0-beta.4:
+  version "3.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/react-scroll-to/-/react-scroll-to-3.0.0-beta.4.tgz#1b2c46ba7d5d0fcae3cf57635d05e1f4fb611634"
+  integrity sha512-j7qugFzWCL4yGrBsRPvqUHIVsPunIZMYNENIKhCkOToA0cdghWqGiZ/BFxPSmUGg8o/Dno6JDzgf4p2GQkIscQ==
+
 react-sweet-progress@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/react-sweet-progress/-/react-sweet-progress-1.1.2.tgz#b27c6baa7c08a12cf0896565431ba477af249892"

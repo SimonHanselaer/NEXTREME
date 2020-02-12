@@ -74,7 +74,6 @@ class App extends Component {
           </Route>
 
           <Route path="/chat/:id">
-            <Tabbar />
             <Chat />
           </Route>
 
