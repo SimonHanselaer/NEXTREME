@@ -7,7 +7,8 @@ const Back = () => {
     let history = useHistory();
 
     return (
-        <button className={styles.backButton} onClick={() => history.goBack()}>
+        // <button className={styles.backButton} onClick={() => history.goBack()}>
+        <button className={styles.backButton} onClick={() => history.push("/")}>
             <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="Mask Group">
             <mask id="mask8" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="10" height="16">

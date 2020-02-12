@@ -131,7 +131,6 @@ const Challenge3 = ({databaseStore}) => {
   if (!status && count > 0) {
     return (
       <>
-        <h1 className={stylesTypo.header1}>Leer over je medemens.</h1>
         <img src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
         <div className="card">
           <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>

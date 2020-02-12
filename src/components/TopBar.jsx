@@ -2,6 +2,7 @@ import React from "react";
 import Back from "./Back";
 
 import styles from "./TopBar.module.css";
+import stylesTypo from "../styles/typo.module.css";
 
 const TopBar = (prop) => {
     let title = prop.title;
@@ -30,7 +31,7 @@ const TopBar = (prop) => {
             return (
                 <section className={styles.topBar}>
                     <div className={styles.topBarBackground}></div>
-                    <h1 className={styles.header}>{title}</h1>
+                    <h1 className={`${styles.header} ${stylesTypo.header1}`}>{title}</h1>
                     <Back />
                 </section>
             )

@@ -41,13 +41,3 @@ button:focus {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
-
-.mapContainer {
-  position: absolute;
-  top: 7rem;
-  right: 0;
-  left: 0;
-  bottom: 0;
-
-  height: 30rem;
-}
