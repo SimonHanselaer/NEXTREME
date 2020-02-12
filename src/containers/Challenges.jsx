@@ -6,6 +6,7 @@ import MyMatches from "../components/MyMatches";
 import TopBar from "../components/TopBar";
 
 import styles from "./Challenges.module.css";
+import stylesUi from "../styles/ui.module.css";
 
 const Challenges = ({databaseStore}) => {
   const [matches, setMatches] = useState();
@@ -31,29 +32,31 @@ const Challenges = ({databaseStore}) => {
   return (
     <>
     <TopBar title="nextend" />
-    <section className={`${styles.section} ${styles.sectionLine}`}>
-      <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
-      <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Chats</button>
-    </section>
-    <section className={styles.section}>
-    {status ? (
-      <>
-      {challenges ? (
-        <MyChallenges challenges={challenges} />
-      ) : (
-        <p>Haven't accepted any challenges yet? You're missing out!</p>
-      )}
-    </>
-    ) : (
-      <>
-        {matches ? (
-          <MyMatches matches={matches} />
+    <div className={stylesUi.contentContainer}>
+      <section className={`${styles.section} ${styles.sectionLine}`}>
+        <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Mijn uitdagingen</button>
+        <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Chats</button>
+      </section>
+      <section className={styles.section}>
+      {status ? (
+        <>
+        {challenges ? (
+          <MyChallenges challenges={challenges} />
         ) : (
-          <p>Haven't matched with any people yet? You're missing out!</p>
+          <p>Haven't accepted any challenges yet? You're missing out!</p>
         )}
       </>
-    )}
-    </section>
+      ) : (
+        <>
+          {matches ? (
+            <MyMatches matches={matches} />
+          ) : (
+            <p>Haven't matched with any people yet? You're missing out!</p>
+          )}
+        </>
+      )}
+      </section>
+    </div>
     </>
   );
 };

@@ -4,15 +4,18 @@ import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer } from "mobx-react";
 import TopBar from "../components/TopBar";
 
+import stylesUi from "../styles/ui.module.css";
+
 const Home = () => {
   return (
     <>
       <TopBar title="nextend" />
-      <h1 className="visually-hidden">NEXTEND</h1>
-      <article>
-        <h2 className="header-2">Ik verleg vandaag mijn</h2>
-        <SelectGrens />
-      </article>
+      <div className={stylesUi.contentContainer}>
+        <article>
+          <h2 className="header-2">Ik verleg vandaag mijn</h2>
+          <SelectGrens />
+        </article>
+      </div>
     </>
   );
 };
