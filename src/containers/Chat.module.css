@@ -89,3 +89,8 @@
     background-color: var(--orange-color);
     height: 0.1rem;
 }
+
+.send{
+    display: flex;
+    justify-content: center; 
+}
