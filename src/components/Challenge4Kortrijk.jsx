@@ -6,11 +6,10 @@ import Phaser from "phaser";
 
 import KortrijkImage from "../assets/img/template4Kaart.png";
 import vuilbak from "../assets/img/template4Vuilbak.png";
-import item1 from "../assets/img/item1.jpg";
-import item2 from "../assets/img/item2.png";
-import item3 from "../assets/img/item3.png";
-
-import stylesTypo from '../styles/typo.module.css';
+import item1 from "../assets/img/challenge4Cultuur1.png";
+import item2 from "../assets/img/challenge4Cultuur2.png";
+import item3 from "../assets/img/challenge4Cultuur3.png";
+import item6 from "../assets/img/challenge4Cultuur6.png";
 
 const Challenge4Kortrijk = (props) => {
     const {databaseStore} = props;
@@ -51,7 +50,7 @@ const Challenge4Kortrijk = (props) => {
     this.load.image(`item3L`, item3);
     this.load.image(`item4K`, item1);
     this.load.image(`item5D`, item2);
-    this.load.image(`item6L`, item3);
+    this.load.image(`item6L`, item6);
     this.load.image(`item7K`, item1);
     this.load.image(`item8D`, item2);
     this.load.image(`item9L`, item3);
@@ -73,7 +72,7 @@ const Challenge4Kortrijk = (props) => {
     this.itemX = game.config.width / 2;
 
     this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
-    this.item = this.add.image(this.itemX, 467, this.randomItem).setScale(.1).setInteractive();
+    this.item = this.add.image(this.itemX, 467, this.randomItem).setScale(.7).setInteractive();
     this.input.setDraggable(this.item);
 
     //Set dropzone ------------------------------------------------------------------------------------------
@@ -96,19 +95,17 @@ const Challenge4Kortrijk = (props) => {
 
     //Listen for input --------------------------------------------------------------------------------------
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-      gameObject.setScale(.2);
+      gameObject.setScale(.9);
 
       gameObject.x = dragX;
       gameObject.y = dragY;
     });
 
     this.input.on('dragend', (pointer, gameObject) => {
-      gameObject.setScale(.1);
+      gameObject.setScale(.7);
     });
 
     this.input.on('drop', (pointer, gameObject, dropzone) => {
-      console.log(dropzone);
-
 
       if (gameObject.texture.key[gameObject.texture.key.length - 1] === 'K' && dropzone.data.list.status === 'juist') {
         this.items.splice(this.items.indexOf(this.randomItem), 1);
@@ -132,7 +129,7 @@ const Challenge4Kortrijk = (props) => {
       }
 
       this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
-      this.item = this.add.image(this.itemX, this.screenHeight - 200, this.randomItem).setScale(.1).setInteractive();
+      this.item = this.add.image(this.itemX, 467, this.randomItem).setScale(.7).setInteractive();
       this.input.setDraggable(this.item);
 
 
