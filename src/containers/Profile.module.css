@@ -1,0 +1,70 @@
+.containerHeader {
+  background-image: url('./../assets/img/profileHeaderBg.png');
+  background-repeat: no-repeat;
+  height: 14.7rem;
+}
+
+.containerHeader > img {
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.25);
+  border-radius: 5.5rem;
+  margin-top: -4rem;
+  margin-right: 4rem;
+}
+
+.header {
+  composes: headerRect from '../styles/ui.module.css';
+  composes: flexRow from '../styles/ui.module.css';
+  justify-content: space-between;
+}
+
+.header > button {
+  padding: 0;
+  height: 2.5rem;
+}
+
+.container {
+  padding: 1.6rem;
+}
+
+.info {
+  margin-right: 3.7rem;
+}
+
+.challengeButton {
+  background-image: linear-gradient(
+    to right bottom,
+    #ffc371,
+    #ffac66,
+    #ff9362,
+    #ff7a65,
+    #ff5f6d
+  );
+  border: solid 0.1rem transparent;
+  border-radius: 1rem;
+  box-sizing: border-box;
+
+  color: var(--offBlack-color);
+  width: 28.8rem;
+  /* margin: 0 auto; */
+  margin-bottom: 0.8rem;
+
+  padding: 0.1rem;
+}
+
+.challengeButtonSpan {
+  align-items: center;
+  background: #fff;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: left;
+  height: 100%;
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  text-align: left;
+  composes: small from '../styles/typo.module.css';
+}
+
+.titles {
+  composes: header-1 from '../styles/typo.module.css';
+  margin: 1.6rem 0rem 0.8rem 0rem;
+}

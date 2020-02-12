@@ -1,0 +1,55 @@
+.result, .jijBehoortResult {
+    composes: card from '../styles/ui.module.css';
+  }
+
+  .result, .jijBehoortExtra, .jijBehoortResult{
+    composes: flexRow from '../styles/ui.module.css';
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .procent {
+    composes: header-1 from '../styles/typo.module.css';
+    color: var(--white-color);
+    /* om een perfecte cirkel te hebben moet er een perfect vierkant gemaakt worden */
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--orange-color);
+    border-radius: 50%;
+    /* om tekst in het midden van de cirkel te zetten */
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+  .jijBehoort{
+      composes: flexColumn from '../styles/ui.module.css';
+      width: 28.8rem;
+      margin: 0 auto;
+  }
+
+  .jijBehoortResult{
+    margin: 0rem;
+  }
+
+  .jijBehoortInfo{
+      padding: 1.6rem;
+      z-index: -1;
+      margin-top: -1rem;
+      
+      border: solid 0.1rem;
+      border-top: none;
+      border-color: var(--orange-color);
+      border-radius: 0.5rem;
+      border-top-left-radius: 0rem;
+      border-top-right-radius: 0rem;
+  }
+
+  .jijBehoortTekst {
+    padding-bottom: 1.6rem;
+  }
+
+  .arrow {
+    transform: rotate(180deg);
+  }

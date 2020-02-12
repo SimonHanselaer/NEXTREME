@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useHistory } from "react-router-dom";
+
+import styles from "./Profile.module.css";
 
 const Profile = ({uiStore, databaseStore}) => {
   let history = useHistory();
@@ -144,44 +146,66 @@ const Profile = ({uiStore, databaseStore}) => {
       if(status){
         return (
           <>
-            <button onClick={() => handleClickEdit()}>Edit</button>
-            <h1>Profile</h1>
-            <h2>{username}</h2>
-            <p>{city} - {regio}</p>
-            <img src={photo} alt="profielfoto" />
-            <div>
-              <p>{age}</p>
-              <p>Leeftijd</p>
+            <div className={styles.containerHeader}>
+              {/* <h1>Profile</h1> */}
+              <div className={styles.header}>
+                <div>
+                  <h2 className="accent">{username}</h2>
+                  <p className="small">{city} - {regio === "VL" ? "Vlaanderen" : regio === "WL" ? "Wallonië" : regio === "FR" ? "Frankrijk" : null}</p>
+                </div>
+                <button onClick={() => handleClickEdit()}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="white" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M3 18.25V22H6.75L17.81 10.94L14.06 7.19L3 18.25ZM20.71 8.04C20.8972 7.85316 21.0024 7.59951 21.0024 7.335C21.0024 7.07049 20.8972 6.81685 20.71 6.63L18.37 4.29C18.1832 4.10277 17.9295 3.99756 17.665 3.99756C17.4005 3.99756 17.1468 4.10277 16.96 4.29L15.13 6.12L18.88 9.87L20.71 8.04Z" fill="url(#paint0_linear)" />
+                    <defs>
+                      <linearGradient id="paint0_linear" x1="3" y1="3.99756" x2="21.0024" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#FFC371" />
+                        <stop offset="1" stopColor="#FF5F6D" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+              <img src={photo} alt="profielfoto" width="110" height="110" align="right"/>
             </div>
-            <div>
-              <p>{gender}</p>
-              <p>Geslacht</p>
-            </div>
-            <div>
-              <p>{language}</p>
-              <p>Taal</p>
-            </div>
-            <div>
-              <h3>Over</h3>
-              <p>{bio}</p>
-            </div>
-            <div>
-              <h3>Gedane uitdagingen</h3>
-              <ul>
-                {challenges ? (
-                  Object.keys(challenges).map(key => {
-                    return( 
-                      <li key={key}>{challenges[key].naam}</li>
-                    )
-                  })
+            <div className={styles.container}>
+              <div className="flexRow">
+                <div className={styles.info}>
+                  <p className="accent">{age}</p>
+                  <p className="small">Leeftijd</p>
+                </div>
+                <div className={styles.info}>
+                  <p className="accent">{gender}</p>
+                  <p className="small">Geslacht</p>
+                </div>
+                <div className={styles.info}>
+                  <p className="accent">{language}</p>
+                  <p className="small">Taal</p>
+                </div>
+              </div>
+              <div className="shortLine"></div>
+              <div>
+                <h3 className={styles.titles}>Over</h3>
+                <p className="small">{bio}</p>
+              </div>
+              <div>
+                <h3 className={styles.titles}>Gedane uitdagingen</h3>
+                <ul>
+                  {challenges ? (
+                    Object.keys(challenges).map(key => {
+                      return (
+                        <li key={key} className={styles.challengeButton}><span className={styles.challengeButtonSpan}>{challenges[key].naam}</span></li>
+                      )
+                    })
 
-                ) : (
-                    <p>Loading...</p>
-                  )
-                }
-              </ul>
+                  ) : (
+                      <p>Loading...</p>
+                    )
+                  }
+                </ul>
+              </div>
+              <button onClick={() => handleLogout()}>Afmelden</button>
             </div>
-            <button onClick={() => handleLogout()}>Afmelden</button>
           </>
         );
       } else {

@@ -1,0 +1,47 @@
+.longLine {
+    composes: longLine from './Challenge3.module.css';
+  }
+
+  .vraag {
+    composes: header-1 from '../styles/typo.module.css';
+    padding: 1.6rem;
+    padding-top: 0rem;
+  }
+
+  .procesbar{
+    width: 19.2rem;
+    margin: 0 auto;
+    padding-top: 1.6rem;
+
+    /* position: fixed;
+    bottom: 1; */
+  }
+
+  .procesbarItem{
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .miniInfoFoto{
+    margin: 1.6rem;
+    margin-left: 0rem;
+    margin-top: 0rem;
+  }
+
+  .miniInfoTekst, .miniInfoTekstDetail{
+    composes: small from '../styles/typo.module.css';
+    margin-bottom: 1.6rem;
+  }
+
+  .miniInfoTekstDetail{
+    text-decoration: underline;
+  }
+
+  .tekst{
+      width: 28.8rem;
+      margin: 0 auto;
+  }
+
+  .tekst p{
+    margin-bottom: 1.6rem;
+}
