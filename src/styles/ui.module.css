@@ -20,7 +20,6 @@
   color: var(--offWhite-color);
   border-radius: 2rem;
   border: none;
-
 }
 
 .button2 {
@@ -137,6 +136,7 @@
   background-color: white;
   border-radius: 1rem 1rem 0rem 0rem;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.25);
+  z-index: 10;
 }
 
 /* Decoration ---------------------------------------------------------------------------------------------------------------------------------------- */

@@ -11,8 +11,8 @@ import TopBar from "./../components/TopBar.jsx";
 const Profile = ({ uiStore, databaseStore }) => {
   let history = useHistory();
   const [status, setStatus] = useState(false);
-  // const [edit, setEdit] = useState(false);
-  const [edit, setEdit] = useState(true);
+  const [edit, setEdit] = useState(false);
+  // const [edit, setEdit] = useState(true);
   const [username, setUsername] = useState('');
   const [photo, setPhoto] = useState('');
   const [city, setCity] = useState('');
@@ -77,7 +77,7 @@ const Profile = ({ uiStore, databaseStore }) => {
           {/* <h1>Editing</h1> */}
           <div className={stylesUI.contentContainer}>
             <form onSubmit={handleSubmit}>
-              <h2 className={stylesTypo.button1}>Algemene gegevens</h2>
+              <h2 className={styles.headerTitle}>Algemene gegevens</h2>
               {/* 16 bold */}
               <div className={stylesUI.flexColumn}>
                 <label htmlFor="username" className={styles.inputTitle}>
@@ -86,139 +86,145 @@ const Profile = ({ uiStore, databaseStore }) => {
                 <input
                   type="text"
                   name="username"
+                  placeholder="Jouw naam"
                   className={stylesTypo.input}
-                  defaultValue={username}
+                  defaultValue={username !== '' ? username : ''}
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setUsername(e.currentTarget.value)
-                      : ' '
+                      : setUsername("")
                   }
                 />
               </div>
-              <div>
+              <div className={stylesUI.flexColumn}>
                 <label htmlFor="city" className={styles.inputTitle}>
                   Stad
                 </label>
                 <input
                   type="text"
                   name="city"
+                  placeholder="Kortrijk"
                   className={stylesTypo.input}
-                  defaultValue={city !== '' ? city : ' '}
+                  defaultValue={city !== '' ? city : ''}
                   onChange={e =>
-                    e.currentTarget.value !== ''
-                      ? setCity(e.currentTarget.value)
-                      : ' '
+                    e.currentTarget.value.trim() !== ''
+                       ? setCity(e.currentTarget.value)
+                      : setCity("")
+                       
                   }
                 />
               </div>
               <div>
                 <p className={styles.inputTitle}>Regio</p>
-                <div>
-                  {regio === 'WL' ? (
-                    <input
-                      id="WL"
-                      type="radio"
-                      name="regio"
-                      value="WL"
-                      defaultChecked
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  ) : (
-                    <input
-                      id="WL"
-                      type="radio"
-                      name="regio"
-                      value="WL"
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  )}
-                  <label htmlFor="WL" className={styles.inputLabel}>
-                    Wallonië
-                  </label>
-                </div>
-                <div>
-                  {regio === 'VL' ? (
-                    <input
-                      id="VL"
-                      type="radio"
-                      name="regio"
-                      value="VL"
-                      defaultChecked
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  ) : (
-                    <input
-                      id="VL"
-                      type="radio"
-                      name="regio"
-                      value="VL"
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  )}
-                  <label htmlFor="VL" className={styles.inputLabel}>
-                    Vlaanderen
-                  </label>
-                </div>
-                <div>
-                  {regio === 'FRK' ? (
-                    <input
-                      id="FRK"
-                      type="radio"
-                      name="regio"
-                      value="FRK"
-                      defaultChecked
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  ) : (
-                    <input
-                      id="FRK"
-                      type="radio"
-                      name="regio"
-                      value="FRK"
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  )}
-                  <label htmlFor="FRK" className={styles.inputLabel}>
-                    Frankrijk
-                  </label>
-                </div>
-                <div>
-                  {regio === 'Ander' ? (
-                    <input
-                      id="Ander"
-                      type="radio"
-                      name="regio"
-                      value="Ander"
-                      defaultChecked
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  ) : (
-                    <input
-                      id="Ander"
-                      type="radio"
-                      name="regio"
-                      value="Ander"
-                      onClick={e => setRegio(e.currentTarget.value)}
-                    />
-                  )}
-                  <label htmlFor="Ander" className={styles.inputLabel}>
-                    Ander
-                  </label>
+                <div className={styles.regioGrid}>
+                  <div>
+                    {regio === 'VL' ? (
+                      <input
+                        id="VL"
+                        type="radio"
+                        name="regio"
+                        value="VL"
+                        defaultChecked
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="VL"
+                        type="radio"
+                        name="regio"
+                        value="VL"
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="VL" className={styles.inputLabel}>
+                      Vlaanderen
+                    </label>
+                  </div>
+                  <div>
+                    {regio === 'WL' ? (
+                      <input
+                        id="WL"
+                        type="radio"
+                        name="regio"
+                        value="WL"
+                        defaultChecked
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="WL"
+                        type="radio"
+                        name="regio"
+                        value="WL"
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="WL" className={styles.inputLabel}>
+                      Wallonië
+                    </label>
+                  </div>
+                  <div>
+                    {regio === 'FRK' ? (
+                      <input
+                        id="FRK"
+                        type="radio"
+                        name="regio"
+                        value="FRK"
+                        defaultChecked
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="FRK"
+                        type="radio"
+                        name="regio"
+                        value="FRK"
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="FRK" className={styles.inputLabel}>
+                      Frankrijk
+                    </label>
+                  </div>
+                  <div>
+                    {regio === 'Ander' ? (
+                      <input
+                        id="Ander"
+                        type="radio"
+                        name="regio"
+                        value="Ander"
+                        defaultChecked
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="Ander"
+                        type="radio"
+                        name="regio"
+                        value="Ander"
+                        onClick={e => setRegio(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="Ander" className={styles.inputLabel}>
+                      Ander
+                    </label>
+                  </div>
                 </div>
               </div>
-              <div>
+              <div className={stylesUI.flexColumn}>
                 <label htmlFor="age" className={styles.inputTitle}>
                   Leeftijd
                 </label>
                 <input
                   type="number"
                   name="age"
+                  placeholder="25"
                   className={stylesTypo.input}
-                  defaultValue={age !== '' ? age : ' '}
+                  defaultValue={age !== '' ? age : ''}
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setAge(e.currentTarget.value)
-                      : ' '
+                      : setAge("")
                   }
                 />
               </div>
@@ -401,7 +407,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className={stylesUI.flexColumn}>
                 <label htmlFor="bio" className={styles.inputTitle}>
                   Bio
                 </label>
@@ -415,7 +421,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setBio(e.currentTarget.value)
-                      : ''
+                      : setBio("")
                   }
                 ></textarea>
               </div>
@@ -491,11 +497,11 @@ const Profile = ({ uiStore, databaseStore }) => {
           <div className={styles.container}>
             <div className="flexRow">
               <div className={styles.info}>
-                <p className="accent">{age}</p>
+                <p className="accent">{age !== "" ? age : "-"}</p>
                 <p className="small">Leeftijd</p>
               </div>
               <div className={styles.info}>
-                <p className="accent">{gender}</p>
+                <p className="accent">{gender === "geen" ? "-" : gender}</p>
                 <p className="small">Geslacht</p>
               </div>
               <div className={styles.info}>

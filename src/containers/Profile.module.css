@@ -17,6 +17,11 @@
   justify-content: space-between;
 }
 
+.headerTitle {
+  composes: header1 from '../styles/typo.module.css';
+  margin-bottom: 0.8rem;
+}
+
 .header > button {
   padding: 0;
   height: 2.5rem;
@@ -87,10 +92,10 @@ input[type='radio'] {
 }
 
 .inputLabel {
-  color: #000;
+  color: var(--orange-color);
   display: inline-block;
   cursor: pointer;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding: 0.4rem 1.6rem;
   border: 0.1rem solid var(--orange-color);
   border-radius: 0.5rem;
@@ -98,10 +103,8 @@ input[type='radio'] {
   text-align: center;
 }
 
-/* width: 30vw = goed voor taal etc */
-
 input[type='radio']:checked + .inputLabel {
-  color: #000;
+  color: white;
   background-color: var(--orange-color);
 }
 
@@ -112,4 +115,13 @@ input[type='radio']:checked + .inputLabel {
 
 .buttonInputRow > div > .inputLabel {
   width: 28vw;
+}
+
+.regioGrid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.regioGrid > div {
+  margin-right: 0.8rem;
 }

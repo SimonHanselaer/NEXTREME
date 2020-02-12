@@ -2,7 +2,8 @@ body,
 .button2,
 .noButton,
 .button1,
-.button4 {
+.button4,
+button {
   font-family: Muli, sans serif;
   font-size: 1.6rem;
   line-height: 2.4rem;

@@ -5,6 +5,10 @@ import { NavLink, useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
+import styles from "./Authentication.module.css";
+
+import TopBar from "../components/TopBar";
 
 const Login = ({ databaseStore, uiStore }) => {
   let history = useHistory();
@@ -63,19 +67,26 @@ const Login = ({ databaseStore, uiStore }) => {
 
   return (
     <>
-      <h1 className={stylesTypo.header1}>Login</h1>
-      <button className="buttonThree" onClick={loginGoogle}>
-        <span>Google</span> 
-      </button>
-      <button className="buttonThree" onClick={loginFacebook}>
-        <span>Facebook</span>
-      </button>
-      <NavLink to="/loginemail">
-        <button className="buttonThree">
-          <span>E-mail</span> 
+      <TopBar title="nextend" />
+      <div className={stylesUi.contentContainer}>
+        {/* <img src="../assets/img/onboarding/acc1.png" alt="" width="220" height="218"/> */}
+        <h1 className={`${stylesTypo.header1} ${styles.title}`}>Login</h1>
+        <button className={`${stylesUi.button3} ${styles.button} ${stylesTypo.small}`} onClick={loginGoogle}>
+          <span>Google</span> 
         </button>
-      </NavLink>
-      <p className="buttonTwo" onClick={loginAnon}>Skip</p>
+        <button className={`${stylesUi.button3} ${styles.button} ${stylesTypo.small}`} onClick={loginFacebook}>
+          <span>Facebook</span>
+        </button>
+        <div className={styles.line1}></div>
+        <p className={styles.break}>of</p>
+        <div className={styles.line2}></div>
+        <NavLink to="/loginemail">
+          <button className={`${stylesUi.button3} ${styles.button} ${stylesTypo.small}`}>
+            <span>E-mail</span> 
+          </button>
+        </NavLink>
+        <p className={`${stylesUi.button2} ${styles.button2} ${styles.link}`} onClick={loginAnon}>Skip</p>
+      </div>
     </>
   );
 };

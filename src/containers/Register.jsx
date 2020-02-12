@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import * as firebase from 'firebase';
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
+
+import styles from "./Authentication.module.css";
+import stylesUi from "../styles/ui.module.css";
+import stylesTypo from "../styles/typo.module.css";
+import TopBar from "../components/TopBar";
 
 const Home = ({ databaseStore, uiStore }) => {
     let history = useHistory();
@@ -31,13 +36,21 @@ const Home = ({ databaseStore, uiStore }) => {
 
     return (
         <>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
-                <input type="password" placeholder="Password" onChange={e => setvaluePassword(e.currentTarget.value)}/>
-                <input type="password" placeholder="Confirm password" onChange={e => setValueConfirmPassword(e.currentTarget.value)} />
-                <button type="submit">Register</button>
-            </form>
+            <TopBar title="nextend" />
+            <div className={stylesUi.contentContainer}>
+            <h1 className={`${styles.title} ${stylesTypo.header1}`}>Register</h1>
+                <form onSubmit={handleSubmit}>
+                    <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="E-mail" onChange={e => setValueEmail(e.currentTarget.value)}/>
+                    <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="password" placeholder="Password" onChange={e => setvaluePassword(e.currentTarget.value)}/>
+                    <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="password" placeholder="Confirm password" onChange={e => setValueConfirmPassword(e.currentTarget.value)} />
+                    <NavLink to="/login">
+                        <p className={`${stylesTypo.small} ${styles.register}`}>Already have an account? Log in</p>
+                    </NavLink>
+                    <button type="submit" className={`${stylesUi.button1} ${stylesTypo.header1}`}>Register</button>
+                </form>
+
+            </div>
+           
         </>
     )
 }
