@@ -11,6 +11,7 @@ import styles from "./ResultatenChallenge3.module.css";
 
 import TopBar from "./TopBar";
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
 
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
@@ -70,7 +71,7 @@ const ResultatenChallenge3 = (props) => {
                     <p>Loading...</p>
                 )
             }
-            <section className={styles.topResults}>
+            <section className={styles.container}>
             {
                 //om de procent te ordenen van hoog nr laag
                 rankResults.sort((a,b) => b.procent - a.procent).map((result, key) => {

@@ -39,10 +39,17 @@
 
   .button1Start{
     composes: button1 from '../styles/ui.module.css';
-    margin: 0 auto;
+    margin: 1.6rem;
   }
 
 
 .hidden {
   display: none;
+}
+
+.container{
+  composes: contentContainer from '../styles/ui.module.css';
+  margin-bottom: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
 }

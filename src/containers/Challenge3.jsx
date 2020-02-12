@@ -10,6 +10,7 @@ import Resultaten from "../components/ResultatenChallenge3";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
 
 const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -133,8 +134,7 @@ const Challenge3 = ({databaseStore}) => {
     return (
       <>
         <TopBar title="Leer over je medemens." />
-        <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
-      
+          <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
           <div  className={styles.card01}>
             <p>Duid aan welke van de twee opties het beste bij jou aansluit. Hierna kom je meer te weten over andere steden.</p>
             <p className="shortLine"></p>
@@ -150,7 +150,7 @@ const Challenge3 = ({databaseStore}) => {
           <>
             <TopBar title={challenge.Naam} />
             <article className={styles.keuzes}>
-              <button className="button-4">
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                   setCount(count + 1);
                   setAnswer(e.currentTarget.innerHTML);
@@ -158,7 +158,7 @@ const Challenge3 = ({databaseStore}) => {
                   }}>{challenge.OptieA}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="button-4">
+              <button className={stylesUi.button4}>
                 <span onClick={e => {
                   setCount(count + 1);
                   setAnswer(e.currentTarget.innerHTML);

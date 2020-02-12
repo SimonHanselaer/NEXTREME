@@ -16,6 +16,7 @@ import styles from "./Challenge2.module.css";
 
 import TopBar from "../components/TopBar";
 import stylesTypo from '../styles/typo.module.css';
+import stylesUi from "../styles/ui.module.css";
 
 const Challenge2 = ({databaseStore, dataStore}) => {
   let {grens} = useParams();
@@ -106,7 +107,7 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           <p>Je wordt gematcht met een andere gebruiker. Jullie krijgen beide dezelfde vragen, zo leer je elkaar beter kennen. Als het klikt is er de mogelijkheid om te chatten.</p>
           <p className="shortLine"></p>
         </div>
-        <button className="button1" onClick={() => setStatus(true)}>Start</button>
+        <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -212,14 +213,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
           return (
             <>
             <TopBar title="Even wachten..." />
-            <section className={styles.topSpace}>
+            <section className={styles.container}>
               <div className={styles.tekst} >
                 <p className="small">op de match zijn antwoorden. Deze vind je terug onder <span className="accent">‘Mijn uitdagingen’</span>.</p>
                 <p className="shortLine"></p>
                 <h2 className={stylesTypo.header1}>Terwijl je wacht...</h2>
                 <p className="small">Misschien interesseert deze voorstelling je.</p>
               </div>
-              <article className="card">
+              <article className={styles.card02} >
                 <div className="flexRow">
                   <img className={styles.miniInfoFoto} width="56px" height="56px" src={cubas} alt="header foto evenement"/>
                   <div>
