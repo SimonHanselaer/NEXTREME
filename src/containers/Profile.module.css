@@ -75,6 +75,41 @@
   margin-top: 1.6rem;
 }
 
-.inputLAbel {
+.inputTitle {
   composes: small from './../styles/ui.module.css';
+  opacity: 0.5;
+}
+
+input[type='radio'] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+.inputLabel {
+  color: #000;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.4rem 1.6rem;
+  border: 0.1rem solid var(--orange-color);
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+/* width: 30vw = goed voor taal etc */
+
+input[type='radio']:checked + .inputLabel {
+  color: #000;
+  background-color: var(--orange-color);
+}
+
+.buttonInputRow {
+  composes: flexRow from '../styles/ui.module.css';
+  justify-content: space-between;
+}
+
+.buttonInputRow > div > .inputLabel {
+  width: 28vw;
 }

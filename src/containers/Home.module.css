@@ -1,0 +1,14 @@
+.scrollContainer {
+    display: flex;
+    flex-direction: row;
+
+    overflow: scroll;
+}
+
+.card {
+    composes: card from "../styles/ui.module.css";
+    margin-left: .5rem;
+
+    height: 31rem;
+    min-width: 20rem;
+}

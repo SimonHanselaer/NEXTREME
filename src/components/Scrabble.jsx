@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import TopBar from "./TopBar";
+import stylesUi from "../styles/ui.module.css";
+import stylesTypo from "../styles/typo.module.css";
+
 const Scrabble = (props) => {
     const challenge = props.challenge;
 
@@ -31,20 +35,22 @@ const Scrabble = (props) => {
     
     return (
         <>
-            <h1>{challenge.naam}</h1>
-            <p>{scrabbledWord}</p>
+            <TopBar title={challenge.naam} />
+            <div className={stylesUi.contentContainer}>
+                <p>{scrabbledWord}</p>
+                {
+                    check !== "Juist!" ? (
+                        <form onSubmit={handleSubmit}>
+                            <input className={stylesUi.formInput} type="text" placeholder="jouw antwoord" onChange={e => setAnswer(e.currentTarget.value)}/>
+                            <button type="submit" className={`${stylesTypo.header1} ${stylesUi.button1}`}>Check</button>
+                        </form>
+                    ) : (
+                        <></>
+                    )
+                }
+                <p>{check}</p>
 
-            {
-                check !== "Juist!" ? (
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder="jouw antwoord" onChange={e => setAnswer(e.currentTarget.value)}/>
-                        <button type="submit">Check</button>
-                    </form>
-                ) : (
-                    <></>
-                )
-            }
-            <p>{check}</p>
+            </div>
         </>
     );
 }

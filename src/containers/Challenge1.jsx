@@ -42,6 +42,9 @@ const Challenge1 = ({databaseStore}) => {
           <div className={`${stylesUi.contentContainer}`}>
           <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
           <p>{challenge.extra}</p>
+          {challenge.type === 'recept' ? (
+            <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next">DINNER@NEXT</a>
+          ) : (<></>)}
           <button className="button1" onClick={() => {
             const props = {
               challenge: 'challenge1',

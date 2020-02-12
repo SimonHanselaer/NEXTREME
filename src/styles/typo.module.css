@@ -15,6 +15,13 @@ body,
   font-weight: bold;
 }
 
+.header1 {
+  font-weight: bold;
+  font-family: Muli, sans serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
 .header2 {
   font-size: 1.8rem;
   line-height: 2.7rem;
@@ -39,4 +46,17 @@ body,
 
 .accent {
   color: var(--orange-color);
+}
+
+.input {
+  composes: formInput from './../styles/ui.module.css';
+  font-family: Muli, sans serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--offBlack-color);
+  margin-bottom: 1.6rem;
+  padding-bottom: 0.8rem;
+}
+.link {
+  text-decoration: underline;
 }
