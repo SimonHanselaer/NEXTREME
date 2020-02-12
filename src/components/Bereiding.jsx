@@ -6,11 +6,11 @@ const Bereiding = props => {
     const stappen = props.stappen;
     
     return (
-        <ul>
+        <ul className={styles.unorderedList}>
             {
                 Object.entries(stappen).map(([key, val]) => {
                     return <li key={key} className={styles.cardStap}>
-                        <h3 className={stylesTypo.headerOne}>Stap {key}:</h3>
+                        <h3 className={stylesTypo.header1}>Stap {key}:</h3>
                         <p>{val}</p>
                     </li>
             }

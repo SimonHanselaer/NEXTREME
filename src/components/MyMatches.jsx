@@ -4,6 +4,7 @@ import { observer, inject } from "mobx-react";
 import { Link } from "react-router-dom";
 
 import stylesTypo from '../styles/typo.module.css';
+import styles from "./MyMatches.module.css"
 
 const MyMatches = props => {
     let matches = props.matches;
@@ -15,7 +16,7 @@ const MyMatches = props => {
                 Object.entries(matches).map(([key, val]) => {
                 if (key !== "doNotDelete") {
                     return (
-                    <li key={key}>
+                    <li key={key} className={styles.card}>
                         <Link to={"/room/" + val.roomId}>
                             <p className={stylesTypo.headerOne}>{val.username}</p>
                         </Link>

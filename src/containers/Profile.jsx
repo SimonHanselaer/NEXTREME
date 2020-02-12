@@ -73,7 +73,7 @@ const Profile = ({ uiStore, databaseStore }) => {
         <>
           <h1>Editing</h1>
           <form onSubmit={handleSubmit}>
-            <h2 className={stylesTypo.button - 1}>Algemene gegevens</h2>
+            <h2 className={stylesTypo.button1}>Algemene gegevens</h2>
             {/* 16 bold */}
             <div>
               <label htmlFor="username" className={styles.inputLabel}>

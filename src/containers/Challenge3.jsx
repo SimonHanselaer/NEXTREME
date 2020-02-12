@@ -148,7 +148,7 @@ const Challenge3 = ({databaseStore}) => {
           <>
             <h1 className={stylesTypo.headerOne}>{challenge.Naam}</h1>
               <article className="flexColumn">
-                <button className="buttonFour">
+                <button className="button4">
                   <span onClick={e => {
                     setCount(count + 1);
                     setAnswer(e.currentTarget.innerHTML);
@@ -156,7 +156,7 @@ const Challenge3 = ({databaseStore}) => {
                     }}>{challenge.OptieA}</span>
                 </button>
                 <p className={styles.longLine}></p>
-                <button className="buttonFour">
+                <button className="button4">
                   <span onClick={e => {
                     setCount(count + 1);
                     setAnswer(e.currentTarget.innerHTML);

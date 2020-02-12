@@ -1,7 +1,7 @@
 /* Buttons ------------------------------------------------------------------------------------------------------------------------------------------ */
-.buttonOne,
-.buttonThree,
-.buttonFour {
+.button1,
+.button3,
+.button4 {
   padding: 0.8rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -14,14 +14,14 @@
   min-width: 28.8rem;
 }
 
-.buttonOne {
+.button1 {
   background-image: linear-gradient(to right, #ffc371, #ff5f6d);
   color: var(--offWhite-color);
   border-radius: 2rem;
   border: none;
 }
 
-.buttonTwo {
+.button2 {
   text-decoration: underline;
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
@@ -29,7 +29,7 @@
   border: none;
 }
 
-.buttonThree {
+.button3 {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -51,7 +51,7 @@
   padding: 0.1rem;
 }
 
-.buttonThree span {
+.button3 span {
   align-items: center;
   background: white;
   border-radius: 2rem;
@@ -62,7 +62,7 @@
   width: 100%;
 }
 
-.buttonFour {
+.button4 {
   background-image: linear-gradient(
     to right bottom,
     #ffc371,
@@ -84,7 +84,7 @@
   padding: 0.1rem;
 }
 
-.buttonFour span {
+.button4 span {
   align-items: center;
   background: var(--transparentOrange-color);
   border-radius: 0.5rem;
@@ -167,4 +167,13 @@
 .flexColumn {
   display: flex;
   flex-direction: column;
+}
+
+.contentContainer {
+  margin-top: 10.4rem;
+  margin-bottom: 8rem;
+  overflow: scroll;
+
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }

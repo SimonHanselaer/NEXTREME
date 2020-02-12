@@ -134,7 +134,7 @@ const Challenge4Doornik = (props) => {
   }
 
     return (
-        <h1 className={stylesTypo.headerOne}>Doornik</h1>
+        <h1 className={stylesTypo.header1}>Doornik</h1>
     )
 }
 

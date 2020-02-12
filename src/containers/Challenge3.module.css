@@ -1,27 +1,27 @@
 .longLine {
-    composes: longLine from '../styles/ui.module.css';
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
-    align-self: center;
-  }
+  composes: longLine from '../styles/ui.module.css';
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  align-self: center;
+}
 
-  .buttonKeuze {
-    composes: buttonFour from '../styles/ui.module.css';
-    margin-top: 3.7rem;
-  }
+.buttonKeuze {
+  composes: button4 from '../styles/ui.module.css';
+  margin-top: 3.7rem;
+}
 
-  .buttonKeuze span{
-    /* composes: buttonFour span from '../styles/ui.module.css'; */
-    align-items: center;
-    background: var(--transparentOrange-color);
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-  
-    height: 100%;
-    width: 100%;
-  }
+.buttonKeuze span {
+  /* composes: button4 span from '../styles/ui.module.css'; */
+  align-items: center;
+  background: var(--transparentOrange-color);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
 
-  .hidden{
-      display: none;
-  }
+  height: 100%;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}

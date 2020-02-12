@@ -115,14 +115,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={bizar} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag1.vraag}</h1>
             <div className="flexColumn">
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
                 }}>{challenge.vraag1.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setCount(count + 1);
                 setAnswer1(e.currentTarget.innerHTML);
@@ -144,14 +144,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={avond} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag2.vraag}</h1>
             <div className="flexColumn">
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
                 }}>{challenge.vraag2.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setAnswer2(e.currentTarget.innerHTML);
                 setCount(count + 1);
@@ -173,14 +173,14 @@ const Challenge2 = ({databaseStore, dataStore}) => {
             <img src={eten} alt="Een afbeelding met een knipoog naar de uitdaging."/>
             <h1 className={styles.vraag}>{challenge.vraag3.vraag}</h1>
             <div  className="flexColumn">
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML)
                 setCount(count + 1);
                 }}>{challenge.vraag3.antwoord1}</span>
               </button>
               <p className={styles.longLine}></p>
-              <button className="buttonFour">
+              <button className="button4">
                 <span onClick={e => {
                 setAnswer3(e.currentTarget.innerHTML);
                 setCount(count + 1);

@@ -16,10 +16,10 @@ const SelectRegio = ({ databaseStore }) => {
     <>
       <h1>Je bevind je in...</h1>
       <section>
-          <button className="buttonThree" onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
-          <button className="buttonThree" onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
-          <button className="buttonThree" onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
-          <button className="buttonThree" onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
+          <button className="button3" onClick={() => handleSelect("VL")}><span>Vlaanderen</span></button>
+          <button className="button3" onClick={() => handleSelect("WL")}><span>Wallonië</span></button>
+          <button className="button3" onClick={() => handleSelect("FR")}><span>Frankrijk</span></button>
+          <button className="button3" onClick={() => handleSelect("ANDERE")}><span>Andere</span></button>
       </section>
     </>
   );

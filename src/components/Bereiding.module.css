@@ -1,4 +1,12 @@
+.unorderedList {
+    display: flex;
+    flex-direction: row;
+
+    overflow: scroll;
+}
+
 .cardStap {
     composes: card from "../styles/ui.module.css";
     width: 27.2rem;
+    min-width: 27.2rem;
 }
