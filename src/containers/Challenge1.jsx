@@ -6,6 +6,7 @@ import Recept from "../components/Recept";
 import Info from "../components/Info";
 import Kaart from "../components/Kaart";
 import Scrabble from "../components/Scrabble";
+import TopBar from "../components/TopBar";
 
 const Challenge1 = ({databaseStore}) => {
   let {grens} = useParams();
@@ -33,6 +34,7 @@ const Challenge1 = ({databaseStore}) => {
   if (!status) {
     return (
       <>
+        <TopBar title="empty" />
         <h1 className="header-1">{challenge.naam}</h1>
         <p>{challenge.extra}</p>
         <button className="button-1" onClick={() => {

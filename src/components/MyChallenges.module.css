@@ -1,0 +1,14 @@
+.card {
+    composes: card from "../styles/ui.module.css";
+    margin: 0;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.article {
+    margin-bottom: 1.2rem;
+}

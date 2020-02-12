@@ -1,0 +1,4 @@
+.card {
+    composes: card from "../styles/ui.module.css";
+    margin: 0;
+}

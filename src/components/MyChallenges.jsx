@@ -4,13 +4,15 @@ import { observer, inject } from "mobx-react";
 import MyChallengesAccepted from "./MyChallengesAccepted";
 import MyChallengesCompleted from "./MyChallengesCompleted";
 
+import styles from "./MyChallenges.module.css";
+
 const MyChallenges = props => {
     let challenges = props.challenges;
     const [status, setStatus] = useState(true);
 
     return (
         <section>
-          <article>
+          <article className={styles.article}>
             <button className={status ? "noButton header-1" : "noButton"} onClick={() => setStatus(true)}>Te doen</button>
             <button className={status ? "noButton" : "noButton header-1"} onClick={() => setStatus(false)}>Gedaan</button>
           </article>

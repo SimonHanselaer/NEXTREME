@@ -5,7 +5,7 @@ const Bereiding = props => {
     const stappen = props.stappen;
     
     return (
-        <ul>
+        <ul className={styles.unorderedList}>
             {
                 Object.entries(stappen).map(([key, val]) => {
                     return <li key={key} className={styles.cardStap}>

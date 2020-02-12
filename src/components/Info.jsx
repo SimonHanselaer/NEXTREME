@@ -1,11 +1,13 @@
 import React from "react";
 
+import TopBar from "./TopBar";
+
 const Info = (props) => {
     const challenge = props.challenge;
 
     return (
         <>
-            <h1>{challenge.naam}</h1>
+            <TopBar title={challenge.naam} />
             <p>{challenge.omschrijving}</p>
         </>
     );

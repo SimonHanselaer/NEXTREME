@@ -2,10 +2,12 @@ import React from "react";
 import SelectGrens from "./../components/SelectGrens";
 import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer } from "mobx-react";
+import TopBar from "../components/TopBar";
 
 const Home = () => {
   return (
     <>
+      <TopBar title="nextend" />
       <h1 className="visually-hidden">NEXTEND</h1>
       <article>
         <h2 className="header-2">Ik verleg vandaag mijn</h2>
