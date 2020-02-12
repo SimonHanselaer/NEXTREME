@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import mapboxgl from "mapbox-gl"
 
+import TopBar from "./TopBar";
+import styles from "./Kaart.module.css"
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2ltb25oYW5zZWxhZXIiLCJhIjoiY2s2MjU3NXNnMDltODNkbzAwMHlpYWZxYyJ9.8oa3FQ3hnqiA9qmPCPMrjg';
 
 class Kaart extends Component {
@@ -25,8 +28,8 @@ class Kaart extends Component {
     render() {
         return (
             <>
-                <h1>{this.props.challenge.naam}</h1>
-                <div ref={el => this.mapContainer = el} className="mapContainer" />
+                <TopBar title={this.props.challenge.naam} />
+                <div ref={el => this.mapContainer = el} className={styles.mapContainer} />
             </>
         )
     }

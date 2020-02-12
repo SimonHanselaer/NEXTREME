@@ -4,6 +4,7 @@ import withAuthentication from "./../components/auth/WithAuthentication"
 import { observer } from "mobx-react";
 import TopBar from "../components/TopBar";
 
+import styles from "./Home.module.css";
 import stylesUi from "../styles/ui.module.css";
 import stylesTypo from "../styles/typo.module.css";
 
@@ -13,8 +14,11 @@ const Home = () => {
       <TopBar title="nextend" />
       <div className={stylesUi.contentContainer}>
         <article>
-          <h2 className={stylesTypo.header1}>Ik verleg vandaag mijn</h2>
-          <SelectGrens />
+          <h2 className={stylesTypo.header2}>Ik verleg vandaag mijn</h2>
+          <div className={stylesUi.shortLine}></div>
+          <section className={styles.scrollContainer}>
+            <SelectGrens />
+          </section>
         </article>
       </div>
     </>

@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import stylesTypo from '../styles/typo.module.css';
 import TopBar from "../components/TopBar";
 import styles from "./Recept.module.css";
+import stylesUi from "../styles/ui.module.css";
 
 const Recept = (props) => {
     const challenge = props.challenge;
@@ -21,9 +22,10 @@ const Recept = (props) => {
 
     return (
         <>
-            <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
             <section>
                 <TopBar title={challenge.naam} />
+                <div className={stylesUi.contentContainer} >
+
                 <img src="" alt=""/>
                 <section className={styles.infoCard}>
                     <h2 className="visually-hidden">Info</h2>
@@ -64,6 +66,7 @@ const Recept = (props) => {
                     databaseStore.updateCompletedChallenges(props);
                     history.push("/");
                 }}>Uitdaging compleet!</button>
+                </div>
             </section>
         </>
     );

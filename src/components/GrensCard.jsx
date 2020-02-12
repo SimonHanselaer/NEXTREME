@@ -2,6 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
+import styles from "../containers/Home.module.css";
+
 const GrensCard = (props, {dataStore}) => {
     const {name} = props;
     let history = useHistory();
@@ -32,9 +34,8 @@ const GrensCard = (props, {dataStore}) => {
     }
 
     return (
-        <article>
+        <article className={styles.card} onClick={() => selectChallenge()}>
             <h2>{name}grens</h2>
-            <button onClick={() => selectChallenge()}>{name} grens</button>
         </article>
     )
 }

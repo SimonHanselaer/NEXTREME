@@ -20,14 +20,18 @@
   color: var(--offWhite-color);
   border-radius: 2rem;
   border: none;
+
 }
 
 .button2 {
   text-decoration: underline;
-  margin-top: 1.6rem;
   margin-bottom: 1.6rem;
 
   border: none;
+  background: none;
+
+  align-self: center;
+  width: 100%;
 }
 
 .button3 {
@@ -98,6 +102,7 @@
 
 .noButton {
   border: none;
+  background: none;
 }
 
 /* Form input --------------------------------------------------------------------------------------------------------------------------------------- */
