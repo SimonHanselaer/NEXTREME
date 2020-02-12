@@ -1,0 +1,17 @@
+.card01{
+    composes: card01 from './Challenge2.module.css';
+    /* margin-top: 0rem; */
+}
+
+.button1Start{
+    composes: button1Start from './Challenge3.module.css';
+  }
+
+
+.main{
+    margin-bottom: -0.5rem;
+  }
+
+  .topstuk{
+    margin-top: 5rem;
+  }

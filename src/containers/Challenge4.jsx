@@ -3,11 +3,14 @@ import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 import { useParams } from "react-router-dom";
 
+import main from "../assets/img/template4Onboarding.png";
+
 import Challenge4Kortrijk from "../components/Challenge4Kortrijk";
 import Challenge4Doornik from "../components/Challenge4Doornik";
 import Challenge4Lille from "../components/Challenge4Lille";
 import TopBar from "../components/TopBar";
 
+import styles from "./Challenge4.module.css";
 import stylesUi from "../styles/ui.module.css";
 
 const Challenge4 = ({ databaseStore }) => {
@@ -20,11 +23,12 @@ const Challenge4 = ({ databaseStore }) => {
     return (
       <>
         <TopBar title="empty" />
-        <div className={stylesUi.contentContainer}>
+        <img className={styles.main} src={main} alt="Een afbeelding met een knipoog naar de uitdaging."/>
+        <div className={styles.card01}>
           <p>Versleep de juiste typische monumenten, dranken, eten ... naar de stad. Als het niet klopt, versleep naar de vuilbak.</p>
-          <button className="button1" onClick={() => setStatus(true)}>Start</button>
+          <p className={stylesUi.shortLine}></p>
         </div>
-
+        <button className={styles.button1Start} onClick={() => setStatus(true)}>Start</button>
       </>
     ) 
   } else {
@@ -33,9 +37,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Kortrijk" />
-            <div className={stylesUi.contentContainer}>
+             <section className={styles.topstuk}>
               <Challenge4Kortrijk grens={grens} databaseStore={databaseStore} />
-            </div>
+            </section>
             </>
           );
 
@@ -43,9 +47,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Doornik" />
-            <div className={stylesUi.contentContainer}>
+             <section className={styles.topstuk}>
               <Challenge4Doornik grens={grens} databaseStore={databaseStore} />
-            </div>
+            </section>
             </>
           );
 
@@ -53,9 +57,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Lille" />
-            <div className={stylesUi.contentContainer}>
+            <section className={styles.topstuk}>
               <Challenge4Lille grens={grens} databaseStore={databaseStore} />
-            </div>
+            </section>
             </>
           );
 

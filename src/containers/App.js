@@ -65,7 +65,6 @@ class App extends Component {
             <Challenge3 />
           </Route>
           <Route path="/challenge4/:grens/:id" exact strict>
-            <Tabbar />
             <Challenge4 />
           </Route>
 
@@ -80,7 +79,6 @@ class App extends Component {
           </Route>
 
           <Route path="/info/:id/:grens" exact strict>
-            <Tabbar />
             <Challenge4Info />
           </Route>
 

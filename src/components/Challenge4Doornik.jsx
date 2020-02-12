@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 
 import Phaser from "phaser";
 
-import DoornikImage from "../assets/img/Kortrijk.jpg";
+import DoornikImage from "../assets/img/template4Kaart.png";
+import vuilbak from "../assets/img/template4Vuilbak.png";
 import item1 from "../assets/img/item1.jpg";
 import item2 from "../assets/img/item2.png";
 import item3 from "../assets/img/item3.png";
@@ -44,6 +45,7 @@ const Challenge4Doornik = (props) => {
   function preload() {
     console.log('preload');
     this.load.image(`doornik`, DoornikImage);
+    this.load.image(`vuilbak`, vuilbak);
     this.load.image(`item1K`, item1);
     this.load.image(`item2D`, item2);
     this.load.image(`item3L`, item3);
@@ -58,32 +60,38 @@ const Challenge4Doornik = (props) => {
   }
 
   function create() {
-    //Load in City ------------------------------------------------------------------------------------------
-    this.city = this.add.image(game.config.width / 2, 100, 'doornik').setScale(.06);
+    //create zone voor items
+    const backgroundRect = this.add.graphics();
+    backgroundRect.lineStyle(2, 0x000000, 0.1);
+    backgroundRect.strokeRoundedRect(0, 450, this.screenWidth, 96, { tl: 10, tr: 10, bl: 0, br: 0 });
 
-    //Load in items -----------------------------------------------------------------------------------------
-    this.itemX = 20;
+   //Load in City ------------------------------------------------------------------------------------------
+   this.city = this.add.image(game.config.width / 2, 200, 'doornik');
+   this.vuilbak = this.add.image(44, 400, 'vuilbak');
 
-    this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
-    this.item = this.add.image(this.itemX, this.screenHeight - 200, this.randomItem).setScale(.1).setInteractive();
-    this.input.setDraggable(this.item);
+   //Load in items -----------------------------------------------------------------------------------------
+   this.itemX = game.config.width / 2;
 
-    //Set dropzone ------------------------------------------------------------------------------------------
-    const zone = this.add.zone(this.screenWidth / 2, 100, 280, 200).setRectangleDropZone(280, 200);
-    zone.setOrigin(.5);
-    zone.setData('status', 'juist');
+   this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
+   this.item = this.add.image(this.itemX, 467, this.randomItem).setScale(.1).setInteractive();
+   this.input.setDraggable(this.item);
 
-    const graphics = this.add.graphics();
-    graphics.lineStyle(2, 0xffff00);
-    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+   //Set dropzone ------------------------------------------------------------------------------------------
+   const zone = this.add.zone(this.screenWidth / 2, 200, 280, 200).setRectangleDropZone(280, 318);
+   zone.setOrigin(.5);
+   zone.setData('status', 'juist');
 
-    const zone2 = this.add.zone(this.screenWidth / 2, 400, 280, 200).setRectangleDropZone(280, 200);
-    zone2.setOrigin(.5);
-    zone2.setData('status', 'fout');
+   // const graphics = this.add.graphics();
+   // graphics.lineStyle(2, 0xffff00);
+   // graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
 
-    const graphics2 = this.add.graphics();
-    graphics2.lineStyle(2, 0xff0000);
-    graphics2.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
+   const zone2 = this.add.zone(44, 400, 280, 200).setRectangleDropZone(89, 82);
+   zone2.setOrigin(.5);
+   zone2.setData('status', 'fout');
+
+   // const graphics2 = this.add.graphics();
+   // graphics2.lineStyle(2, 0xff0000);
+   // graphics2.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
 
     //Listen for input --------------------------------------------------------------------------------------
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
@@ -136,10 +144,6 @@ const Challenge4Doornik = (props) => {
       gameObject.destroy();
     });
   }
-
-    return (
-        <h1 className={stylesTypo.header1}>Doornik</h1>
-    )
 }
 
 export default inject(`databaseStore`)(observer(Challenge4Doornik));
