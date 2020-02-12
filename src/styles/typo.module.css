@@ -40,3 +40,13 @@ body,
 .accent {
   color: var(--orange-color);
 }
+
+.input {
+  composes: formInput from './../styles/ui.module.css';
+  font-family: Muli, sans serif;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--offBlack-color);
+  margin-bottom: 1.6rem;
+  padding-bottom: 0.8rem;
+}

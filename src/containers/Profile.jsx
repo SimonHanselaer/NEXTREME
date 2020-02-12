@@ -20,7 +20,7 @@ const Profile = ({ uiStore, databaseStore }) => {
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [language, setLanguage] = useState('');
-  const [bio, setBio] = useState('Voeg een bio toe');
+  const [bio, setBio] = useState('');
   const [challenges, setChallenges] = useState('');
 
   const handleLogout = () => {
@@ -75,273 +75,355 @@ const Profile = ({ uiStore, databaseStore }) => {
         <>
           <TopBar title="Editing" />
           {/* <h1>Editing</h1> */}
-          <form onSubmit={handleSubmit}>
-            <h2 className={stylesTypo.button1}>Algemene gegevens</h2>
-            {/* 16 bold */}
-            <div>
-              <label htmlFor="username" className={styles.inputLabel}>
-                Naam
-              </label>
-              <input
-                type="text"
-                name="username"
-                className={styles.input}
-                defaultValue={username}
-                onChange={e => setUsername(e.currentTarget.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="city">Stad</label>
-              <input
-                type="text"
-                name="city"
-                className="formInput"
-                defaultValue={city !== '' ? city : ' '}
-                onChange={e => setCity(e.currentTarget.value)}
-              />
-            </div>
-            <div>
-              <p>Regio</p>
-              <label htmlFor="">
-                <span>Wallonië</span>
-                {regio === 'WL' ? (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="WL"
-                    defaultChecked
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="WL"
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                Vlaanderen
-                {regio === 'VL' ? (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="VL"
-                    defaultChecked
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="VL"
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                Frankrijk
-                {regio === 'FR' ? (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="FR"
-                    defaultChecked
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="FR"
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                Ander
-                {regio === 'Ander' ? (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="Ander"
-                    defaultChecked
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="regio"
-                    value="Ander"
-                    onClick={e => setRegio(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="age">Leeftijd</label>
-              <input
-                type="number"
-                name="age"
-                className="formInput"
-                defaultValue={age !== '' ? age : ' '}
-                onChange={e => setAge(e.currentTarget.value)}
-              />
-            </div>
-            <div>
-              <p>Geslacht</p>
-              <label htmlFor="">
-                M
-                {gender === 'M' ? (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="M"
-                    defaultChecked
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="M"
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                V
-                {gender === 'V' ? (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="V"
-                    defaultChecked
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="V"
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                X
-                {gender === 'X' ? (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="X"
-                    defaultChecked
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="X"
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                Zeg ik liever niet
-                {gender === 'geen' ? (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="geen"
-                    defaultChecked
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="geen"
-                    onClick={e => setGender(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-            </div>
-            <div>
-              <p>Taal</p>
-              <label htmlFor="">
-                NL
-                {language === 'NL' ? (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="NL"
-                    defaultChecked
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="NL"
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                FR
-                {language === 'FR' ? (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="FR"
-                    defaultChecked
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="FR"
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-              <label htmlFor="">
-                EN
-                {language === 'EN' ? (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="EN"
-                    defaultChecked
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                ) : (
-                  <input
-                    type="radio"
-                    name="language"
-                    value="EN"
-                    onClick={e => setLanguage(e.currentTarget.value)}
-                  />
-                )}
-              </label>
-            </div>
-            <div>
-              <label htmlFor="bio">Bio</label>
-              <textarea
-                name="bio"
-                id="bio"
-                cols="50"
-                rows="5"
-                className="formInput"
-                defaultValue={bio !== '' ? bio : ' '}
-                onChange={e => setBio(e.currentTarget.value)}
-              ></textarea>
-            </div>
-            <button type="submit" className={stylesUI.button1}>Opslaan</button>
-          </form>
+          <div className={stylesUI.contentContainer}>
+            <form onSubmit={handleSubmit}>
+              <h2 className={stylesTypo.button1}>Algemene gegevens</h2>
+              {/* 16 bold */}
+              <div className={stylesUI.flexColumn}>
+                <label htmlFor="username" className={styles.inputTitle}>
+                  Naam
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  className={stylesTypo.input}
+                  defaultValue={username}
+                  onChange={e =>
+                    e.currentTarget.value !== ''
+                      ? setUsername(e.currentTarget.value)
+                      : ' '
+                  }
+                />
+              </div>
+              <div>
+                <label htmlFor="city" className={styles.inputTitle}>
+                  Stad
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  className={stylesTypo.input}
+                  defaultValue={city !== '' ? city : ' '}
+                  onChange={e =>
+                    e.currentTarget.value !== ''
+                      ? setCity(e.currentTarget.value)
+                      : ' '
+                  }
+                />
+              </div>
+              <div>
+                <p className={styles.inputTitle}>Regio</p>
+                <div>
+                  {regio === 'WL' ? (
+                    <input
+                      id="WL"
+                      type="radio"
+                      name="regio"
+                      value="WL"
+                      defaultChecked
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  ) : (
+                    <input
+                      id="WL"
+                      type="radio"
+                      name="regio"
+                      value="WL"
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  )}
+                  <label htmlFor="WL" className={styles.inputLabel}>
+                    Wallonië
+                  </label>
+                </div>
+                <div>
+                  {regio === 'VL' ? (
+                    <input
+                      id="VL"
+                      type="radio"
+                      name="regio"
+                      value="VL"
+                      defaultChecked
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  ) : (
+                    <input
+                      id="VL"
+                      type="radio"
+                      name="regio"
+                      value="VL"
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  )}
+                  <label htmlFor="VL" className={styles.inputLabel}>
+                    Vlaanderen
+                  </label>
+                </div>
+                <div>
+                  {regio === 'FRK' ? (
+                    <input
+                      id="FRK"
+                      type="radio"
+                      name="regio"
+                      value="FRK"
+                      defaultChecked
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  ) : (
+                    <input
+                      id="FRK"
+                      type="radio"
+                      name="regio"
+                      value="FRK"
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  )}
+                  <label htmlFor="FRK" className={styles.inputLabel}>
+                    Frankrijk
+                  </label>
+                </div>
+                <div>
+                  {regio === 'Ander' ? (
+                    <input
+                      id="Ander"
+                      type="radio"
+                      name="regio"
+                      value="Ander"
+                      defaultChecked
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  ) : (
+                    <input
+                      id="Ander"
+                      type="radio"
+                      name="regio"
+                      value="Ander"
+                      onClick={e => setRegio(e.currentTarget.value)}
+                    />
+                  )}
+                  <label htmlFor="Ander" className={styles.inputLabel}>
+                    Ander
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label htmlFor="age" className={styles.inputTitle}>
+                  Leeftijd
+                </label>
+                <input
+                  type="number"
+                  name="age"
+                  className={stylesTypo.input}
+                  defaultValue={age !== '' ? age : ' '}
+                  onChange={e =>
+                    e.currentTarget.value !== ''
+                      ? setAge(e.currentTarget.value)
+                      : ' '
+                  }
+                />
+              </div>
+              <div>
+                <p className={styles.inputTitle}>Geslacht</p>
+                <div className={styles.buttonInputRow}>
+                  <div>
+                    {gender === 'M' ? (
+                      <input
+                        id="M"
+                        type="radio"
+                        name="gender"
+                        value="M"
+                        defaultChecked
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="M"
+                        type="radio"
+                        name="gender"
+                        value="M"
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="M" className={styles.inputLabel}>
+                      M
+                    </label>
+                  </div>
+                  <div>
+                    {gender === 'V' ? (
+                      <input
+                        id="V"
+                        type="radio"
+                        name="gender"
+                        value="V"
+                        defaultChecked
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="V"
+                        type="radio"
+                        name="gender"
+                        value="V"
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="V" className={styles.inputLabel}>
+                      V
+                    </label>
+                  </div>
+                  <div>
+                    {gender === 'X' ? (
+                      <input
+                        id="X"
+                        type="radio"
+                        name="gender"
+                        value="X"
+                        defaultChecked
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="X"
+                        type="radio"
+                        name="gender"
+                        value="X"
+                        onClick={e => setGender(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="X" className={styles.inputLabel}>
+                      X
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  {gender === 'geen' ? (
+                    <input
+                      id="geen"
+                      type="radio"
+                      name="gender"
+                      value="geen"
+                      defaultChecked
+                      onClick={e =>
+                        e.currentTarget.value !== ''
+                          ? setGender(e.currentTarget.value)
+                          : ''
+                      }
+                    />
+                  ) : (
+                    <input
+                      id="geen"
+                      type="radio"
+                      name="gender"
+                      value="geen"
+                      onClick={e =>
+                        e.currentTarget.value !== ''
+                          ? setGender(e.currentTarget.value)
+                          : ''
+                      }
+                    />
+                  )}
+                  <label htmlFor="geen" className={styles.inputLabel}>
+                    Zeg ik liever niet
+                  </label>
+                </div>
+              </div>
+              <div>
+                <p className={styles.inputTitle}>Taal</p>
+                <div className={styles.buttonInputRow}>
+                  <div>
+                    {language === 'NL' ? (
+                      <input
+                        id="NL"
+                        type="radio"
+                        name="language"
+                        value="NL"
+                        defaultChecked
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="NL"
+                        type="radio"
+                        name="language"
+                        value="NL"
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="NL" className={styles.inputLabel}>
+                      NL
+                    </label>
+                  </div>
+                  <div>
+                    {language === 'FR' ? (
+                      <input
+                        id="FR"
+                        type="radio"
+                        name="language"
+                        value="FR"
+                        defaultChecked
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="FR"
+                        type="radio"
+                        name="language"
+                        value="FR"
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="FR" className={styles.inputLabel}>
+                      FR
+                    </label>
+                  </div>
+                  <div>
+                    {language === 'EN' ? (
+                      <input
+                        id="EN"
+                        type="radio"
+                        name="language"
+                        value="EN"
+                        defaultChecked
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    ) : (
+                      <input
+                        id="EN"
+                        type="radio"
+                        name="language"
+                        value="EN"
+                        onClick={e => setLanguage(e.currentTarget.value)}
+                      />
+                    )}
+                    <label htmlFor="EN" className={styles.inputLabel}>
+                      EN
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label htmlFor="bio" className={styles.inputTitle}>
+                  Bio
+                </label>
+                <textarea
+                  name="bio"
+                  id="bio"
+                  cols="50"
+                  rows="5"
+                  className={stylesTypo.input}
+                  defaultValue={bio !== '' ? bio : 'Voeg hier een bio toe'}
+                  onChange={e =>
+                    e.currentTarget.value !== ''
+                      ? setBio(e.currentTarget.value)
+                      : ''
+                  }
+                ></textarea>
+              </div>
+              <button type="submit" className={stylesUI.button1}>
+                Opslaan
+              </button>
+            </form>
+          </div>
         </>
       );
     } else {
@@ -424,7 +506,8 @@ const Profile = ({ uiStore, databaseStore }) => {
             <div className={styles.shortline}></div>
             <div>
               <h3 className={styles.titles}>Over</h3>
-              <p className="small">{bio}</p>
+              {console.log(bio)}
+              <p className="small">{bio !== "" ? bio : "Hier komt je bio."}</p>
             </div>
             <div>
               <h3 className={styles.titles}>Gedane uitdagingen</h3>
