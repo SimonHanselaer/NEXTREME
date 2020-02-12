@@ -6,7 +6,12 @@ import { useEffect } from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
 
+import TopBar from "../components/TopBar";
+import Tabbar from "../components/Tabbar";
+
 import stylesTypo from '../styles/typo.module.css';
+import styles from "./Challenge4Info.module.css";
+import stylesUi from "../styles/ui.module.css";
 
 const Recept = ({ databaseStore }) => {
     let history = useHistory();
@@ -55,20 +60,23 @@ const Recept = ({ databaseStore }) => {
 
     return (
         <>
-            <h1 className={stylesTypo.header1}>{city}</h1>
-            <section>
-                <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
-                <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Voorstelling</button>
+            <TopBar title={city} />
+            <section className={stylesUi.contentContainer}>
+                <article>
+                    <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
+                    <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Voorstelling</button>
+                </article>
+                <article className={styles.tekst}>
+                {status ? (
+                    <>
+                        <p>{info.text}</p>
+                    </>
+                ) : (
+                    <p>{info.voorstelling}</p>
+                ) }
+                </article>
             </section>
-            <section>
-            {status ? (
-                <>
-                    <p>{info.text}</p>
-                </>
-            ) : (
-                <p>{info.voorstelling}</p>
-            ) }
-            </section>
+            <Tabbar />
         </>
     );
 
