@@ -88,11 +88,11 @@ const Profile = ({ uiStore, databaseStore }) => {
                   name="username"
                   placeholder="Jouw naam"
                   className={stylesTypo.input}
-                  defaultValue={username}
+                  defaultValue={username !== '' ? username : ''}
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setUsername(e.currentTarget.value)
-                      : ' '
+                      : setUsername("")
                   }
                 />
               </div>
@@ -105,11 +105,12 @@ const Profile = ({ uiStore, databaseStore }) => {
                   name="city"
                   placeholder="Kortrijk"
                   className={stylesTypo.input}
-                  defaultValue={city !== '' ? city : ' '}
+                  defaultValue={city !== '' ? city : ''}
                   onChange={e =>
-                    e.currentTarget.value !== ''
-                      ? setCity(e.currentTarget.value)
-                      : ' '
+                    e.currentTarget.value.trim() !== ''
+                       ? setCity(e.currentTarget.value)
+                      : setCity("")
+                       
                   }
                 />
               </div>
@@ -219,11 +220,11 @@ const Profile = ({ uiStore, databaseStore }) => {
                   name="age"
                   placeholder="25"
                   className={stylesTypo.input}
-                  defaultValue={age !== '' ? age : ' '}
+                  defaultValue={age !== '' ? age : ''}
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setAge(e.currentTarget.value)
-                      : ' '
+                      : setAge("")
                   }
                 />
               </div>
@@ -420,7 +421,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                   onChange={e =>
                     e.currentTarget.value !== ''
                       ? setBio(e.currentTarget.value)
-                      : ''
+                      : setBio("")
                   }
                 ></textarea>
               </div>
@@ -496,11 +497,11 @@ const Profile = ({ uiStore, databaseStore }) => {
           <div className={styles.container}>
             <div className="flexRow">
               <div className={styles.info}>
-                <p className="accent">{age}</p>
+                <p className="accent">{age !== "" ? age : "-"}</p>
                 <p className="small">Leeftijd</p>
               </div>
               <div className={styles.info}>
-                <p className="accent">{gender}</p>
+                <p className="accent">{gender === "geen" ? "-" : gender}</p>
                 <p className="small">Geslacht</p>
               </div>
               <div className={styles.info}>
