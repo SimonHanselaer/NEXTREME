@@ -8,6 +8,7 @@ import Challenge4Doornik from "../components/Challenge4Doornik";
 import Challenge4Lille from "../components/Challenge4Lille";
 import TopBar from "../components/TopBar";
 
+import stylesUi from "../styles/ui.module.css";
 
 const Challenge4 = ({ databaseStore }) => {
   let { grens } = useParams();
@@ -19,8 +20,10 @@ const Challenge4 = ({ databaseStore }) => {
     return (
       <>
         <TopBar title="empty" />
-        <p>Versleep de juiste typische monumenten, dranken, eten ... naar de stad. Als het niet klopt, versleep naar de vuilbak.</p>
-        <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+        <div className={stylesUi.contentContainer}>
+          <p>Versleep de juiste typische monumenten, dranken, eten ... naar de stad. Als het niet klopt, versleep naar de vuilbak.</p>
+          <button className="button-1" onClick={() => setStatus(true)}>Start</button>
+        </div>
       </>
     ) 
   } else {
@@ -29,7 +32,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Kortrijk" />
-            <Challenge4Kortrijk grens={grens} databaseStore={databaseStore} />
+            <div className={stylesUi.contentContainer}>
+              <Challenge4Kortrijk grens={grens} databaseStore={databaseStore} />
+            </div>
             </>
           );
 
@@ -37,7 +42,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Doornik" />
-            <Challenge4Doornik grens={grens} databaseStore={databaseStore} />
+            <div className={stylesUi.contentContainer}>
+              <Challenge4Doornik grens={grens} databaseStore={databaseStore} />
+            </div>
             </>
           );
 
@@ -45,7 +52,9 @@ const Challenge4 = ({ databaseStore }) => {
           return (
             <>
             <TopBar title="Lille" />
-            <Challenge4Lille grens={grens} databaseStore={databaseStore} />
+            <div className={stylesUi.contentContainer}>
+              <Challenge4Lille grens={grens} databaseStore={databaseStore} />
+            </div>
             </>
           );
 
