@@ -85,7 +85,7 @@ const Challenge4Kortrijk = (props) => {
     // graphics.lineStyle(2, 0xffff00);
     // graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
 
-    const zone2 = this.add.zone(44, 400, 280, 200).setRectangleDropZone(89, 82);
+    const zone2 = this.add.zone(44, 400, 89, 82).setRectangleDropZone(89, 82);
     zone2.setOrigin(.5);
     zone2.setData('status', 'fout');
 
@@ -107,6 +107,7 @@ const Challenge4Kortrijk = (props) => {
     });
 
     this.input.on('drop', (pointer, gameObject, dropzone) => {
+      console.log(dropzone);
 
 
       if (gameObject.texture.key[gameObject.texture.key.length - 1] === 'K' && dropzone.data.list.status === 'juist') {
