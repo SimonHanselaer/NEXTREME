@@ -138,7 +138,10 @@ const Challenge3 = ({databaseStore}) => {
                   handleCompletedChallenge("Optie A");
                   }}>{challenge.OptieA}</span>
               </button>
-              <p className={styles.longLine}></p>
+              {/* <p className={styles.longLine}></p> */}
+              <div className={styles.line1}></div>
+                <p className={styles.break}>of</p>
+              <div className={styles.line2}></div>
               <button className={stylesUi.button4}>
                 <span onClick={e => {
                   setCount(count + 1);
