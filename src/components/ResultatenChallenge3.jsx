@@ -18,7 +18,7 @@ const ResultatenChallenge3 = (props) => {
     const {regio} = props;
     const {answer} = props;
 
-
+    let history = useHistory();
     let highest;
  
     let rankResults = [];
@@ -102,7 +102,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
@@ -169,7 +169,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
