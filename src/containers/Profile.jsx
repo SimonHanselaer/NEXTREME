@@ -187,12 +187,12 @@ const Profile = ({ uiStore, databaseStore }) => {
                     </label>
                   </div>
                   <div>
-                    {regio === 'FRK' ? (
+                    {regio === 'FR' ? (
                       <input
                         id="FRK"
                         type="radio"
                         name="regio"
-                        value="FRK"
+                        value="FR"
                         defaultChecked
                         onClick={e => setRegio(e.currentTarget.value)}
                       />
@@ -201,7 +201,7 @@ const Profile = ({ uiStore, databaseStore }) => {
                         id="FRK"
                         type="radio"
                         name="regio"
-                        value="FRK"
+                        value="FR"
                         onClick={e => setRegio(e.currentTarget.value)}
                       />
                     )}
