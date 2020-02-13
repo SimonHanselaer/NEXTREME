@@ -11,6 +11,8 @@ import TopBar from "../components/TopBar";
 import styles from "./Recept.module.css";
 import stylesUI from "../styles/ui.module.css";
 
+import img from "../assets/img/template1Fruit.png"
+
 const Recept = (props) => {
     const challenge = props.challenge;
     const grens = props.grens;
@@ -24,8 +26,8 @@ const Recept = (props) => {
       <>
         <section>
           <TopBar title={challenge.naam} />
-          <div className={stylesUI.contentContainer}>
-            <img src="" alt="" />
+          <div className={styles.contentContainer}>
+            <img src={img} alt="" className={styles.img} />
             <section className={styles.infoCard}>
               <h2 className={stylesUI.visuallyHidden}>Info</h2>
               <article>

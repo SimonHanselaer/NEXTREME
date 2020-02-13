@@ -55,7 +55,7 @@ class App extends Component {
           <Route path="/selectregio" exact strict component={SelectRegio} />
 
           <Route path="/challenge1/:grens/:id" exact strict>
-            <Tabbar />
+            {/* <Tabbar /> */}
             <Challenge1 />
           </Route>
           <Route path="/challenge2/:grens/:id" exact strict>

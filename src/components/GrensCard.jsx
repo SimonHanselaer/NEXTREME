@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
 import styles from "../containers/Home.module.css";
+import stylesUi from "../styles/ui.module.css";
 
 const GrensCard = (props, {dataStore}) => {
     const {name} = props;
@@ -35,8 +36,8 @@ const GrensCard = (props, {dataStore}) => {
 
     return (
         <article className={styles.card} onClick={() => selectChallenge()}>
-            <img src={require('../assets/img/home' + name + '.png')} alt="" width="200"/>
-            <h2>{name}grens</h2>
+            <img src={require('../assets/img/home' + name + '.png')} alt="" className={styles.img}/>
+            <h2 className={stylesUi.visuallyHidden}>{name}grens</h2>
         </article>
     )
 }
