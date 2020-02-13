@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Tabbar from "../components/Tabbar";
 import TopBar from "../components/TopBar";
 import Resultaten from "../components/ResultatenChallenge3";
 
-// import main from "../assets/img/challenge3/main.png";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
-import stylesTypo from '../styles/typo.module.css';
 import stylesUi from "../styles/ui.module.css";
 
 const Challenge3 = ({databaseStore}) => {
@@ -20,8 +18,6 @@ const Challenge3 = ({databaseStore}) => {
 
   let totalCountA;
   let totalCountB;
-
-  let history = useHistory();
 
   const [status, setStatus] = useState(false);
   const [count, setCount] = useState(1);
