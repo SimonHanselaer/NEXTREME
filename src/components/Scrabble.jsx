@@ -6,9 +6,14 @@ import TopBar from "./TopBar";
 import stylesUi from "../styles/ui.module.css";
 import stylesTypo from "../styles/typo.module.css";
 import styles from "./Scrabble.module.css";
+import { useHistory, useParams } from "react-router-dom";
+
+import img from "../assets/img/template1Fruit.png";
 
 const Scrabble = (props) => {
+    const {id} = useParams();
     const challenge = props.challenge;
+    let history = useHistory();
 
     const [scrabbledWord, setScrabbledWord] = useState("")
     const [answer, setAnswer] = useState("");
@@ -17,7 +22,8 @@ const Scrabble = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (answer.toUpperCase() === challenge.woord.toUpperCase()) {
-            setCheck("Juist!")
+            console.log(id);
+            history.push("/info/" + id + "/Taal");
         } else {
             setCheck("Nope! probeer opnieuw")
         }
@@ -37,19 +43,20 @@ const Scrabble = (props) => {
     return (
         <>
             <TopBar title={challenge.naam} />
-            <div className={stylesUi.contentContainer}>
+            <div className={styles.contentContainer}>
+                <img src={img} alt="" className={styles.img}/>
                 <p className={styles.scrabbled}>{scrabbledWord}</p>
                 {
                     check !== "Juist!" ? (
                         <form onSubmit={handleSubmit}>
                             <input className={`${stylesUi.formInput} ${stylesTypo.input}`} type="text" placeholder="Jouw antwoord" onChange={e => setAnswer(e.currentTarget.value)}/>
+                            <p className={stylesTypo.detail}>{check}</p>
                             <button type="submit" className={`${stylesTypo.header1} ${stylesUi.button1}`}>Check</button>
                         </form>
                     ) : (
                         <></>
                     )
                 }
-                <p>{check}</p>
 
             </div>
         </>
