@@ -7,9 +7,15 @@
 
 .card {
     composes: card from "../styles/ui.module.css";
-    margin-left: .5rem;
-    padding-left: 0;
+    /* margin-left: .5rem; */
+    padding: 0;
 
     height: 31rem;
     min-width: 20rem;
+}
+
+.img {
+    position: relative;
+    left: -.5rem;
+    top: -.5rem;
 }

@@ -38,3 +38,16 @@
 .hoeveelheid {
     grid-area: hoeveelheid;
 }
+
+.contentContainer {
+    composes: contentContainer from "../styles/ui.module.css";
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.img {
+    position: relative;
+    left: -3rem;
+
+    z-index: -5;
+}

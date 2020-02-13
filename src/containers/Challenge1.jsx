@@ -41,14 +41,20 @@ const Challenge1 = ({databaseStore}) => {
     return (
       <>
         <TopBar title="empty" />
-          <div className={`${stylesUi.contentContainer}`}>
-            <img src={img} alt=""/>
+          <div className={`${styles.contentContainer}`}>
+            <img src={img} alt="" className={styles.img}/>
             <article className={styles.card}>
               <h1 className={stylesTypo.header1}>{challenge.naam}</h1>
               <div className={styles.shortLine}></div>
               <p>{challenge.extra}</p>
               {challenge.type === 'recept' ? (
-                <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next">DINNER@NEXT</a>
+                <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/dinner-next" target="_blank">DINNER@NEXT</a>
+              ) : (<></>)}
+              {challenge.type === 'kaart' ? (
+                <a className={stylesTypo.link} href="http://www.nextfestival.eu/nl/busoverzicht-17" target="_blank">NEXT FESTIVAL</a>
+              ) : (<></>)}
+              {challenge.type === 'scrabble' ? (
+                <a className={stylesTypo.link} href="http://www.nextfestival.eu/" target="_blank">NEXT FESTIVAL</a>
               ) : (<></>)}
             </article>
           <button className={stylesUi.button1} onClick={() => {
