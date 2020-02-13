@@ -23,6 +23,8 @@ class Kaart extends Component {
             center: [this.state.lng, this.state.lat],
             zoom: this.state.zoom
             });
+
+        return map;
     }
 
     render() {
@@ -34,33 +36,5 @@ class Kaart extends Component {
         )
     }
 }
-
-// const Kaart = (props) => {
-//     const challenge = props.challenge;
-
-//     const mapProps = {
-//         lng: 5,
-//         lat: 34,
-//         zoom: 2
-//     }
-
-//     let mapContainer;
-
-//     useEffect(() => {
-//         new mapboxgl.Map({
-//             container: this.mapContainer,
-//             style: 'mapbox://styles/mapbox/streets-v11',
-//             center: [mapProps.lng, mapProps.lat],
-//             zoom: mapProps.zoom
-//             });
-//     },[mapContainer, mapProps])
-
-//     return (
-//         <>
-//             <h1>{challenge.naam}</h1>
-//             <div ref={el => this.mapContainer = el} className="mapContainer"></div>
-//         </>
-//     );
-// }
 
 export default Kaart;

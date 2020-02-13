@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 import withAuthentication from "../components/auth/WithAuthentication";
@@ -9,12 +9,10 @@ import { observer, inject } from "mobx-react";
 import TopBar from "../components/TopBar";
 import Tabbar from "../components/Tabbar";
 
-import stylesTypo from '../styles/typo.module.css';
 import styles from "./Challenge4Info.module.css";
 import stylesUi from "../styles/ui.module.css";
 
 const Recept = ({ databaseStore }) => {
-    let history = useHistory();
 
     const {id} = useParams();
     const {grens} = useParams();

@@ -42,7 +42,7 @@ const Chat = ({databaseStore}) => {
         getRoom();
         getMessages();
         
-    }, []);
+    }, [databaseStore, id]);
 
     const handleSendMessage = e => {
         e.preventDefault();
@@ -85,7 +85,7 @@ const Chat = ({databaseStore}) => {
             </section> 
             <section className={styles.contentContainer}>
                 <div className={stylesUi.flexRow}>
-                    <img className={styles.messagesImg} src={profile} alt="profile picture of person who you are chatting with"/>
+                    <img className={styles.messagesImg} src={profile} alt="person who you are chatting with"/>
                     <h1 className={styles.messagesTitle}>Chat</h1>
                 </div>
                 <p className={styles.line}></p>

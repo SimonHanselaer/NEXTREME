@@ -55,6 +55,7 @@ const ResultatenChallenge3 = (props) => {
                             let procent = Math.round(resultB / totalCount * 100);
                             rankResults.push({title: title, regio: regio, procent: procent});
                         }
+                        return null
                     })
                 ) : (
                     <p>Loading...</p>
@@ -88,7 +89,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank" rel="noopener noreferrer"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
@@ -146,7 +147,7 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank" rel="noopener noreferrer"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
@@ -180,6 +181,8 @@ const ResultatenChallenge3 = (props) => {
                             }
                         }
                     }  
+
+                    return null
                 })
             }
             </section>   

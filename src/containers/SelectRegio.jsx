@@ -4,7 +4,6 @@ import { inject, observer } from "mobx-react";
 import { useHistory } from "react-router-dom";
 import withAuthentication from "../components/auth/WithAuthentication";
 
-import stylesUi from "../styles/ui.module.css";
 import stylesTypo from "../styles/typo.module.css";
 import styles from "./Onboarding.module.css";
 

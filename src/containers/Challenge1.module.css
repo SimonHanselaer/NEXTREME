@@ -16,11 +16,19 @@
     margin-bottom: 0;
 }
 
-.img {
+.img, .imgScrabble, .imgKaart {
     position: relative;
     left: -3rem;
 
     z-index: -5;
 
     margin-bottom: 1rem;
+}
+
+.imgScrabble {
+    margin-top: 8rem;
+}
+
+.imgKaart {
+    margin-top: 5rem;
 }

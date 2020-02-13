@@ -49,7 +49,7 @@ const Home = ({ databaseStore, uiStore }) => {
                     <NavLink to="/login">
                         <p className={`${stylesTypo.small} ${styles.register}`}>Already have an account? Log in</p>
                     </NavLink>
-                    <button type="submit" className={stylesUi.registerButton}>Register</button>
+                    <button type="submit" className={stylesUi.button1}>Register</button>
                 </form>
 
             </div>

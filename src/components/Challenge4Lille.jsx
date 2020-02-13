@@ -1,14 +1,13 @@
-import React from "react";
 import { inject, observer } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
 import Phaser from "phaser";
 
-import LilleImage from "../assets/img/template4Kaart.png";
+import LilleImage from "../assets/img/template4KaartLille.png";
 import vuilbak from "../assets/img/template4Vuilbak.png";
-import item1 from "../assets/img/item1.jpg";
-import item2 from "../assets/img/item2.png";
-import item3 from "../assets/img/item3.png";
+import item1 from "../assets/img/challenge4Cultuur1.png";
+import item2 from "../assets/img/challenge4Cultuur2.png";
+import item3 from "../assets/img/challenge4Cultuur3.png";
 
 const Challenge4Lille = (props) => {
     const {databaseStore} = props;
@@ -64,14 +63,14 @@ const Challenge4Lille = (props) => {
     backgroundRect.strokeRoundedRect(0, 450, this.screenWidth, 96, { tl: 10, tr: 10, bl: 0, br: 0 });
 
     //Load in City ------------------------------------------------------------------------------------------
-    this.city = this.add.image(game.config.width / 2, 200, 'lille');
+    this.city = this.add.image(game.config.width / 2, 200, 'lille').setScale(.15);
     this.vuilbak = this.add.image(44, 400, 'vuilbak');
 
     //Load in items -----------------------------------------------------------------------------------------
     this.itemX = game.config.width / 2;
 
     this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
-    this.item = this.add.image(this.itemX, 467, this.randomItem).setScale(.1).setInteractive();
+    this.item = this.add.image(this.itemX, 470, this.randomItem).setScale(.7).setInteractive();
     this.input.setDraggable(this.item);
 
     //Set dropzone ------------------------------------------------------------------------------------------
@@ -94,14 +93,14 @@ const Challenge4Lille = (props) => {
     
     //Listen for input --------------------------------------------------------------------------------------
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-      gameObject.setScale(.2);
+      gameObject.setScale(.9);
 
       gameObject.x = dragX;
       gameObject.y = dragY;
     });
 
     this.input.on('dragend', (pointer, gameObject) => {
-      gameObject.setScale(.1);
+      gameObject.setScale(.7);
     });
 
     this.input.on('drop', (pointer, gameObject, dropzone) => {
@@ -129,12 +128,12 @@ const Challenge4Lille = (props) => {
       }
 
       this.randomItem = this.items[Math.floor(Math.random() * this.items.length)];
-      this.item = this.add.image(this.itemX, this.screenHeight - 200, this.randomItem).setScale(.1).setInteractive();
+      this.item = this.add.image(this.itemX, 470, this.randomItem).setScale(.7).setInteractive();
       this.input.setDraggable(this.item);
 
 
 
-      gameObject.setScale(.1);
+      gameObject.setScale(.7);
 
       gameObject.x = dropzone.x + (dropzone.width / 2);
       gameObject.y = dropzone.y + (dropzone.height / 2);
