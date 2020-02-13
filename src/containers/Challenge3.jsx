@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from "react";
 import withAuthentication from "../components/auth/WithAuthentication";
 import { observer, inject } from "mobx-react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Tabbar from "../components/Tabbar";
 import TopBar from "../components/TopBar";
 import Resultaten from "../components/ResultatenChallenge3";
 
-// import main from "../assets/img/challenge3/main.png";
 import main from "../assets/img/template3.png";
 import styles from "./Challenge3.module.css";
-import stylesTypo from '../styles/typo.module.css';
 import stylesUi from "../styles/ui.module.css";
 
 const Challenge3 = ({databaseStore}) => {
@@ -20,8 +18,6 @@ const Challenge3 = ({databaseStore}) => {
 
   let totalCountA;
   let totalCountB;
-
-  let history = useHistory();
 
   const [status, setStatus] = useState(false);
   const [count, setCount] = useState(1);
@@ -70,14 +66,11 @@ const Challenge3 = ({databaseStore}) => {
 
   //mag niet in useEffect want daar is regio niet gekent
   const getResultProcentA = async () => {
-    console.log(regio.Regio);
     const props = {
       regio: regio.Regio
     }
     let resultProcentA = await databaseStore.getResultProcentA(props);
-    console.log(resultProcentA.count);
     let procent0A = resultProcentA.count;
-    // console.log(procent0A);
     setProcentA(procent0A);
   }
 
@@ -86,28 +79,16 @@ const Challenge3 = ({databaseStore}) => {
       regio: regio.Regio
     }
     let resultProcentB = await databaseStore.getResultProcentB(props);
-    // console.log(resultProcentB);
     let procent0B = resultProcentB.count;
-    // console.log(procent0B);
     setProcentB(procent0B);
   }
 
   const preloader = async (e)=>{
-    console.log("preloading");
     await getResultProcentA();
-    console.log(countA);
     await getResultProcentB();
-    console.log(countB);
-    console.log("preloaded");
   }
 
   const handleCompletedChallenge = async (e) => {
-    //antwoord + regio user 
-      // console.log(e);
-      // console.log(regio.Regio);
-      // console.log(procentA);
-      // console.log(procentB);
-    
     //data in db steken
     if(e === "Optie A"){  
       //bestaand procent + 10 doen
@@ -153,16 +134,19 @@ const Challenge3 = ({databaseStore}) => {
               <button className={stylesUi.button4}>
                 <span onClick={e => {
                   setCount(count + 1);
-                  setAnswer(e.currentTarget.innerHTML);
-                  handleCompletedChallenge(e.currentTarget.innerHTML);
+                  setAnswer("Optie A");
+                  handleCompletedChallenge("Optie A");
                   }}>{challenge.OptieA}</span>
               </button>
-              <p className={styles.longLine}></p>
+              {/* <p className={styles.longLine}></p> */}
+              <div className={styles.line1}></div>
+                <p className={styles.break}>of</p>
+              <div className={styles.line2}></div>
               <button className={stylesUi.button4}>
                 <span onClick={e => {
                   setCount(count + 1);
-                  setAnswer(e.currentTarget.innerHTML);
-                  handleCompletedChallenge(e.currentTarget.innerHTML);
+                  setAnswer("Optie B");
+                  handleCompletedChallenge("Optie B");
                   }}>{challenge.OptieB}</span>
               </button>
             </article>

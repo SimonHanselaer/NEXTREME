@@ -66,3 +66,7 @@
   .container{
     composes: container from '../containers/Challenge2.module.css';
   }
+
+  .linkNExt{
+    z-index: 10;
+  }

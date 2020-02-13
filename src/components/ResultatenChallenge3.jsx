@@ -1,6 +1,5 @@
 import React from "react";
 import withAuthentication from "./../components/auth/WithAuthentication"
-import { useHistory } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { useEffect, useState } from "react";
 
@@ -11,27 +10,22 @@ import styles from "./ResultatenChallenge3.module.css";
 
 import TopBar from "./TopBar";
 import stylesTypo from '../styles/typo.module.css';
-import stylesUi from "../styles/ui.module.css";
 
 const ResultatenChallenge3 = (props) => {
     const {databaseStore} = props;
-    const {regio} = props;
     const {answer} = props;
-
 
     let highest;
  
     let rankResults = [];
     let highestProcent = [];
     let highestProcentB = [];
-    console.log(highestProcent);
 
     const [results, setResults] = useState("");
 
     useEffect(() => {
         const getResults = async () => {
             let results = await databaseStore.getResults();
-            console.log(results);
             setResults(results);
         }
         console.log('test');
@@ -45,7 +39,6 @@ const ResultatenChallenge3 = (props) => {
              {
                 results ? (
                     Object.keys(results).map(key => {
-                        console.log(results);
                         let resultA = results[key].antwoorden.optieA.count;
                         let resultB = results[key].antwoorden.optieB.count;
                         
@@ -53,18 +46,14 @@ const ResultatenChallenge3 = (props) => {
                             let title = results[key].antwoorden.optieA.title;
                             let regio = results[key].antwoorden.optieA.regio;
                             let totalCount = Number(resultA + resultB);
-                            console.log(totalCount, regio, title);
                             let procent = Math.round(resultA / totalCount * 100);
                             rankResults.push({title: title, regio: regio, procent: procent});
-                            console.log(rankResults);
                         }else{
                             let title = results[key].antwoorden.optieB.title;
                             let regio = results[key].antwoorden.optieB.regio;
                             let totalCount = Number(resultA + resultB);
-                            console.log(totalCount, regio, title);
                             let procent = Math.round(resultB / totalCount * 100);
                             rankResults.push({title: title, regio: regio, procent: procent});
-                            console.log(rankResults);
                         }
                     })
                 ) : (
@@ -76,12 +65,10 @@ const ResultatenChallenge3 = (props) => {
                 //om de procent te ordenen van hoog nr laag
                 rankResults.sort((a,b) => b.procent - a.procent).map((result, key) => {
                     if(result.title === "antwoord 1" ){
-                        console.log(result.procent);
                         highestProcent.push(Number(result.procent));
                         //
                         if (highestProcent.length > 0){
                             highest = Math.max(...highestProcent);
-                            console.log(highest);
 
                             if(highest === result.procent && answer === "Optie A"){
                                 return (
@@ -101,14 +88,14 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
                                             </div>
                                         </article>
                                 )
-                            }else if(highest != result.procent && answer === "Optie A"){
+                            }else if(highest !== result.procent && answer === "Optie A"){
                                 return (
                                         <article key={key}>
                                             <div className={styles.result}>
@@ -137,13 +124,10 @@ const ResultatenChallenge3 = (props) => {
                     }
                     
                     if(result.title === "antwoord 2"){ 
-                        console.log(result.procent);
                         highestProcentB.push(Number(result.procent));
                         //
                         if (highestProcentB.length > 0){
                             highest = Math.max(...highestProcentB);
-                            console.log(highest);
-
                             if(highest === result.procent && answer === "Optie B"){
                                 return (
                                         <article key={key} className={styles.jijBehoort}>
@@ -162,14 +146,14 @@ const ResultatenChallenge3 = (props) => {
                                                         <p className={stylesTypo.header1}>FAON</p>
                                                         <p>Performance /.../ 16+ </p>
                                                     </div>
-                                                    <a href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
+                                                    <a className={styles.linkNExt} href="http://www.nextfestival.eu/nl/evenement/faon" target="_blank"> 
                                                         <img className={styles.arrow} src={arrow} alt="een pijl"/>
                                                     </a>
                                                 </div>
                                             </div>
                                         </article>
                                 )
-                            }else if(highest != result.procent && answer === "Optie B"){
+                            }else if(highest !== result.procent && answer === "Optie B"){
                                 return (
                                         <article key={key}>
                                             <div className={styles.result}>
