@@ -53,3 +53,17 @@
   margin-left: 0rem;
   margin-right: 0rem;
 }
+
+.break{
+  composes: break from './Authentication.module.css';
+}
+
+.line1{
+  composes: line1 from './Authentication.module.css';
+  left: 18rem;
+}
+
+.line2{
+  composes: line2 from './Authentication.module.css';
+  left: 1rem;
+}
