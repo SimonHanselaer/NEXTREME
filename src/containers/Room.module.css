@@ -1,0 +1,27 @@
+.widthCard {
+  composes: card from '../styles/ui.module.css';
+  margin: 1.6rem 0;
+}
+
+.acceptButton {
+  composes: button1 from '../styles/ui.module.css';
+  margin: 0.8rem 0;
+}
+
+.questionButton {
+  text-decoration: underline;
+  position: absolute;
+  top: 3.2rem;
+  right: 1.6rem;
+  z-index: 100;
+}
+
+.articleVraag {
+  margin: 0.8rem 0;
+}
+
+.longLineShort {
+  composes: longLine from '../styles/ui.module.css';
+  width: 25.6rem;
+  height: 0.1rem;
+}
