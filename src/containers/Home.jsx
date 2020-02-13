@@ -12,10 +12,12 @@ const Home = () => {
   return (
     <>
       <TopBar title="nextend" />
-      <div className={stylesUi.contentContainer}>
+      <div className={styles.homeContainer}>
         <article>
-          <h2 className={stylesTypo.header2}>Ik verleg vandaag mijn</h2>
-          <div className={stylesUi.shortLine}></div>
+          <div className={styles.indenting}>
+            <h2 className={stylesTypo.header2}>Ik verleg vandaag mijn</h2>
+            <div className={stylesUi.shortLine}></div>
+          </div>
           <section className={styles.scrollContainer}>
             <SelectGrens />
           </section>

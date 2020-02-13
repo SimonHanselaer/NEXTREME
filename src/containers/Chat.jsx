@@ -42,7 +42,7 @@ const Chat = ({databaseStore}) => {
         getRoom();
         getMessages();
         
-    }, [databaseStore, id, messages]);
+    }, []);
 
     const handleSendMessage = e => {
         e.preventDefault();
@@ -94,22 +94,19 @@ const Chat = ({databaseStore}) => {
                         messages ? (
                             Object.keys(messages).map(key => {
                                 // console.log(messages);
+                                console.log(key);
                             if(messages[key].uid === localStorage.uid){
                                 // getMatchInfo(messages[key].uid);
                                 return (
-                                    <>
                                      <li key={key} className={styles.mijnBericht}>
                                         {messages[key].message}
                                     </li>
-                                    </>
                                 )         
                             }else{
                                 return (
-                                    <>
                                      <li key={key}>
                                         {messages[key].message}
                                     </li>
-                                    </>
                                 )
                             }
                             })

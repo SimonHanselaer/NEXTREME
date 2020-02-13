@@ -85,7 +85,6 @@ const ResultatenChallenge3 = (props) => {
 
                             if(highest === result.procent && answer === "Optie A"){
                                 return (
-                                    <>
                                         <article key={key} className={styles.jijBehoort}>
                                             <div className={styles.jijBehoortResult}>
                                                 <div>
@@ -108,11 +107,9 @@ const ResultatenChallenge3 = (props) => {
                                                 </div>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }else if(highest != result.procent && answer === "Optie A"){
                                 return (
-                                    <>
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
@@ -122,11 +119,9 @@ const ResultatenChallenge3 = (props) => {
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }else{
                                 return (
-                                    <>
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
@@ -136,7 +131,6 @@ const ResultatenChallenge3 = (props) => {
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }
                         }
@@ -152,7 +146,6 @@ const ResultatenChallenge3 = (props) => {
 
                             if(highest === result.procent && answer === "Optie B"){
                                 return (
-                                    <>
                                         <article key={key} className={styles.jijBehoort}>
                                             <div className={styles.jijBehoortResult}>
                                                 <div>
@@ -175,11 +168,9 @@ const ResultatenChallenge3 = (props) => {
                                                 </div>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }else if(highest != result.procent && answer === "Optie B"){
                                 return (
-                                    <>
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
@@ -189,11 +180,9 @@ const ResultatenChallenge3 = (props) => {
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }else{
                                 return (
-                                    <>
                                         <article key={key}>
                                             <div className={styles.result}>
                                                 <div>
@@ -203,7 +192,6 @@ const ResultatenChallenge3 = (props) => {
                                                 <p className={styles.procent}>{result.procent + "%"}</p>
                                             </div>
                                         </article>
-                                    </>
                                 )
                             }
                         }
