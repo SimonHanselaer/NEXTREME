@@ -44,8 +44,6 @@ const Recept = ({ databaseStore }) => {
                 id: id
             }
             
-            console.log('test');
-            console.log(grens, id);
             const info = await databaseStore.getInfo(props);
             setInfo(info);
         }

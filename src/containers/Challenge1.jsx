@@ -34,7 +34,6 @@ const Challenge1 = ({databaseStore}) => {
       let awaitingChallenge = await databaseStore.getChallenge(props);
       setChallenge(awaitingChallenge);
     }
-    console.log('test');
 
     getChallenge();
   },[databaseStore, grens, id]);

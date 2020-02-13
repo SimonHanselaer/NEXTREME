@@ -22,7 +22,6 @@ const Scrabble = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (answer.toUpperCase() === challenge.woord.toUpperCase()) {
-            console.log(id);
             history.push("/info/" + id + "/Taal");
         } else {
             setCheck("Nope! probeer opnieuw")
@@ -36,7 +35,6 @@ const Scrabble = (props) => {
                 return .5 - Math.random();
             }).toString().replace(/,/g,''));
         }
-        console.log('test');
         scrabbleWord();
     }, [challenge.woord]);
     

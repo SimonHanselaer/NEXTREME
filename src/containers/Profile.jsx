@@ -89,7 +89,6 @@ const Profile = ({ uiStore, databaseStore }) => {
       setChallenges(userChallenges);
     };
 
-    // console.log("test");
     getInfo();
   }, [databaseStore]);
 

@@ -10,7 +10,8 @@ import styles from "./Onboarding.module.css";
 
 import TopBar from "../components/TopBar";
 
-import img from "../assets/img/onboarding/acc3.png"
+// import img from "../assets/img/onboarding/acc3.png"
+import img from "../assets/img/onboardingLang.png";
 
 const SelectLanguage = ({ databaseStore }) => {
     let history = useHistory();
@@ -24,7 +25,7 @@ const SelectLanguage = ({ databaseStore }) => {
     <>
     <TopBar title="nextend" />
     <div className={styles.contentContainer}>
-      <img src={img} alt="" width="305" className={styles.imgLang}/>
+      <img src={img} alt="" width="290" className={styles.imgLang}/>
       <h1 className={stylesTypo.header1}>Taal</h1>
         <section>
             <button className={`${stylesUi.button3} ${stylesTypo.small} ${styles.chooseButton}`} onClick={() => handleSelect("NL")}><span>Nederlands</span></button>

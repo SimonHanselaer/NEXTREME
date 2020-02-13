@@ -17,8 +17,8 @@ const Chat = ({databaseStore}) => {
     let {id} = useParams();
 
     const [messages, setMessages] = useState("");
-    const [usernameThem, setUsernameThem] = useState("");
-    const [room, setRoom] = useState("");
+    // const [usernameThem, setUsernameThem] = useState("");
+    // const [room, setRoom] = useState("");
     const [newMessage, setNewMessage] = useState("");
 
     const messagesEndRef = useRef(null)
@@ -32,14 +32,13 @@ const Chat = ({databaseStore}) => {
             let messages = await databaseStore.getMessages(id);
             setMessages(messages);
         }
-        console.log('test');
 
-        const getRoom = async () => {
-            let room = await databaseStore.getRoom(id);
-            setRoom(room);
-        }
+        // const getRoom = async () => {
+        //     let room = await databaseStore.getRoom(id);
+        //     setRoom(room);
+        // }
 
-        getRoom();
+        // getRoom();
         getMessages();
         
     }, [databaseStore, id]);
@@ -59,19 +58,14 @@ const Chat = ({databaseStore}) => {
         databaseStore.newMessage(props);
         e.currentTarget.reset();
         setNewMessage("");
-        console.log(newMessage);
-        console.log('Form submit');
         scrollToBottom();
-        console.log('scrolled');
     }
 
-    const getMatchInfo = async (prop)=>{
-        console.log(prop);
-        const prop01 = "14gVBIzc4ze6pE5fJpGZxWIVLuo1";
-        let userName = await databaseStore.getUsers(prop01);
-        console.log(userName);
-        setUsernameThem(userName);
-    }
+    // const getMatchInfo = async (prop)=>{
+    //     const prop01 = "14gVBIzc4ze6pE5fJpGZxWIVLuo1";
+    //     let userName = await databaseStore.getUsers(prop01);
+    //     setUsernameThem(userName);
+    // }
 
 
 
@@ -93,8 +87,6 @@ const Chat = ({databaseStore}) => {
                     {
                         messages ? (
                             Object.keys(messages).map(key => {
-                                // console.log(messages);
-                                console.log(key);
                             if(messages[key].uid === localStorage.uid){
                                 // getMatchInfo(messages[key].uid);
                                 return (

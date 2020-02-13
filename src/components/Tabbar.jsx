@@ -8,7 +8,6 @@ import NavSVG from "./NavSVG";
 
 const Tabbar = () => {
   let history = useHistory();
-  console.log(history.location.pathname);
     return (
         <nav className={stylesUI.nav}>
           <ul className={styles.navUl}>

@@ -41,7 +41,6 @@ const Challenge4Kortrijk = (props) => {
     }
 
   function preload() {
-    console.log('preload');
     this.load.image(`kortrijk`, KortrijkImage);
     this.load.image(`vuilbak`, vuilbak);
     this.load.image(`item1K`, item1);

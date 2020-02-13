@@ -14,8 +14,6 @@ const Challenge3 = ({databaseStore}) => {
   let {grens} = useParams();
   let {id} = useParams();
 
-  console.log(grens);
-
   let totalCountA;
   let totalCountB;
 
@@ -24,7 +22,7 @@ const Challenge3 = ({databaseStore}) => {
 
   const [challenge, setChallenge] = useState("");
   const [regio, setRegio] = useState("");
-  const [results, setResults] = useState("");
+  // const [results, setResults] = useState("");
   const [answer, setAnswer] = useState("");
   //
   const [countA, setProcentA] = useState("");
@@ -48,17 +46,15 @@ const Challenge3 = ({databaseStore}) => {
       setRegio(regio);
     }
 
-    const getResults = async () => {
-      let results = await databaseStore.getResults();
-      // console.log(results);
-      setResults(results);
-    }
+    // const getResults = async () => {
+    //   let results = await databaseStore.getResults();
+    //   setResults(results);
+    // }
 
-    console.log('test');
     //
     getRegio();
     //
-    getResults();
+    // getResults();
     //
     getQuestions();
   }, [databaseStore, grens, id]);
@@ -93,7 +89,6 @@ const Challenge3 = ({databaseStore}) => {
     if(e === "Optie A"){  
       //bestaand procent + 10 doen
       totalCountA = await Number(countA) + 1;
-      console.log(totalCountA);
       const props = {
         regio: regio.Regio,
         answer: totalCountA
@@ -101,7 +96,6 @@ const Challenge3 = ({databaseStore}) => {
       databaseStore.newResultA(props);
     }else{
       totalCountB = await Number(countB) + 1;
-      console.log(totalCountB);
       const props = {
         regio: regio.Regio,
         answer: totalCountB

@@ -43,7 +43,6 @@ const Challenge2 = ({databaseStore, dataStore}) => {
       setChallenge(awaitingChallenge);
 
     }
-    console.log('test');
 
     getQuestions();
   }, [databaseStore, grens, id]);

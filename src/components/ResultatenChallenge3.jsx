@@ -28,7 +28,6 @@ const ResultatenChallenge3 = (props) => {
             let results = await databaseStore.getResults();
             setResults(results);
         }
-        console.log('test');
 
         getResults();
     }, [databaseStore]);

@@ -40,7 +40,6 @@ const Challenge4Lille = (props) => {
     }
 
   function preload() {
-    console.log('preload');
     this.load.image(`lille`, LilleImage);
     this.load.image(`vuilbak`, vuilbak);
     this.load.image(`item1K`, item1);

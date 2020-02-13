@@ -68,7 +68,6 @@ const Challenge4Doornik = (props) => {
     }
 
   function preload() {
-    console.log('preload');
     this.load.image(`doornik`, DoornikImage);
     this.load.image(`vuilbak`, vuilbak);
     this.load.image(`item1K`, item1);
