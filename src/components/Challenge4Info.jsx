@@ -67,7 +67,7 @@ const Recept = ({ databaseStore }) => {
                     <button className={status ? "noButton header1" : "noButton"} onClick={() => setStatus(true)}>Wist je dat</button>
                     <button className={status ? "noButton" : "noButton header1"} onClick={() => setStatus(false)}>Voorstelling</button>
                 </article>
-                <article className={styles.tekst}>
+                <article className={`${styles.tekst} ${styles.card}`}>
                 {status ? (
                     <>
                         <p>{info.text}</p>

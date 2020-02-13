@@ -1,6 +1,6 @@
 .containerHeader {
   background-image: url('./../assets/img/profileHeaderBg.png');
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   height: 14.7rem;
 }
 
